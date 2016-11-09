@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?><layout title="" view="view">
+  <AnchorsPane background="#ffffff" cursor="0" name="view" prefHeight="347px" prefWidth="664px"/>
+  <AnchorsPane background="#ffffff" cursor="0" name="pnlTemplate" parent="view" prefHeight="120px" prefWidth="140px">
+    <AnchorsPaneConstraints height="120px" left="10px" top="50px" width="140px"/>
+  </AnchorsPane>
+  <Button cursor="0" name="btnAddTemplate" parent="pnlTemplate" prefHeight="30px" prefWidth="140px" text="ШАБЛОН">
+    <AnchorsPaneConstraints height="30px" left="0px" right="0px" top="0px"/>
+  </Button>
+  <AnchorsPane background="#ffffff" cursor="0" name="pnlDesign" parent="view" prefHeight="120px" prefWidth="140px">
+    <AnchorsPaneConstraints height="120px" left="10px" top="180px" width="140px"/>
+  </AnchorsPane>
+  <Button cursor="0" name="button" parent="pnlDesign" prefHeight="30px" prefWidth="140px" text="ДИЗАЙН">
+    <AnchorsPaneConstraints height="30px" left="0px" right="0px" top="0px"/>
+  </Button>
+  <Button cursor="0" name="btnView" parent="view" prefHeight="30px" prefWidth="100px" text="Просмотр">
+    <AnchorsPaneConstraints bottom="7px" height="30px" right="122px" width="100px"/>
+  </Button>
+  <Button cursor="0" name="btnBake" parent="view" prefHeight="30px" prefWidth="100px" text="Изготовить">
+    <AnchorsPaneConstraints bottom="7px" height="30px" right="12px" width="100px"/>
+  </Button>
+  <AnchorsPane background="#ffffff" cursor="0" name="panel" parent="view" prefHeight="30px" prefWidth="642px">
+    <AnchorsPaneConstraints height="30px" left="10px" right="12px" top="10px"/>
+  </AnchorsPane>
+  <ToolBar cursor="0" name="toolBar" parent="panel" prefHeight="30px" prefWidth="680px">
+    <AnchorsPaneConstraints height="30px" left="0px" top="0px" width="680px"/>
+  </ToolBar>
+  <Button cursor="0" focusable="false" horizontalTextPosition="0" name="button1" parent="toolBar" prefHeight="30px" prefWidth="100px" text="О проекте" verticalTextPosition="3"/>
+  <Button cursor="0" focusable="false" horizontalTextPosition="0" name="button2" parent="toolBar" prefHeight="30px" prefWidth="100px" text="Руководство" verticalTextPosition="3"/>
+  <Button cursor="0" focusable="false" horizontalTextPosition="0" name="button3" parent="toolBar" prefHeight="30px" prefWidth="130px" text="Примеры работ" verticalTextPosition="3"/>
+  <Button cursor="0" focusable="false" horizontalTextPosition="0" name="button4" parent="toolBar" prefHeight="30px" prefWidth="100px" text="Магазин" verticalTextPosition="3"/>
+  <Button cursor="0" focusable="false" horizontalTextPosition="0" name="btnPartners" parent="toolBar" prefHeight="30px" prefWidth="100px" text="Партнеры" verticalTextPosition="3"/>
+  <Button cursor="0" focusable="false" horizontalTextPosition="0" name="button5" parent="toolBar" prefHeight="30px" prefWidth="100px" text="О фонде" verticalTextPosition="3"/>
+  <AnchorsPane background="#ffffff" cursor="0" name="panel1" parent="view" prefHeight="250px" prefWidth="490px">
+    <AnchorsPaneConstraints bottom="47px" left="160px" right="14px" top="50px"/>
+  </AnchorsPane>
+</layout>
