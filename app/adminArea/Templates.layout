@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?><layout title="" view="view">
+  <AnchorsPane background="#ffffff" cursor="0" name="view" prefHeight="300px" prefWidth="400px"/>
+  <ModelGrid cursor="0" data="templates" name="modelGrid" parent="view" prefHeight="240px" prefWidth="380px">
+    <AnchorsPaneConstraints height="240px" left="10px" right="10px" top="10px"/>
+    <ServiceGridColumn name="colService1"/>
+    <ModelGridColumn field="type" name="colTypeid" title="colTypeid" width="173px">
+      <ModelCombo displayField="name" displayList="templateTypes"/>
+    </ModelGridColumn>
+    <ModelGridColumn field="link" name="colLink" title="colLink" width="172px">
+      <ModelFormattedField/>
+    </ModelGridColumn>
+  </ModelGrid>
+  <Button cursor="0" name="btnDelete" parent="view" prefHeight="30px" prefWidth="100px" text="Удалить">
+    <AnchorsPaneConstraints bottom="10px" height="30px" left="70px" width="100px"/>
+  </Button>
+  <Button cursor="0" name="btnAdd" parent="view" prefHeight="30px" prefWidth="100px" text="Добавить">
+    <AnchorsPaneConstraints bottom="10px" height="30px" left="180px" width="100px"/>
+  </Button>
+  <Button cursor="0" name="btnSave" parent="view" prefHeight="30px" prefWidth="100px" text="Сохранить">
+    <AnchorsPaneConstraints bottom="10px" height="30px" right="10px" width="100px"/>
+  </Button>
+</layout>

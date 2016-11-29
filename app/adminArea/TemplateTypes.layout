@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?><layout title="" view="view">
+  <AnchorsPane background="#ffffff" cursor="0" name="view" prefHeight="300px" prefWidth="400px"/>
+  <ModelGrid cursor="0" data="templateTypes" name="modelGrid" parent="view" prefHeight="220px" prefWidth="380px">
+    <AnchorsPaneConstraints bottom="70px" left="10px" right="10px" top="10px"/>
+    <ServiceGridColumn name="colService"/>
+    <ModelGridColumn field="name" name="colName" title="colName" width="345px">
+      <ModelFormattedField/>
+    </ModelGridColumn>
+  </ModelGrid>
+  <Button cursor="0" name="btnSave" parent="view" prefHeight="30px" prefWidth="100px" text="Сохранить">
+    <AnchorsPaneConstraints bottom="10px" height="30px" right="10px" width="100px"/>
+  </Button>
+  <Button cursor="0" name="btnAdd" parent="view" prefHeight="30px" prefWidth="100px" text="Добавить">
+    <AnchorsPaneConstraints bottom="10px" height="30px" right="120px" width="100px"/>
+  </Button>
+  <Button cursor="0" name="btnDelete" parent="view" prefHeight="30px" prefWidth="100px" text="Удалить">
+    <AnchorsPaneConstraints bottom="10px" height="30px" right="230px" width="100px"/>
+  </Button>
+</layout>

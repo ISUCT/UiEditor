@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?><layout title="Pets and visits" view="view">
+  <AnchorsPane cursor="0" name="view" prefHeight="619px" prefWidth="789px"/>
+  <ModelFormattedField cursor="0" data="ownerQuery" field="telephone" format="" name="edPhone" parent="view" prefHeight="27px" prefWidth="648px">
+    <AnchorsPaneConstraints height="27px" left="130px" top="181px" width="648px"/>
+  </ModelFormattedField>
+  <Label cursor="0" name="lblPhone" parent="view" prefHeight="24px" prefWidth="72px" text="Phone">
+    <AnchorsPaneConstraints height="24px" left="20px" top="181px" width="72px"/>
+  </Label>
+  <ModelFormattedField cursor="0" data="ownerQuery" field="city" format="" name="edCity" parent="view" prefHeight="27px" prefWidth="648px">
+    <AnchorsPaneConstraints height="27px" left="130px" right="11px" top="146px"/>
+  </ModelFormattedField>
+  <Label cursor="0" name="lblCity" parent="view" prefHeight="24px" prefWidth="72px" text="City">
+    <AnchorsPaneConstraints height="24px" left="20px" top="147px" width="72px"/>
+  </Label>
+  <Label cursor="0" name="lblAddress" parent="view" prefHeight="24px" prefWidth="72px" text="Address">
+    <AnchorsPaneConstraints height="24px" left="20px" top="109px" width="72px"/>
+  </Label>
+  <ModelFormattedField cursor="0" data="ownerQuery" field="address" format="" name="edAddress" parent="view" prefHeight="27px" prefWidth="648px">
+    <AnchorsPaneConstraints height="27px" left="130px" right="11px" top="108px"/>
+  </ModelFormattedField>
+  <ModelFormattedField cursor="0" data="ownerQuery" field="lastname" format="" name="edLastName" parent="view" prefHeight="27px" prefWidth="648px">
+    <AnchorsPaneConstraints height="27px" left="130px" right="11px" top="72px"/>
+  </ModelFormattedField>
+  <Label cursor="0" name="lblLastName" parent="view" prefHeight="24px" prefWidth="86px" text="Last Name">
+    <AnchorsPaneConstraints height="24px" left="20px" top="73px" width="86px"/>
+  </Label>
+  <Label cursor="0" name="lblFirstName" parent="view" prefHeight="24px" prefWidth="86px" text="First Name">
+    <AnchorsPaneConstraints height="24px" left="20px" top="37px" width="86px"/>
+  </Label>
+  <ModelFormattedField cursor="0" field="firstname" format="" name="edFirstName" parent="view" prefHeight="27px" prefWidth="648px">
+    <AnchorsPaneConstraints height="27px" left="130px" right="11px" top="36px"/>
+  </ModelFormattedField>
+  <Button cursor="0" name="btnSave" parent="view" prefHeight="27px" prefWidth="84px" text="OK">
+    <AnchorsPaneConstraints bottom="2px" height="27px" right="89px" width="84px"/>
+  </Button>
+  <Button cursor="0" name="btnCancel" parent="view" prefHeight="27px" prefWidth="84px" text="Close">
+    <AnchorsPaneConstraints bottom="2px" height="27px" right="2px" width="84px"/>
+  </Button>
+  <SplitPane cursor="0" dividerLocation="400" foreground="#000000" leftComponent="panel" name="splitPane" parent="view" prefHeight="310px" prefWidth="790px" rightComponent="panel1">
+    <font family="Arial" size="11" style="0"/>
+    <AnchorsPaneConstraints bottom="39px" left="0px" right="-1px" top="270px"/>
+  </SplitPane>
+  <AnchorsPane cursor="0" name="panel" parent="splitPane" prefHeight="308px" prefWidth="399px"/>
+  <ModelGrid cursor="0" data="petsQuery" insertable="false" name="grdPets" parent="panel" prefHeight="273px" prefWidth="396px">
+    <AnchorsPaneConstraints bottom="2px" left="0px" right="3px" top="33px"/>
+    <CheckGridColumn name="column" resizable="true"/>
+    <ModelGridColumn field="name" name="petName" title="Name" width="118px">
+      <ModelFormattedField format=""/>
+    </ModelGridColumn>
+    <ModelGridColumn field="type" name="petType" title="Type" width="119px">
+      <ModelCombo displayField="name" displayList="petTypesQuery"/>
+    </ModelGridColumn>
+    <ModelGridColumn field="birthdate" name="birthdate" title="Birthdate" width="118px">
+      <ModelDate format="MMMM dd yyyy"/>
+    </ModelGridColumn>
+  </ModelGrid>
+  <ToolBar cursor="0" name="toolBar" opaque="false" parent="panel" prefHeight="30px" prefWidth="395px">
+    <AnchorsPaneConstraints height="30px" left="1px" right="3px" top="0px"/>
+  </ToolBar>
+  <Button cursor="0" focusable="false" horizontalTextPosition="0" icon="img/list-add.png" name="btnAddPet" parent="toolBar" prefHeight="30px" prefWidth="32px" toolTipText="New pet" verticalTextPosition="3"/>
+  <Button cursor="0" focusable="false" horizontalTextPosition="0" icon="img/list-remove.png" name="btnDeletePet" parent="toolBar" prefHeight="30px" prefWidth="32px" toolTipText="Delete selected pets" verticalTextPosition="3"/>
+  <AnchorsPane cursor="0" name="panel1" parent="splitPane" prefHeight="308px" prefWidth="384px"/>
+  <ModelGrid cursor="0" data="petsQuery" field="cursor.visits" name="grdVisits" parent="panel1" prefHeight="273px" prefWidth="380px">
+    <AnchorsPaneConstraints bottom="2px" left="0px" right="4px" top="33px"/>
+    <ModelGridColumn field="fromdate" name="fromDate" title="From Date" width="90px">
+      <ModelDate format="MMMM dd yyyy"/>
+    </ModelGridColumn>
+    <ModelGridColumn field="todate" name="toDate" title="To Date" width="90px">
+      <ModelDate format="MMMM dd yyyy"/>
+    </ModelGridColumn>
+    <ModelGridColumn field="description" name="description" title="Description" width="91px">
+      <ModelFormattedField format=""/>
+    </ModelGridColumn>
+    <ModelGridColumn field="ispaid" name="isPaid" title="Paid" width="90px">
+      <ModelCheckBox/>
+    </ModelGridColumn>
+  </ModelGrid>
+  <ToolBar cursor="0" name="toolBar1" opaque="false" parent="panel1" prefHeight="30px" prefWidth="381px">
+    <AnchorsPaneConstraints height="30px" left="1px" right="2px" top="0px"/>
+  </ToolBar>
+  <Button cursor="0" focusable="false" horizontalTextPosition="0" icon="img/list-add.png" name="btnAddVisit" parent="toolBar1" prefHeight="30px" prefWidth="32px" toolTipText="New vist to hotel" verticalTextPosition="3"/>
+  <Button cursor="0" focusable="false" horizontalTextPosition="0" icon="img/list-remove.png" name="btnDeleteVisit" parent="toolBar1" prefHeight="30px" prefWidth="32px" toolTipText="Delete selected visits" verticalTextPosition="3"/>
+  <Label cursor="0" name="label" parent="view" prefHeight="24px" prefWidth="132px" text="Pets &amp; visits:">
+    <font family="Arial" size="14" style="0"/>
+    <AnchorsPaneConstraints height="24px" left="12px" top="246px" width="132px"/>
+  </Label>
+  <Label cursor="0" name="label1" parent="view" prefHeight="24px" prefWidth="132px" text="Owner:">
+    <font family="Arial" size="14" style="0"/>
+    <AnchorsPaneConstraints height="24px" left="12px" top="0px" width="132px"/>
+  </Label>
+  <Label cursor="0" name="lblEmale" parent="view" prefHeight="24px" prefWidth="72px" text="E-mail">
+    <AnchorsPaneConstraints height="24px" left="20px" top="218px" width="72px"/>
+  </Label>
+  <ModelFormattedField cursor="0" data="ownerQuery" field="email" format="" name="edEmale" parent="view" prefHeight="27px" prefWidth="648px">
+    <AnchorsPaneConstraints height="27px" left="130px" top="218px" width="648px"/>
+  </ModelFormattedField>
+</layout>

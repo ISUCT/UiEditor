@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?><layout title="Owners" view="view">
+  <AnchorsPane background="#ffffff" cursor="0" name="view" prefHeight="348px" prefWidth="851px"/>
+  <ToolBar cursor="0" name="toolBar" opaque="false" parent="view" prefHeight="30px" prefWidth="120px">
+    <AnchorsPaneConstraints height="30px" left="10px" top="10px" width="120px"/>
+  </ToolBar>
+  <Button cursor="0" focusable="false" horizontalTextPosition="0" icon="img/list-add.png" name="btnAdd" parent="toolBar" prefHeight="30px" prefWidth="32px" toolTipText="New owner" verticalTextPosition="3"/>
+  <Button cursor="0" focusable="false" horizontalTextPosition="0" icon="img/list-remove.png" name="btnDelete" parent="toolBar" prefHeight="30px" prefWidth="32px" toolTipText="Delete selected owners" verticalTextPosition="3"/>
+  <Button cursor="0" focusable="false" horizontalTextPosition="0" icon="img/document-export.png" name="btnReport" parent="toolBar" prefHeight="30px" prefWidth="32px" toolTipText="Generate report" verticalTextPosition="3"/>
+  <ToolBar cursor="0" name="toolBar1" opaque="false" parent="view" prefHeight="30px" prefWidth="220px">
+    <AnchorsPaneConstraints height="30px" right="11px" top="10px" width="220px"/>
+  </ToolBar>
+  <Button cursor="0" icon="img/new-edit-find.png" name="btnSearch" parent="toolBar1" prefHeight="30px" prefWidth="32px" toolTipText="Search"/>
+  <TextField cursor="0" name="txtSearch" parent="toolBar1" prefHeight="30px" prefWidth="185px"/>
+  <ModelGrid cursor="0" data="owners" deletable="false" editable="false" insertable="false" name="modelGrid" parent="view" prefHeight="245px" prefWidth="826px">
+    <AnchorsPaneConstraints bottom="53px" left="10px" right="15px" top="50px"/>
+    <ServiceGridColumn name="colCursor" resizable="true"/>
+    <CheckGridColumn name="colCheck" resizable="true"/>
+    <ModelGridColumn field="fullName" name="colFullName" title="Full Name" width="153px">
+      <ModelFormattedField format=""/>
+    </ModelGridColumn>
+    <ModelGridColumn field="address" name="colAddress" title="Address" width="153px">
+      <ModelFormattedField format=""/>
+    </ModelGridColumn>
+    <ModelGridColumn field="city" name="colCity" title="City" width="152px">
+      <ModelFormattedField format=""/>
+    </ModelGridColumn>
+    <ModelGridColumn field="telephone" name="colTelephone" title="Telephone" width="153px">
+      <ModelFormattedField format=""/>
+    </ModelGridColumn>
+    <ModelGridColumn field="email" name="colEmail" title="e-mail" width="152px">
+      <ModelFormattedField format=""/>
+    </ModelGridColumn>
+  </ModelGrid>
+  <Button cursor="0" name="btnSave" parent="view" prefHeight="30px" prefWidth="100px" text="Save">
+    <AnchorsPaneConstraints bottom="9px" height="30px" right="17px" width="100px"/>
+  </Button>
+</layout>

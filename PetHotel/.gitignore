@@ -1,0 +1,9 @@
+private.properties
+web
+WEB-INF
+META-INF
+.DS_Store
+appCache
+reports
+*lock.*
+*.war
