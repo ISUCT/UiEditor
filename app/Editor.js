@@ -12,7 +12,7 @@ define('Editor', ['orm', 'forms', 'ui', 'resource'], function (Orm, Forms, Ui, R
         svg.setAttribute('width', form.pnlCanvas.width);
         svg.setAttribute('height', form.pnlCanvas.height);
         svg.setAttribute('viewBox', "0 0" + form.pnlCanvas.width + " " + form.pnlCanvas.height);
-
+        form.pnlHtml.element.innerHTML = '<img src="app/resources/uiElements/g3493.png">';
         //var draw = SVG(form.pnlCanvas.element).size('100%', '100%');
         //var rect = draw.rect(100, 100).attr({fill: '#f02'});
         //var use = draw.use(rect, 'app/resources/templates/drawing.svg')
