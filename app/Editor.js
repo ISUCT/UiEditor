@@ -18,7 +18,8 @@ define('Editor', ['orm', 'forms', 'ui', 'resource'], function (Orm, Forms, Ui, R
         //var use = draw.use(rect, 'app/resources/templates/drawing.svg')
         form.pnlCanvas.element.appendChild(svg);
         var s = Snap(svg);
-        Snap.load("app/resources/uiElements/make.svg", function (f) {
+//        Snap.load("app/resources/uiElements/make.svg", function (f) {
+        Snap.load("app/resources/templates/bow1.svg", function (f) {
             console.log(svg);
             var g = f.select("g");
             s.append(g);
