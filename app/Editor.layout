@@ -10,12 +10,12 @@
   <ScrollPane cursor="0" name="scrollPane" parent="pnlTemplate" prefHeight="100px" prefWidth="140px">
     <AnchorsPaneConstraints height="100px" left="0px" top="30px" width="140px"/>
   </ScrollPane>
-  <BoxPane background="#ffffff" cursor="0" name="panel1" orientation="1" parent="scrollPane" prefHeight="145px" prefWidth="125px"/>
-  <Button cursor="0" name="button7" parent="panel1" prefHeight="30px" prefWidth="125px" text="button7"/>
-  <Button cursor="0" name="button8" parent="panel1" prefHeight="30px" prefWidth="125px" text="button8"/>
-  <Button cursor="0" name="button9" parent="panel1" prefHeight="30px" prefWidth="125px" text="button9"/>
-  <Button cursor="0" name="button10" parent="panel1" prefHeight="30px" prefWidth="125px" text="button10"/>
-  <Button cursor="0" name="button11" parent="panel1" prefHeight="30px" prefWidth="125px" text="button11"/>
+  <BoxPane background="#ffffff" cursor="0" name="panel1" orientation="1" parent="scrollPane" prefHeight="115px" prefWidth="121px"/>
+  <Button cursor="0" name="button7" parent="panel1" prefHeight="30px" prefWidth="121px" text="button7"/>
+  <Button cursor="0" name="button8" parent="panel1" prefHeight="30px" prefWidth="121px" text="button8"/>
+  <Button cursor="0" name="button9" parent="panel1" prefHeight="30px" prefWidth="121px" text="button9"/>
+  <Button cursor="0" name="button10" parent="panel1" prefHeight="30px" prefWidth="121px" text="button10"/>
+  <Button cursor="0" name="button11" parent="panel1" prefHeight="30px" prefWidth="121px" text="button11"/>
   <AnchorsPane background="#ffffff" cursor="0" name="pnlDesign" parent="view" prefHeight="70px" prefWidth="140px">
     <AnchorsPaneConstraints height="70px" left="10px" top="180px" width="140px"/>
   </AnchorsPane>
@@ -46,4 +46,7 @@
   <BorderPane background="#f2d1d1" cursor="0" name="btnBake" parent="view" prefHeight="30px" prefWidth="100px">
     <AnchorsPaneConstraints bottom="7px" height="30px" right="14px" width="100px"/>
   </BorderPane>
+  <HtmlArea name="pnlHtml" parent="view" prefHeight="30px" prefWidth="460px" text="htmlArea">
+    <AnchorsPaneConstraints height="30px" left="190px" top="50px" width="460px"/>
+  </HtmlArea>
 </layout>
