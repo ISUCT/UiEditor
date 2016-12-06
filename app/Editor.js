@@ -2,29 +2,30 @@
  * 
  * @author jskonst
  */
-define('Editor', ['orm', 'forms', 'ui', 'resource'], function (Orm, Forms, Ui, Resource, ModuleName) {
+define('Editor', ['orm', 'forms', 'ui', 'resource', 'invoke'], function (Orm, Forms, Ui, Resource, Invoke, ModuleName) {
     function module_constructor() {
         var self = this
                 , model = Orm.loadModel(ModuleName)
                 , form = Forms.loadForm(ModuleName, model);
-
-        var svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
-        svg.setAttribute('width', form.pnlCanvas.width);
-        svg.setAttribute('height', form.pnlCanvas.height);
-        svg.setAttribute('viewBox', "0 0" + form.pnlCanvas.width + " " + form.pnlCanvas.height);
-        form.pnlHtml.element.innerHTML = '<img src="app/resources/uiElements/g3493.png">';
-        //var draw = SVG(form.pnlCanvas.element).size('100%', '100%');
-        //var rect = draw.rect(100, 100).attr({fill: '#f02'});
-        //var use = draw.use(rect, 'app/resources/templates/drawing.svg')
-        form.pnlCanvas.element.appendChild(svg);
-        var s = Snap(svg);
-//        Snap.load("app/resources/uiElements/make.svg", function (f) {
-        Snap.load("app/resources/templates/bow1.svg", function (f) {
-            console.log(svg);
-            var g = f.select("g");
-            s.append(g);
-            g.drag();
-        });
+        /*
+         var svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+         svg.setAttribute('width', form.pnlCanvas.width);
+         svg.setAttribute('height', form.pnlCanvas.height);
+         svg.setAttribute('viewBox', "0 0" + form.pnlCanvas.width * 2 + " " + form.pnlCanvas.height * 2);
+         //form.pnlHtml.element.innerHTML = '<img src="app/resources/uiElements/g3493.png">';
+         //var draw = SVG(form.pnlCanvas.element).size('100%', '100%');
+         //var rect = draw.rect(100, 100).attr({fill: '#f02'});
+         //var use = draw.use(rect, 'app/resources/templates/drawing.svg')
+         form.pnlCanvas.element.appendChild(svg);
+         var s = Snap(svg);
+         Snap.load("app/resources/templates/tmp.svg", function (f) {
+         //        Snap.load("app/resources/templates/bow1.svg", function (f) {
+         console.log(svg);
+         var g = f.select("g");
+         s.append(g);
+         g.drag();
+         });
+         */
 
 //var object = document.createElement("object");
 //        object.type = "image/svg+xml";
@@ -40,20 +41,28 @@ define('Editor', ['orm', 'forms', 'ui', 'resource'], function (Orm, Forms, Ui, R
 
 
         self.show = function () {
-            form.show();
+            form.view.showOn(document.getElementById('Main'));
+//            Invoke.later(function () {
+//                svg.setAttribute('width', form.pnlCanvas.width);
+//                svg.setAttribute('height', form.pnlCanvas.height);
+//                svg.setAttribute('viewBox', "0 0" + form.pnlCanvas.width * 2 + " " + form.pnlCanvas.height * 2);
+//            });
+            Invoke.later(function () {
+                form.pnlCanvas.element.innerHTML = '<iframe src="app/editor/svg-editor.html?extensions=ext-xdomain-messaging.js' +
+                        //window.location.href.replace(/\?(.*)$/, '&$1') + // Append arguments to this file onto the iframe
+                        '" width="' + form.pnlCanvas.element.offsetWidth + 'px" height="'
+                        + form.pnlCanvas.element.offsetHeight + 'px" id="svgedit" onload="initEmbed();"></iframe>'
+            });
         };
-
         // TODO : place your code here
 
         model.requery(function () {
             // TODO : place your code here
         });
-
         form.btnAddTemplate.onActionPerformed = function () {
 //            console.log(draw);
 //            console.log(object);
             Resource.loadText('resources/templates/bow1.svg', function (aLoaded) {
-
 //                var store = draw.svg(aLoaded);
 
 
@@ -62,8 +71,6 @@ define('Editor', ['orm', 'forms', 'ui', 'resource'], function (Orm, Forms, Ui, R
             }, function (e) {
                 console.log("bad");
             });
-
-
         }
 
     }

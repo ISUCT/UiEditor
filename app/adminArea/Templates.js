@@ -12,7 +12,7 @@ define('Templates', ['orm', 'forms', 'ui', 'resource', 'logger'],
                 var svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
                 svg.setAttribute('width', form.pnlPreview.width);
                 svg.setAttribute('height', form.pnlPreview.height);
-                svg.setAttribute('viewBox', "0 0 " + form.pnlPreview.width + " " + form.pnlPreview.height);
+                svg.setAttribute('viewBox', "0 0 " + 185 + " " + 70);
                 svg.setAttribute('preserveAspectRatio', "xMinYMin meet");
                 form.pnlPreview.element.appendChild(svg);
                 var snap = Snap(svg);
