@@ -16,7 +16,8 @@ define('EditorExternalUi', ['orm', 'forms', 'ui', 'resource', 'forms/scroll-pane
 //                var comp = new Button('Sample');
 //                comp.height = 30;
 //                comp.width = 120;
-//                demoContainer.add(comp);
+//                demoContainer.add(cegafudziyama159
+//                omp);
 
                 // TODO : place constructor code here
 

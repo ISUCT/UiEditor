@@ -10,12 +10,12 @@
   <ScrollPane cursor="0" name="scrollPane" parent="pnlTemplate" prefHeight="100px" prefWidth="140px">
     <AnchorsPaneConstraints height="100px" left="0px" top="30px" width="140px"/>
   </ScrollPane>
-  <BoxPane background="#ffffff" cursor="0" name="panel1" orientation="1" parent="scrollPane" prefHeight="145px" prefWidth="125px"/>
-  <Button cursor="0" name="button7" parent="panel1" prefHeight="30px" prefWidth="125px" text="button7"/>
-  <Button cursor="0" name="button8" parent="panel1" prefHeight="30px" prefWidth="125px" text="button8"/>
-  <Button cursor="0" name="button9" parent="panel1" prefHeight="30px" prefWidth="125px" text="button9"/>
-  <Button cursor="0" name="button10" parent="panel1" prefHeight="30px" prefWidth="125px" text="button10"/>
-  <Button cursor="0" name="button11" parent="panel1" prefHeight="30px" prefWidth="125px" text="button11"/>
+  <BoxPane background="#ffffff" cursor="0" name="panel1" orientation="1" parent="scrollPane" prefHeight="155px" prefWidth="124px"/>
+  <Button cursor="0" name="button7" parent="panel1" prefHeight="30px" prefWidth="124px" text="button7"/>
+  <Button cursor="0" name="button8" parent="panel1" prefHeight="30px" prefWidth="124px" text="button8"/>
+  <Button cursor="0" name="button9" parent="panel1" prefHeight="30px" prefWidth="124px" text="button9"/>
+  <Button cursor="0" name="button10" parent="panel1" prefHeight="30px" prefWidth="124px" text="button10"/>
+  <Button cursor="0" name="button11" parent="panel1" prefHeight="30px" prefWidth="124px" text="button11"/>
   <AnchorsPane background="#ffffff" cursor="0" name="pnlDesign" parent="view" prefHeight="70px" prefWidth="140px">
     <AnchorsPaneConstraints height="70px" left="10px" top="180px" width="140px"/>
   </AnchorsPane>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?><layout title="" view="view">
+  <AnchorsPane background="#ffffff" cursor="0" name="view" prefHeight="300px" prefWidth="400px"/>
+  <Button cursor="0" name="btnChange" parent="view" prefHeight="30px" prefWidth="110px" text="Редактировать">
+    <AnchorsPaneConstraints bottom="10px" height="30px" right="20px" width="110px"/>
+  </Button>
+  <ModelGrid cursor="0" data="userProfiles" name="modelGrid" parent="view" prefHeight="210px" prefWidth="380px">
+    <AnchorsPaneConstraints height="210px" left="10px" top="40px" width="380px"/>
+    <ServiceGridColumn name="colService" resizable="true"/>
+    <ModelGridColumn editor="com.eas.client.forms.components.model.ModelSpin[,22,0,74x29,invalid,layout=java.awt.BorderLayout,alignmentX=0.0,alignmentY=0.0,border=javax.swing.border.LineBorder@3c11fd25,flags=16777481,maximumSize=,minimumSize=,preferredSize=]" field="userprofile_id" name="colUserprofile_id" title="colUserprofile_id" view="com.eas.client.forms.components.model.ModelSpin[,-74,-29,0x0,invalid,layout=java.awt.BorderLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=16777225,maximumSize=,minimumSize=,preferredSize=]" width="75px">
+      <ModelSpin max="1.7976931348623157E308" min="-1.7976931348623157E308"/>
+    </ModelGridColumn>
+    <ModelGridColumn editor="com.eas.client.forms.components.model.ModelFormattedField[,0,0,0x0,invalid,layout=java.awt.BorderLayout,alignmentX=0.0,alignmentY=0.0,border=javax.swing.border.LineBorder@54f5721f,flags=16777225,maximumSize=,minimumSize=,preferredSize=]" field="surname" name="colSurname" title="colSurname" view="com.eas.client.forms.components.model.ModelFormattedField[,-74,-29,0x0,invalid,layout=java.awt.BorderLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=16777225,maximumSize=,minimumSize=,preferredSize=]" width="75px">
+      <ModelFormattedField format=""/>
+    </ModelGridColumn>
+    <ModelGridColumn editor="com.eas.client.forms.components.model.ModelFormattedField[,0,0,0x0,invalid,layout=java.awt.BorderLayout,alignmentX=0.0,alignmentY=0.0,border=javax.swing.border.LineBorder@72fede2c,flags=16777225,maximumSize=,minimumSize=,preferredSize=]" field="name" name="colName" title="colName" view="com.eas.client.forms.components.model.ModelFormattedField[,-74,-29,0x0,invalid,layout=java.awt.BorderLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=16777225,maximumSize=,minimumSize=,preferredSize=]" width="75px">
+      <ModelFormattedField format=""/>
+    </ModelGridColumn>
+    <ModelGridColumn editor="com.eas.client.forms.components.model.ModelFormattedField[,0,0,0x0,invalid,layout=java.awt.BorderLayout,alignmentX=0.0,alignmentY=0.0,border=javax.swing.border.LineBorder@25d38956,flags=16777225,maximumSize=,minimumSize=,preferredSize=]" field="middlename" name="colMiddlename" title="colMiddlename" view="com.eas.client.forms.components.model.ModelFormattedField[,-74,-29,0x0,invalid,layout=java.awt.BorderLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=16777225,maximumSize=,minimumSize=,preferredSize=]" width="75px">
+      <ModelFormattedField format=""/>
+    </ModelGridColumn>
+    <ModelGridColumn editor="com.eas.client.forms.components.model.ModelFormattedField[,0,0,0x0,invalid,layout=java.awt.BorderLayout,alignmentX=0.0,alignmentY=0.0,border=javax.swing.border.LineBorder@1dcd3eaf,flags=16777225,maximumSize=,minimumSize=,preferredSize=]" field="email" name="colEmail" title="colEmail" view="com.eas.client.forms.components.model.ModelFormattedField[,-74,-29,0x0,invalid,layout=java.awt.BorderLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=16777225,maximumSize=,minimumSize=,preferredSize=]" width="75px">
+      <ModelFormattedField format=""/>
+    </ModelGridColumn>
+    <ModelGridColumn editor="com.eas.client.forms.components.model.ModelSpin[,0,0,0x0,invalid,layout=java.awt.BorderLayout,alignmentX=0.0,alignmentY=0.0,border=javax.swing.border.LineBorder@62d7c283,flags=16777225,maximumSize=,minimumSize=,preferredSize=]" field="age" name="colAge" title="colAge" view="com.eas.client.forms.components.model.ModelSpin[,0,0,0x0,invalid,layout=java.awt.BorderLayout,alignmentX=0.0,alignmentY=0.0,border=javax.swing.border.LineBorder@66dc6f4b,flags=16777225,maximumSize=,minimumSize=,preferredSize=]" width="75px">
+      <ModelSpin max="1.7976931348623157E308" min="-1.7976931348623157E308"/>
+    </ModelGridColumn>
+  </ModelGrid>
+</layout>
