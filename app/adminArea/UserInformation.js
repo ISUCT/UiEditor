@@ -18,6 +18,9 @@ define('UserInformation', ['orm', 'forms', 'ui'], function (Orm, Forms, Ui, Modu
             // TODO : place your code here
         });
         
+        form.btnOK.onActionPerformed = function() {
+            model.save();
+        }
     }
     return module_constructor;
 });
