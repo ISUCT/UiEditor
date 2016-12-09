@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?><layout title="" view="view">
+  <AnchorsPane background="#ffffff" cursor="0" name="view" prefHeight="300px" prefWidth="400px"/>
+  <Button cursor="0" name="button" parent="view" prefHeight="30px" prefWidth="240px" text="Профили пользователей">
+    <AnchorsPaneConstraints height="30px" left="70px" top="30px" width="240px"/>
+  </Button>
+  <Button cursor="0" name="btnUserProperties" parent="view" prefHeight="30px" prefWidth="240px" text="Редактирование пользователей">
+    <AnchorsPaneConstraints height="30px" left="70px" top="190px" width="240px"/>
+  </Button>
+  <Button cursor="0" name="btnUserInformation" parent="view" prefHeight="30px" prefWidth="240px" text="Информация о пользователе">
+    <AnchorsPaneConstraints height="30px" left="70px" top="70px" width="240px"/>
+  </Button>
+  <Button cursor="0" name="btnTemplateTypes" parent="view" prefHeight="30px" prefWidth="240px" text="Типы шаблонов">
+    <AnchorsPaneConstraints height="30px" left="70px" top="110px" width="240px"/>
+  </Button>
+  <Button cursor="0" name="btnTemplates" parent="view" prefHeight="30px" prefWidth="240px" text="Шаблоны">
+    <AnchorsPaneConstraints height="30px" left="70px" top="150px" width="240px"/>
+  </Button>
+</layout>
