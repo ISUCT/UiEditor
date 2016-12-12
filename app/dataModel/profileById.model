@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?><datamodel>
-  <parameters>
-    <parameter description="" name="profileId" nullable="true" parameterMode="1" selectionForm="null" type="Number"/>
-  </parameters>
-  <parametersEntity entityHeight="200" entityIconified="false" entityLocationX="8" entityLocationY="7" entityWidth="150"/>
-  <entity Title="" entityHeight="136" entityIconified="false" entityId="147997368944400" entityLocationX="195" entityLocationY="7" entityWidth="150" tableAlias="t1" tableName="USERPROFILE" tableSchemaName=""/>
-  <relation leftEntityId="-1" leftEntityParameterName="profileId" rightEntityFieldName="userprofile_id" rightEntityId="147997368944400"/>
-</datamodel>

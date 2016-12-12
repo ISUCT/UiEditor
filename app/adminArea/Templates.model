@@ -1,5 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?><datamodel>
-  <entity Name="templateTypes" Title="" entityHeight="81" entityIconified="false" entityId="147989979171100" entityLocationX="399" entityLocationY="112" entityWidth="150" queryId="templateTypes" tableName="" tableSchemaName=""/>
-  <entity Name="templates" Title="" entityHeight="95" entityIconified="false" entityId="147989977312500" entityLocationX="58" entityLocationY="94" entityWidth="150" queryId="templates" tableName="" tableSchemaName=""/>
-  <referenceRelation collectionPropertyName="ctemplates" leftEntityFieldName="typeid" leftEntityId="147989977312500" rightEntityFieldName="templatetype_id" rightEntityId="147989979171100" scalarPropertyName="type"/>
-</datamodel>

@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?><layout title="" view="view">
-  <AnchorsPane background="#ffffff" cursor="0" name="view" prefHeight="300px" prefWidth="400px"/>
-  <ModelFormattedField cursor="0" field="cursor.surname" format="" name="modelFormattedField" parent="view" prefHeight="27px" prefWidth="171px" text="modelFormattedField">
-    <AnchorsPaneConstraints height="27px" left="80px" top="10px" width="171px"/>
-  </ModelFormattedField>
-</layout>
