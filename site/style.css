@@ -1,0 +1,45 @@
+.logo{
+	float:right;
+	margin-right: 20%;
+}
+
+.logo img{
+	width: 350px;
+}
+
+.menu{
+	position: absolute;
+    right: 0px;
+    top: 146px;
+    z-index: 2;
+    background-color:rgba(255, 102, 0,0.6);    
+    width: 40%;
+    height: 600px;
+
+
+}
+
+.text-menu .menu a{
+	 opacity: 1;
+}
+
+.menu li{
+	font-size: 36px;
+	list-style-type: none;
+	border-bottom: 1px solid #fff;
+	line-height: 1.5;
+	text-indent: 30px;
+}
+
+.menu ul{
+	margin-left: -40px;
+}
+.menu a:hover{
+	color: #ffc299;
+
+}
+.menu a{
+	color: #fff;
+
+
+}
