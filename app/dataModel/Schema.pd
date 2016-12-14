@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?><datamodel datasource="null">
-  <fieldsEntity entityHeight="114" entityIconified="false" entityId="147989834251100" entityLocationX="191" entityLocationY="201" entityWidth="150" tableName="templates"/>
-  <fieldsEntity entityHeight="170" entityIconified="false" entityId="147989803815500" entityLocationX="34" entityLocationY="14" entityWidth="170" tableName="UserProfile"/>
-  <fieldsEntity entityHeight="91" entityIconified="false" entityId="147989830192100" entityLocationX="366" entityLocationY="218" entityWidth="150" tableName="templateType"/>
-  <fieldsEntity entityHeight="108" entityIconified="false" entityId="147989811940300" entityLocationX="255" entityLocationY="49" entityWidth="150" tableName="works"/>
-</datamodel>
