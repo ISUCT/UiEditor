@@ -2,23 +2,15 @@
  * 
  * @author jskonst
  */
-define('Editor', ['orm', 'forms', 'ui', 'resource', 'invoke', 'forms/box-pane']
+define('NewEditor', ['orm', 'forms', 'ui', 'resource', 'invoke', 'forms/box-pane']
         , function (Orm, Forms, Ui, Resource, Invoke, BoxPane, ModuleName) {
             function module_constructor() {
                 var self = this
                         , model = Orm.loadModel(ModuleName)
                         , form = Forms.loadForm(ModuleName, model);
-//                var templatesType = 148110482119900;
-//                var formsType = 148110477451500;
-//                model.templatesByTypes.params.type = templatesType;
-
-        /**
-        * @rolesAllowed role2
-        */
-       showAdmin = function() {
-         form.btnAdmin.visible = true; 
-       };
-       showAdmin();
+                var templatesType = 148110482119900;
+                var formsType = 148110477451500;
+                model.templatesByTypes.params.type = templatesType;
                 /*
                  var svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
                  svg.setAttribute('width', form.pnlCanvas.width);
@@ -52,16 +44,6 @@ define('Editor', ['orm', 'forms', 'ui', 'resource', 'invoke', 'forms/box-pane']
                 // 
 
 
-                svgCanvas = null;
-                var frame;
-
-                initEmbed = function () {
-                    var doc, mainButton;
-                    svgCanvas = new EmbeddedSVGEdit(frame);
-                    // Hide main button, as we will be controlling new, load, save, etc. from the host document
-                    doc = frame.contentDocument || frame.contentWindow.document;
-                };
-
                 self.show = function () {
                     form.view.showOn(document.getElementById('Main'));
                     Invoke.later(function () {
@@ -69,52 +51,35 @@ define('Editor', ['orm', 'forms', 'ui', 'resource', 'invoke', 'forms/box-pane']
                                 //window.location.href.replace(/\?(.*)$/, '&$1') + // Append arguments to this file onto the iframe
                                 '" width="' + form.pnlCanvas.element.offsetWidth + 'px" height="'
                                 + form.pnlCanvas.element.offsetHeight + 'px" id="svgedit" onload="initEmbed();"></iframe>'
-                        frame = document.getElementById('svgedit');
                     });
                 };
 
                 model.requery(function () {
-//                    console.log(model.templatesByTypes);
-//                    for (var i in model.templatesByTypes) {
-//                        var demoContainer = new BoxPane(Ui.Orientation.VERTICAL);
-//                        demoContainer.height = 40;
-//                        form.panel1.add(demoContainer);
-//                        var svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
-//                        svg.setAttribute('width', demoContainer.element.offsetWidth);
-//                        svg.setAttribute('height', demoContainer.height);
-//                        svg.setAttribute('viewBox', "0 0 " + 185 + " " + 70);
-//                        svg.setAttribute('preserveAspectRatio', "xMinYMin meet");
-//                        demoContainer.element.appendChild(svg);
-//                        var snap = Snap(svg);
-//                        
-//                        Snap.load(model.templatesByTypes[i].link, function (f) {
-//                            //console.log(svg);
-//                            //var g = f.select("g");
-//                            this.append(f);
-//                        },snap);
-//                    }
+                    console.log(model.templatesByTypes);
+                    for (var i in model.templatesByTypes) {
+                        var demoContainer = new BoxPane(Ui.Orientation.VERTICAL);
+                        demoContainer.height = 40;
+                        form.panel1.add(demoContainer);
+                        var svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+                        svg.setAttribute('width', demoContainer.element.offsetWidth);
+                        svg.setAttribute('height', demoContainer.height);
+                        svg.setAttribute('viewBox', "0 0 " + 185 + " " + 70);
+                        svg.setAttribute('preserveAspectRatio', "xMinYMin meet");
+                        demoContainer.element.appendChild(svg);
+                        var snap = Snap(svg);
+                        
+                        Snap.load(model.templatesByTypes[i].link, function (f) {
+                            //console.log(svg);
+                            //var g = f.select("g");
+                            this.append(f);
+                        },snap);
+                    }
                 });
-
 
                 form.btnAddTemplate.onActionPerformed = function () {
 //            console.log(draw);
 //            console.log(object);
                     Resource.loadText('resources/templates/bow1.svg', function (aLoaded) {
-                        console.log(aLoaded);
-//                var store = draw.svg(aLoaded);
-//
-//                form.btnBake.element.innerHTML = '<img src="app/resources/uiElements/make.svg" viewBox="0 0 10 10" />';
-                    }, function (e) {
-                        console.log("bad");
-                    });
-                }
-                
-                form.button.onActionPerformed = function (){
-                    Resource.loadText('resources/templates/bow1.svg', function (aLoaded) {
-                        console.log(aLoaded);
-                        svgCanvas.setSvgString(aLoaded);
-                        var svgexample = '<svg width="640" height="480" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg"><g><title>Layer 1</title><rect stroke-width="5" stroke="#000000" fill="#FF0000" id="svg_1" height="35" width="51" y="35" x="32"/><ellipse ry="15" rx="24" stroke-width="5" stroke="#000000" fill="#0000ff" id="svg_2" cy="60" cx="66"/></g></svg>';
-                        
 //                var store = draw.svg(aLoaded);
 //
 //                form.btnBake.element.innerHTML = '<img src="app/resources/uiElements/make.svg" viewBox="0 0 10 10" />';
@@ -124,6 +89,5 @@ define('Editor', ['orm', 'forms', 'ui', 'resource', 'invoke', 'forms/box-pane']
                 }
 
             }
-            
             return module_constructor;
         });

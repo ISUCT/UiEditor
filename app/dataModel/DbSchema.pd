@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?><datamodel datasource="null">
+  <fieldsEntity entityHeight="200" entityIconified="false" entityId="148157730319500" entityLocationX="284" entityLocationY="159" entityWidth="150" tableName="templatetype"/>
+  <fieldsEntity entityHeight="200" entityIconified="false" entityId="148176106554500" entityLocationX="513" entityLocationY="43" entityWidth="150" tableName="MTD_USERS"/>
+  <fieldsEntity entityHeight="200" entityIconified="false" entityId="148157734051500" entityLocationX="68" entityLocationY="193" entityWidth="150" tableName="templates"/>
+  <fieldsEntity entityHeight="154" entityIconified="false" entityId="148157682350800" entityLocationX="13" entityLocationY="13" entityWidth="150" tableName="userprofile"/>
+  <fieldsEntity entityHeight="78" entityIconified="false" entityId="148136747340500" entityLocationX="690" entityLocationY="45" entityWidth="150" tableName="MTD_GROUPS"/>
+  <fieldsEntity entityHeight="104" entityIconified="false" entityId="148157701002000" entityLocationX="255" entityLocationY="21" entityWidth="150" tableName="works"/>
+</datamodel>

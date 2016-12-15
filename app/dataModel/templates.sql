@@ -5,4 +5,4 @@
  * @public 
  */ 
 Select * 
-From TEMPLATES t1
+From templates t1

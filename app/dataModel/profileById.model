@@ -3,6 +3,6 @@
     <parameter description="" name="profileId" nullable="true" parameterMode="1" selectionForm="null" type="Number"/>
   </parameters>
   <parametersEntity entityHeight="200" entityIconified="false" entityLocationX="8" entityLocationY="7" entityWidth="150"/>
-  <entity Title="" entityHeight="136" entityIconified="false" entityId="147997368944400" entityLocationX="195" entityLocationY="7" entityWidth="150" tableAlias="t1" tableName="USERPROFILE" tableSchemaName=""/>
-  <relation leftEntityId="-1" leftEntityParameterName="profileId" rightEntityFieldName="userprofile_id" rightEntityId="147997368944400"/>
+  <entity Title="" entityHeight="200" entityIconified="false" entityId="148157757003000" entityLocationX="199" entityLocationY="20" entityWidth="150" tableAlias="t1" tableName="userprofile" tableSchemaName=""/>
+  <relation leftEntityId="-1" leftEntityParameterName="profileId" rightEntityFieldName="userprofile_id" rightEntityId="148157757003000"/>
 </datamodel>

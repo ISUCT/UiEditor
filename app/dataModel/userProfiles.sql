@@ -5,5 +5,5 @@
  * @public 
  */ 
 Select * 
-From USERPROFILE t1
- Where  Upper(t1.surname) like Upper(:userName)
+From userprofile t1
+ Where   t1.username like :userName
