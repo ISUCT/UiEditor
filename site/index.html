@@ -53,7 +53,88 @@
 
     <div class="block">Современное оборудование для реализации творческих проектов</div>
 
-    <p>Some text</p>
+
+<h1>Примеры работ</h1>
+
+
+        <div id="DIV_34">
+            <div id="DIV_35">
+                <div id="DIV_36">
+                    <div id="DIV_37">
+                        <div id="DIV_1">
+                            <div id="DIV_2">
+                                <div id="DIV_3">
+                                    <div id="DIV_4">
+                                        <a href="/workshop" id="A_5"><img src="http://cmit37.ru/sites/default/files/styles/295_295/public/printer10.jpg?itok=stG_ciYv" width="288" height="288" alt="" id="IMG_6" /></a>
+                                    </div>
+                                </div>
+                                <div id="DIV_7">
+                                    
+                                </div>
+                                <div id="DIV_10">
+                                   
+                                </div>
+                            </div>
+                            <div id="DIV_12">
+                                <div id="DIV_13">
+                                    <div id="DIV_14">
+                                        <a href="/education" id="A_15"><img src="http://cmit37.ru/sites/default/files/styles/295_295/public/image-education.jpg?itok=7dHn4iH0" width="288" height="288" alt="" id="IMG_16" /></a>
+                                    </div>
+                                </div>
+                                <div id="DIV_17">
+                                    
+                                </div>
+                                <div id="DIV_20">
+                                   
+                                </div>
+                            </div>
+                            <div id="DIV_22">
+                                <div id="DIV_23">
+                                    <div id="DIV_24">
+                                        <a href="/shop" id="A_25"><img src="http://cmit37.ru/sites/default/files/styles/295_295/public/image-shop.jpg?itok=DPK9mou2" width="288" height="288" alt="" id="IMG_26" /></a>
+                                    </div>
+                                </div>
+                                <div id="DIV_27">
+                                  
+                                </div>
+                                <div id="DIV_30">
+                                   
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+ 
+  
+</div>
+
+ <script src="http://api-maps.yandex.ru/2.1/?lang=ru_RU" type="text/javascript"></script>
+  
+  <script type="text/javascript">
+    ymaps.ready(init);
+    var myMap, myPlacemark;
+
+    function init(){     
+        myMap = new ymaps.Map("ymap", {
+            center: [56.985158, 40.984067], 
+            zoom: 17,
+            controls: ['mediumMapDefaultSet']
+        });
+
+        myPlacemark = new ymaps.Placemark([56.985158, 40.984067], {}, {
+            iconLayout: 'default#image',
+            iconImageHref: '/sites/all/themes/synamy/images/icon-map-label.png',
+            iconImageSize: [43, 57],
+            iconImageOffset: [-21, -57],
+        });
+         
+        myMap.geoObjects.add(myPlacemark);
+                myMap.behaviors.disable('scrollZoom');
+    }
+    
+  </script>
+<div id="ymap" style="width:100%;height:100%"></div>
     <script>
     new flickerplate('.flicker-example');
     </script>
