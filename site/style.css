@@ -40,3 +40,17 @@
 
 
 }
+
+#schema{
+	width: 100%;
+}
+.block{
+	height: 400px;
+	background-image: url('carousel/img/flicker-1.jpg');
+	color: #fff;
+	font-size: 50px;
+	text-align: center;
+	padding-top: 10%;
+	padding-left: 40px;
+	padding-right: 40px;
+}
