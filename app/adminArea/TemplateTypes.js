@@ -1,7 +1,7 @@
 /**
  * 
  * @author jskonst
- * @rolesAllowed test
+ * @rolesAllowed admin
  */
 define('TemplateTypes', ['orm', 'forms', 'ui'], function (Orm, Forms, Ui, ModuleName) {
     function module_constructor() {

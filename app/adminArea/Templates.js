@@ -1,7 +1,7 @@
 /**
  * 
  * @author jskonst
- * 
+ * @rolesAllowed admin
  */
 define('Templates', ['orm', 'forms', 'ui', 'resource', 'logger','security'],
         function (Orm, Forms, Ui, Resource, Logger,Security, ModuleName) {

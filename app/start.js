@@ -6,15 +6,15 @@ require(['environment', 'logger'], function (F, Logger) {
     var global = this;
     //F.cacheBust(true);
     //F.export(global);
-    require('Editor', function(Editor){
-        var m = new Editor();
+    require('Temp', function(Temp){
+        var m = new Temp();
         m.show();
     }, function(e){
         Logger.severe(e);
         if(global.document){
             var messageParagraph = global.document.createElement('p');
             global.document.body.appendChild(messageParagraph);
-            messageParagraph.innerHTML = 'An error occured while require(\'Editor\'). Error: ' + e;
+            messageParagraph.innerHTML = 'An error occured while require(\'Temp\'). Error: ' + e;
             messageParagraph.style.margin = '10px';
             messageParagraph.style.fontFamily = 'Arial';
             messageParagraph.style.fontSize = '14pt';
