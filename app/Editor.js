@@ -2,8 +2,8 @@
  * 
  * @author jskonst
  */
-define('Editor', ['orm', 'forms', 'ui', 'resource', 'invoke', 'forms/box-pane']
-        , function (Orm, Forms, Ui, Resource, Invoke, BoxPane, ModuleName) {
+define('Editor', ['orm', 'forms', 'ui', 'resource', 'invoke', 'forms/box-pane','security']
+        , function (Orm, Forms, Ui, Resource, Invoke, BoxPane,Security, ModuleName) {
             function module_constructor() {
                 var self = this
                         , model = Orm.loadModel(ModuleName)
@@ -11,14 +11,18 @@ define('Editor', ['orm', 'forms', 'ui', 'resource', 'invoke', 'forms/box-pane']
                 var templatesType = 148181448228600;
 //                var formsType = 148110477451500;
                 model.templatesByTypes.params.type = templatesType;
-
-                /**
-                 * @rolesAllowed role2
-                 */
-                showAdmin = function () {
-                    form.btnAdmin.visible = true;
+                
+                Security.principal(function(user){
+                    if (user.hasRole("admin")){
+                        form.btnAdmin.visible = true;
+                    }
+                });
+                form.btnAdmin.onActionPerformed = function(){
+                    require('Templates', function(Templates){
+                        var templ = new Templates();
+                        templ.show();
+                    });
                 };
-                showAdmin();
                 /*
                  var svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
                  svg.setAttribute('width', form.pnlCanvas.width);
@@ -101,32 +105,32 @@ define('Editor', ['orm', 'forms', 'ui', 'resource', 'invoke', 'forms/box-pane']
                 });
 
 
-                form.btnAddTemplate.onActionPerformed = function () {
-//            console.log(draw);
-//            console.log(object);
-                    Resource.loadText('resources/templates/bow1.svg', function (aLoaded) {
-                        console.log(aLoaded);
-//                var store = draw.svg(aLoaded);
-//
-//                form.btnBake.element.innerHTML = '<img src="app/resources/uiElements/make.svg" viewBox="0 0 10 10" />';
-                    }, function (e) {
-                        console.log("bad");
-                    });
-                }
+//                form.btnAddTemplate.onActionPerformed = function () {
+////            console.log(draw);
+////            console.log(object);
+//                    Resource.loadText('resources/templates/bow1.svg', function (aLoaded) {
+//                        console.log(aLoaded);
+////                var store = draw.svg(aLoaded);
+////
+////                form.btnBake.element.innerHTML = '<img src="app/resources/uiElements/make.svg" viewBox="0 0 10 10" />';
+//                    }, function (e) {
+//                        console.log("bad");
+//                    });
+//                }
 
-                form.button.onActionPerformed = function () {
-                    Resource.loadText('resources/templates/bow1.svg', function (aLoaded) {
-                        console.log(aLoaded);
-//                        svgCanvas.setSvgString(aLoaded);
-                        var svgexample = '<svg width="640" height="480" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg"><g><title>Layer 1</title><rect stroke-width="5" stroke="#000000" fill="#FF0000" id="svg_1" height="35" width="51" y="35" x="32"/><ellipse ry="15" rx="24" stroke-width="5" stroke="#000000" fill="#0000ff" id="svg_2" cy="60" cx="66"/></g></svg>';
-
-//                var store = draw.svg(aLoaded);
+//                form.button.onActionPerformed = function () {
+//                    Resource.loadText('resources/templates/bow1.svg', function (aLoaded) {
+//                        console.log(aLoaded);
+////                        svgCanvas.setSvgString(aLoaded);
+//                        var svgexample = '<svg width="640" height="480" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg"><g><title>Layer 1</title><rect stroke-width="5" stroke="#000000" fill="#FF0000" id="svg_1" height="35" width="51" y="35" x="32"/><ellipse ry="15" rx="24" stroke-width="5" stroke="#000000" fill="#0000ff" id="svg_2" cy="60" cx="66"/></g></svg>';
 //
-//                form.btnBake.element.innerHTML = '<img src="app/resources/uiElements/make.svg" viewBox="0 0 10 10" />';
-                    }, function (e) {
-                        console.log("bad");
-                    });
-                }
+////                var store = draw.svg(aLoaded);
+////
+////                form.btnBake.element.innerHTML = '<img src="app/resources/uiElements/make.svg" viewBox="0 0 10 10" />';
+//                    }, function (e) {
+//                        console.log("bad");
+//                    });
+//                }
 
             }
 
