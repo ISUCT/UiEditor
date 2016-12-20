@@ -3,10 +3,10 @@
   <ModelGrid cursor="0" data="templates" name="modelGrid" parent="view" prefHeight="240px" prefWidth="421px">
     <AnchorsPaneConstraints height="240px" left="10px" top="10px" width="421px"/>
     <ServiceGridColumn name="colService1" resizable="true"/>
-    <ModelGridColumn field="type" name="colTypeid" title="colTypeid" width="193px">
+    <ModelGridColumn editor="com.eas.client.forms.components.model.ModelCombo[,0,0,0x0,invalid,layout=java.awt.BorderLayout,alignmentX=0.0,alignmentY=0.0,border=javax.swing.border.LineBorder@722b4b1f,flags=16777225,maximumSize=,minimumSize=,preferredSize=]" field="type" name="colTypeid" title="colTypeid" view="com.eas.client.forms.components.model.ModelCombo[,-192,-29,0x0,invalid,layout=java.awt.BorderLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=16777225,maximumSize=,minimumSize=,preferredSize=]" width="193px">
       <ModelCombo displayField="name" displayList="templateTypes"/>
     </ModelGridColumn>
-    <ModelGridColumn field="link" name="colLink" title="colLink" width="193px">
+    <ModelGridColumn editor="com.eas.client.forms.components.model.ModelFormattedField[,0,0,0x0,invalid,layout=java.awt.BorderLayout,alignmentX=0.0,alignmentY=0.0,border=javax.swing.border.LineBorder@2f882350,flags=16777225,maximumSize=,minimumSize=,preferredSize=]" field="link" name="colLink" title="colLink" view="com.eas.client.forms.components.model.ModelFormattedField[,-191,-29,0x0,invalid,layout=java.awt.BorderLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=16777225,maximumSize=,minimumSize=,preferredSize=]" width="192px">
       <ModelFormattedField format=""/>
     </ModelGridColumn>
   </ModelGrid>

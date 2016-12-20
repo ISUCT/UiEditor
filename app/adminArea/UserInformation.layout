@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?><layout title="" view="view">
+  <AnchorsPane background="#ffffff" cursor="0" name="view" prefHeight="300px" prefWidth="400px"/>
+  <ModelFormattedField cursor="0" data="userProfiles" name="modelFormattedField" parent="view" prefHeight="37px" prefWidth="170px" text="">
+    <AnchorsPaneConstraints height="37px" left="210px" top="50px" width="170px"/>
+  </ModelFormattedField>
+  <ModelFormattedField cursor="0" name="modelFormattedField1" parent="view" prefHeight="37px" prefWidth="170px" text="modelFormattedField1">
+    <AnchorsPaneConstraints height="37px" left="210px" top="100px" width="170px"/>
+  </ModelFormattedField>
+  <ModelFormattedField cursor="0" name="modelFormattedField2" parent="view" prefHeight="37px" prefWidth="170px" text="modelFormattedField2">
+    <AnchorsPaneConstraints height="37px" left="210px" top="150px" width="170px"/>
+  </ModelFormattedField>
+  <ModelFormattedField cursor="0" name="modelFormattedField3" parent="view" prefHeight="40px" prefWidth="170px" text="modelFormattedField3">
+    <AnchorsPaneConstraints height="40px" left="210px" top="200px" width="170px"/>
+  </ModelFormattedField>
+  <ModelFormattedField cursor="0" name="modelFormattedField4" parent="view" prefHeight="40px" prefWidth="170px" text="modelFormattedField4">
+    <AnchorsPaneConstraints bottom="10px" height="40px" left="210px" width="170px"/>
+  </ModelFormattedField>
+  <ScrollPane cursor="0" name="Surname" parent="view" prefHeight="40px" prefWidth="140px">
+    <AnchorsPaneConstraints height="40px" left="50px" top="50px" width="140px"/>
+  </ScrollPane>
+  <TextArea name="textArea" parent="Surname" prefHeight="38px" prefWidth="138px" text="Surname"/>
+  <ScrollPane cursor="0" name="Email" parent="view" prefHeight="40px" prefWidth="140px">
+    <AnchorsPaneConstraints height="40px" left="50px" top="200px" width="140px"/>
+  </ScrollPane>
+  <TextArea name="textArea1" parent="Email" prefHeight="38px" prefWidth="138px" text="Email"/>
+  <ScrollPane cursor="0" name="MiddleName" parent="view" prefHeight="40px" prefWidth="140px">
+    <AnchorsPaneConstraints height="40px" left="50px" top="150px" width="140px"/>
+  </ScrollPane>
+  <TextArea name="textArea11" parent="MiddleName" prefHeight="38px" prefWidth="138px" text="Middle Name"/>
+  <ScrollPane cursor="0" name="Age" parent="view" prefHeight="40px" prefWidth="140px">
+    <AnchorsPaneConstraints bottom="10px" height="40px" left="50px" width="140px"/>
+  </ScrollPane>
+  <TextArea name="textArea12" parent="Age" prefHeight="38px" prefWidth="138px" text="Age"/>
+  <ScrollPane cursor="0" name="Name" parent="view" prefHeight="40px" prefWidth="140px">
+    <AnchorsPaneConstraints height="40px" left="50px" top="100px" width="140px"/>
+  </ScrollPane>
+  <TextArea name="textArea13" parent="Name" prefHeight="38px" prefWidth="138px" text="Name"/>
+  <Button cursor="0" name="btnOK" parent="view" prefHeight="30px" prefWidth="100px" text="OK">
+    <AnchorsPaneConstraints height="30px" left="150px" top="10px" width="100px"/>
+  </Button>
+</layout>

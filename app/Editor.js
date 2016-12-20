@@ -2,24 +2,23 @@
  * 
  * @author jskonst
  */
-define('Editor', ['orm', 'forms', 'ui', 'resource', 'invoke', 'forms/box-pane','security']
-        , function (Orm, Forms, Ui, Resource, Invoke, BoxPane,Security, ModuleName) {
+define('Editor', ['orm', 'forms', 'ui', 'resource', 'invoke', 'forms/box-pane',
+    'security', 'forms/border-pane']
+        , function (Orm, Forms, Ui, Resource, Invoke,
+                BoxPane, Security, BorderPane, ModuleName) {
             function module_constructor() {
                 var self = this
                         , model = Orm.loadModel(ModuleName)
                         , form = Forms.loadForm(ModuleName, model);
-                var templatesType = 148181448228600;
-//                var formsType = 148110477451500;
-                model.templatesByTypes.params.type = templatesType;
-                
-                Security.principal(function(user){
-                    if (user.hasRole("admin")){
+
+                Security.principal(function (user) {
+                    if (user.hasRole("admin")) {
                         form.btnAdmin.visible = true;
                     }
                 });
-                form.btnAdmin.onActionPerformed = function(){
-                    require('Templates', function(Templates){
-                        var templ = new Templates();
+                form.btnAdmin.onActionPerformed = function () {
+                    require('AdminForm', function (AdminForm) {
+                        var templ = new AdminForm();
                         templ.show();
                     });
                 };
@@ -69,6 +68,8 @@ define('Editor', ['orm', 'forms', 'ui', 'resource', 'invoke', 'forms/box-pane','
                 self.show = function () {
                     form.view.showOn(document.getElementById('Main'));
                     Invoke.later(function () {
+                        var loadingProgress = document.getElementById('LoadingProgress');
+                        loadingProgress.parentNode.removeChild(loadingProgress);
                         form.pnlCanvas.element.innerHTML = '<iframe src="app/editor/svg-editor.html?extensions=ext-xdomain-messaging.js' +
                                 //window.location.href.replace(/\?(.*)$/, '&$1') + // Append arguments to this file onto the iframe
                                 '" width="' + form.pnlCanvas.element.offsetWidth + 'px" height="'
@@ -77,17 +78,21 @@ define('Editor', ['orm', 'forms', 'ui', 'resource', 'invoke', 'forms/box-pane','
                     });
                 };
 
-                var onPanelClick = function (event) {
+                var onTemplateClick = function (event) {
                     svgCanvas.setSvgString(event.source.snap.toString());
+                };
+                var onFormClick = function (event) {
+                    svgCanvas.importSvgString(event.source.snap.toString());
                 };
 
                 model.requery(function () {
-                    console.log(model.templatesByTypes);
-                    for (var i in model.templatesByTypes) {
-                        var demoContainer = new BoxPane(Ui.Orientation.VERTICAL);
+                    var templatesPanel = new BoxPane(Ui.Orientation.VERTICAL)
+                    form.scrollTemplate.add(templatesPanel);
+                    for (var i in model.getTemplates) {
+                        var demoContainer = new BorderPane();
                         demoContainer.height = 60;
-                        demoContainer.onMousePressed = onPanelClick;
-                        form.panel1.add(demoContainer);
+                        demoContainer.onMousePressed = onTemplateClick;
+                        templatesPanel.add(demoContainer);
                         var svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
                         svg.setAttribute('width', demoContainer.element.offsetWidth);
                         svg.setAttribute('height', demoContainer.height);
@@ -96,12 +101,32 @@ define('Editor', ['orm', 'forms', 'ui', 'resource', 'invoke', 'forms/box-pane','
                         demoContainer.element.appendChild(svg);
                         var snap = Snap(svg);
                         demoContainer.snap = snap;
-                        Snap.load(model.templatesByTypes[i].link, function (f) {
-                            //console.log(svg);
-                            //var g = f.select("g");
+                        Snap.load(model.getTemplates[i].link, function (f) {
                             this.append(f);
                         }, snap);
                     }
+
+                    var formsPanel = new BoxPane(Ui.Orientation.VERTICAL)
+                    form.scrollForms.add(formsPanel);
+                    for (var i in model.getForms) {
+                        var demoForm = new BorderPane();
+                        demoForm.height = 60;
+                        demoForm.onMousePressed = onFormClick;
+                        formsPanel.add(demoForm);
+                        var svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+                        svg.setAttribute('width', demoForm.element.offsetWidth);
+                        svg.setAttribute('height', demoForm.height);
+                        svg.setAttribute('viewBox', "0 0 " + 185 + " " + 185);
+                        svg.setAttribute('preserveAspectRatio', "xMinYMin meet");
+                        demoForm.element.appendChild(svg);
+                        var snap = Snap(svg);
+                        demoForm.snap = snap;
+                        Snap.load(model.getForms[i].link, function (f) {
+                            this.append(f);
+                        }, snap);
+                    }
+
+
                 });
 
 

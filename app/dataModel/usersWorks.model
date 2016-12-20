@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?><datamodel datasource="uieditor">
+  <parametersEntity entityHeight="200" entityIconified="false" entityLocationX="8" entityLocationY="7" entityWidth="150"/>
+  <entity Title="" entityHeight="200" entityIconified="false" entityId="148113639453800" entityLocationX="415" entityLocationY="17" entityWidth="150" tableAlias="t1" tableName="works" tableSchemaName=""/>
+  <entity Title="" entityHeight="200" entityIconified="false" entityId="148113640176200" entityLocationX="195" entityLocationY="20" entityWidth="150" tableAlias="t" tableName="UserProfile" tableSchemaName=""/>
+  <relation leftEntityFieldName="userprofile_id" leftEntityId="148113640176200" rightEntityFieldName="profileid" rightEntityId="148113639453800"/>
+</datamodel>

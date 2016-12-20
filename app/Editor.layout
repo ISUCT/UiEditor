@@ -1,28 +1,54 @@
 <?xml version="1.0" encoding="UTF-8"?><layout title="" view="view">
-  <AnchorsPane background="#ffffff" cursor="0" name="view" prefHeight="407px" prefWidth="839px"/>
-  <AnchorsPane background="#ffffff" cursor="0" name="pnlTemplate" parent="view" prefHeight="210px" prefWidth="172px">
-    <AnchorsPaneConstraints height="210px" left="10px" top="60px" width="172px"/>
-  </AnchorsPane>
-  <ScrollPane cursor="0" name="scrollPane" parent="pnlTemplate" prefHeight="160px" prefWidth="172px">
-    <AnchorsPaneConstraints height="160px" left="0px" right="0px" top="60px"/>
-  </ScrollPane>
-  <BoxPane background="#ffffff" cursor="0" name="panel1" orientation="1" parent="scrollPane" prefHeight="158px" prefWidth="170px"/>
-  <Label cursor="0" icon="resources/uiElements/template/template_01.png" name="btnAddTemplate" parent="pnlTemplate" prefHeight="50px" prefWidth="172px">
-    <AnchorsPaneConstraints height="50px" left="0px" top="0px" width="172px"/>
-  </Label>
-  <AnchorsPane background="#ffffff" cursor="0" name="pnlDesign" parent="view" prefHeight="110px" prefWidth="172px">
-    <AnchorsPaneConstraints height="110px" left="10px" top="280px" width="172px"/>
-  </AnchorsPane>
-  <Label cursor="0" icon="resources/uiElements/design/design_01.png" name="label" parent="pnlDesign" prefHeight="50px" prefWidth="174px">
-    <AnchorsPaneConstraints height="50px" left="0px" top="0px" width="174px"/>
-  </Label>
+  <AnchorsPane background="#ffffff" cursor="0" name="view" prefHeight="523px" prefWidth="725px"/>
   <AnchorsPane background="#ffffff" cursor="0" name="panel" parent="view" prefHeight="54px" prefWidth="750px">
     <AnchorsPaneConstraints height="54px" left="10px" top="0px" width="750px"/>
   </AnchorsPane>
   <Label cursor="0" icon="resources/uiElements/menu.png" name="label1" parent="panel" prefHeight="54px" prefWidth="760px">
     <AnchorsPaneConstraints height="54px" left="0px" top="0px" width="760px"/>
   </Label>
-  <BoxPane cursor="0" name="pnlCanvas" parent="view" prefHeight="270px" prefWidth="640px">
+  <AnchorsPane background="#ffffff" cursor="0" name="pnlAbout" parent="panel" prefHeight="30px" prefWidth="90px">
+    <AnchorsPaneConstraints height="30px" left="10px" top="12px" width="90px"/>
+  </AnchorsPane>
+  <Label cursor="0" foreground="#198fa1" horizontalAlignment="0" name="lblAbout" parent="pnlAbout" prefHeight="30px" prefWidth="90px" text="О проекте">
+    <font family="Tahoma" size="14" style="0"/>
+    <AnchorsPaneConstraints bottom="0px" left="0px" right="0px" top="0px"/>
+  </Label>
+  <AnchorsPane background="#ffffff" cursor="0" name="pnlManual" parent="panel" prefHeight="30px" prefWidth="120px">
+    <AnchorsPaneConstraints height="30px" left="110px" top="12px" width="120px"/>
+  </AnchorsPane>
+  <Label cursor="0" foreground="#198fa1" horizontalAlignment="0" name="lblManual" parent="pnlManual" prefHeight="30px" prefWidth="120px" text="Руководство">
+    <font family="Tahoma" size="14" style="0"/>
+    <AnchorsPaneConstraints bottom="0px" left="0px" right="0px" top="0px"/>
+  </Label>
+  <AnchorsPane background="#ffffff" cursor="0" name="pnlExamples" parent="panel" prefHeight="30px" prefWidth="120px">
+    <AnchorsPaneConstraints height="30px" left="240px" top="12px" width="120px"/>
+  </AnchorsPane>
+  <Label cursor="0" foreground="#198fa1" horizontalAlignment="0" name="label211" parent="pnlExamples" prefHeight="30px" prefWidth="120px" text="Примеры работ">
+    <font family="Tahoma" size="12" style="0"/>
+    <AnchorsPaneConstraints bottom="0px" left="0px" right="0px" top="0px"/>
+  </Label>
+  <AnchorsPane background="#ffffff" cursor="0" name="pnlStore" parent="panel" prefHeight="30px" prefWidth="120px">
+    <AnchorsPaneConstraints height="30px" left="370px" top="12px" width="120px"/>
+  </AnchorsPane>
+  <Label cursor="0" foreground="#198fa1" horizontalAlignment="0" name="label212" parent="pnlStore" prefHeight="30px" prefWidth="120px" text="Магазин">
+    <font family="Tahoma" size="14" style="0"/>
+    <AnchorsPaneConstraints bottom="0px" left="0px" right="0px" top="0px"/>
+  </Label>
+  <AnchorsPane background="#ffffff" cursor="0" name="pnlPartners" parent="panel" prefHeight="30px" prefWidth="120px">
+    <AnchorsPaneConstraints height="30px" left="498px" top="12px" width="120px"/>
+  </AnchorsPane>
+  <Label cursor="0" foreground="#198fa1" horizontalAlignment="0" name="label213" parent="pnlPartners" prefHeight="30px" prefWidth="120px" text="Партнеры">
+    <font family="Tahoma" size="14" style="0"/>
+    <AnchorsPaneConstraints bottom="0px" left="0px" right="0px" top="0px"/>
+  </Label>
+  <AnchorsPane background="#ffffff" cursor="0" name="pnlFond" parent="panel" prefHeight="30px" prefWidth="105px">
+    <AnchorsPaneConstraints height="30px" left="625px" top="12px" width="105px"/>
+  </AnchorsPane>
+  <Label cursor="0" foreground="#198fa1" horizontalAlignment="0" name="label214" parent="pnlFond" prefHeight="30px" prefWidth="105px" text="О Фонде">
+    <font family="Tahoma" size="14" style="0"/>
+    <AnchorsPaneConstraints bottom="0px" left="0px" right="0px" top="0px"/>
+  </Label>
+  <BoxPane cursor="0" name="pnlCanvas" parent="view" prefHeight="386px" prefWidth="526px">
     <AnchorsPaneConstraints bottom="77px" left="190px" right="9px" top="60px"/>
   </BoxPane>
   <Label cursor="0" icon="resources/uiElements/g3379.png" name="btnCreate" parent="view" prefHeight="60px" prefWidth="200px">
@@ -31,4 +57,16 @@
   <Button cursor="0" name="btnAdmin" parent="view" prefHeight="50px" prefWidth="100px" text="Admin" visible="false">
     <AnchorsPaneConstraints height="50px" right="9px" top="0px" width="100px"/>
   </Button>
+  <Label cursor="0" icon="resources/uiElements/template/template_01.png" name="btnAddTemplate" parent="view" prefHeight="50px" prefWidth="172px">
+    <AnchorsPaneConstraints height="50px" left="10px" top="60px" width="172px"/>
+  </Label>
+  <ScrollPane cursor="0" horizontalScrollBarPolicy="31" name="scrollTemplate" parent="view" prefHeight="160px" prefWidth="170px">
+    <AnchorsPaneConstraints height="160px" left="10px" top="110px" width="170px"/>
+  </ScrollPane>
+  <Label cursor="0" icon="resources/uiElements/design/design_01.png" name="label" parent="view" prefHeight="50px" prefWidth="174px">
+    <AnchorsPaneConstraints height="50px" left="10px" top="280px" width="174px"/>
+  </Label>
+  <ScrollPane cursor="0" name="scrollForms" parent="view" prefHeight="180px" prefWidth="170px">
+    <AnchorsPaneConstraints height="180px" left="10px" top="330px" width="170px"/>
+  </ScrollPane>
 </layout>
