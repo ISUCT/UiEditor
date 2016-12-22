@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?><datamodel datasource="null">
   <fieldsEntity entityHeight="72" entityIconified="false" entityId="148157730319500" entityLocationX="200" entityLocationY="218" entityWidth="150" tableName="templatetype"/>
+  <fieldsEntity entityHeight="116" entityIconified="false" entityId="148239300274100" entityLocationX="401" entityLocationY="244" entityWidth="150" tableName="text_edit"/>
   <fieldsEntity entityHeight="200" entityIconified="false" entityId="148176106554500" entityLocationX="513" entityLocationY="43" entityWidth="150" tableName="MTD_USERS"/>
   <fieldsEntity entityHeight="98" entityIconified="false" entityId="148157734051500" entityLocationX="25" entityLocationY="201" entityWidth="150" tableName="templates"/>
   <fieldsEntity entityHeight="154" entityIconified="false" entityId="148157682350800" entityLocationX="13" entityLocationY="13" entityWidth="150" tableName="userprofile"/>

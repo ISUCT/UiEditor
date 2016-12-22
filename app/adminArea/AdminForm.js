@@ -3,8 +3,8 @@
  * @author h
  * @rolesAllowed admin
  */
-define('AdminForm', ['orm', 'forms', 'ui', 'Templates', 'UserProfiles']
-        , function (Orm, Forms, Ui, Templates, UserProfiles, ModuleName) {
+define('AdminForm', ['orm', 'forms', 'ui', 'Templates', 'UserProfiles', 'TextAdmin']
+        , function (Orm, Forms, Ui, Templates, UserProfiles,TextEditor, ModuleName) {
             function module_constructor() {
                 var self = this
                         , model = Orm.loadModel(ModuleName)
@@ -30,7 +30,13 @@ define('AdminForm', ['orm', 'forms', 'ui', 'Templates', 'UserProfiles']
                 form.btnTemplates.onActionPerformed = function (event) {
                     var templates = new Templates();
                     templates.show();
-                }
+                };
+                
+                form.btnTextEdit.onActionPerformed = function (event) {
+                    var txtEdit = new TextEditor();
+                    txtEdit.show();
+                };
+                
             }
             return module_constructor;
         });
