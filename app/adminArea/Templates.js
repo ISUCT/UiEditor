@@ -1,13 +1,16 @@
 /**
  * 
  * @author jskonst
+ * @rolesAllowed admin
  */
-define('Templates', ['orm', 'forms', 'ui', 'resource', 'logger'],
-        function (Orm, Forms, Ui, Resource, Logger, ModuleName) {
+define('Templates', ['orm', 'forms', 'ui', 'resource', 'logger','security'],
+        function (Orm, Forms, Ui, Resource, Logger,Security, ModuleName) {
             function module_constructor() {
                 var self = this
                         , model = Orm.loadModel(ModuleName)
                         , form = Forms.loadForm(ModuleName, model);
+
+                Logger.info('Current user: ' + Security.principal.name);
 
                 var svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
                 svg.setAttribute('width', form.pnlPreview.width);
@@ -80,12 +83,16 @@ define('Templates', ['orm', 'forms', 'ui', 'resource', 'logger'],
 
                 form.modelGrid.onItemSelected = function (event) {
                     snap.clear();
+                    svg.setAttribute('width', form.pnlPreview.element.offsetWidth);
+                    svg.setAttribute('height', form.pnlPreview.element.offsetHeight);
                     Snap.load(event.item.link, function (f) {
                         //console.log(svg);
                         //var g = f.select("g");
                         snap.append(f);
                     });
                 };
+
+
 
 
             }

@@ -20,6 +20,6 @@
     <AnchorsPaneConstraints bottom="10px" height="30px" right="10px" width="100px"/>
   </Button>
   <BorderPane background="#ffffff" cursor="0" name="pnlPreview" parent="view" prefHeight="240px" prefWidth="210px">
-    <AnchorsPaneConstraints bottom="50px" right="4px" top="10px" width="210px"/>
+    <AnchorsPaneConstraints bottom="50px" left="440px" right="4px" top="10px"/>
   </BorderPane>
 </layout>

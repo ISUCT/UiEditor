@@ -1,3 +1,3 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<datamodel>
+<?xml version="1.0" encoding="UTF-8"?><datamodel>
+  <entity Name="templatesByTypes" Title="" entityHeight="200" entityIconified="false" entityId="148181543089800" entityLocationX="252" entityLocationY="74" entityWidth="150" queryId="templatesByTypes" tableName="" tableSchemaName=""/>
 </datamodel>

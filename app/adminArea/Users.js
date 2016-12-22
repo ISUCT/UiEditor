@@ -3,7 +3,7 @@
  * @author jskonst
  * @rolesAllowed admin
  */
-define('TemplateTypes', ['orm', 'forms', 'ui'], function (Orm, Forms, Ui, ModuleName) {
+define('Users', ['orm', 'forms', 'ui'], function (Orm, Forms, Ui, ModuleName) {
     function module_constructor() {
         var self = this
                 , model = Orm.loadModel(ModuleName)
@@ -22,12 +22,12 @@ define('TemplateTypes', ['orm', 'forms', 'ui'], function (Orm, Forms, Ui, Module
         };
 
         form.btnAdd.onActionPerformed = function () {
-            model.templateTypes.push({});
+            model.users.push({});
         };
 
         form.btnDelete.onActionPerformed = function () {
             if (confirm("Удалить?")) {
-                model.templateTypes.remove(form.modelGrid.selected);
+                model.users.remove(form.modelGrid.selected);
             }
         };
 

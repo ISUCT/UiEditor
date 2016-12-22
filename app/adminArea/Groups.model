@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?><datamodel>
+  <entity Name="users" Title="" entityHeight="200" entityIconified="false" entityId="148128988460000" entityLocationX="163" entityLocationY="72" entityWidth="150" queryId="users" tableName="" tableSchemaName=""/>
+  <entity Name="groups" Title="" entityHeight="200" entityIconified="false" entityId="148128985691100" entityLocationX="382" entityLocationY="72" entityWidth="150" queryId="groups" tableName="" tableSchemaName=""/>
+  <referenceRelation collectionPropertyName="group" leftEntityFieldName="usr_name" leftEntityId="148128985691100" rightEntityFieldName="usr_name" rightEntityId="148128988460000" scalarPropertyName="user"/>
+</datamodel>

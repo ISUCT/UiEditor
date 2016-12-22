@@ -1,8 +1,8 @@
 /**
  *
  * @author jskonst
- * @name templateTypes
+ * @name users
  * @public 
  */ 
 Select * 
-From templatetype t1
+From mtd_users t1

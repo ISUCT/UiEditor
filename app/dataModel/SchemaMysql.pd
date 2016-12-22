@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?><datamodel datasource="uieditor">
-  <fieldsEntity entityHeight="99" entityIconified="false" entityId="148096901650400" entityLocationX="123" entityLocationY="238" entityWidth="150" tableName="templates"/>
-  <fieldsEntity entityHeight="111" entityIconified="false" entityId="148096915076100" entityLocationX="271" entityLocationY="34" entityWidth="150" tableName="works"/>
-  <fieldsEntity entityHeight="69" entityIconified="false" entityId="148096896609600" entityLocationX="305" entityLocationY="255" entityWidth="150" tableName="templateType"/>
-  <fieldsEntity entityHeight="200" entityIconified="false" entityId="148096926644200" entityLocationX="38" entityLocationY="17" entityWidth="150" tableName="UserProfile"/>
-</datamodel>
