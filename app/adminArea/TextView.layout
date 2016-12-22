@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?><layout title="" view="view">
+  <AnchorsPane background="#ffffff" cursor="0" name="view" prefHeight="400px" prefWidth="702px"/>
+  <ScrollPane cursor="0" name="scrollPane" parent="view" prefHeight="380px" prefWidth="682px">
+    <AnchorsPaneConstraints bottom="10px" left="10px" right="10px" top="10px"/>
+  </ScrollPane>
+</layout>

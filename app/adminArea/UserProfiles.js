@@ -1,13 +1,14 @@
 /**
  * 
  * @author jskonst
+ * @rolesAllowed admin
  */
 define('UserProfiles', ['orm', 'forms', 'ui'], function (Orm, Forms, Ui, ModuleName) {
     function module_constructor() {
         var self = this
                 , model = Orm.loadModel(ModuleName)
                 , form = Forms.loadForm(ModuleName, model);
-        model.userProfiles.params.userName = "%%";
+//        model.userProfiles.params.userName = "%%";
         self.show = function () {
             form.show();
         };
@@ -24,35 +25,35 @@ define('UserProfiles', ['orm', 'forms', 'ui'], function (Orm, Forms, Ui, ModuleN
         };
 
         form.btnAdd.onActionPerformed = function () {
-            model.userProfiles.push({});
+            model.profiles.push({});
         };
 
         form.btnDelete.onActionPerformed = function () {
             if (confirm("Удалить?")) {
-                model.userProfiles.remove(form.modelGrid.selected);
+                model.profiles.remove(form.modelGrid.selected);
             }
         };
-        
-        form.btnSearch.onActionPerformed = function (){
-             model.userProfiles.params.userName = '%' + form.txtSearch.text +'%';
-             model.requery(function (){
-                 console.log("Loaded");
-             },function (err){
-                 console.log(err);
-             });
-             console.log("Start loading");
-             
+
+        form.btnSearch.onActionPerformed = function () {
+            model.userProfiles.params.userName = '%' + form.txtSearch.text + '%';
+            model.requery(function () {
+                console.log("Loaded");
+            }, function (err) {
+                console.log(err);
+            });
+            console.log("Start loading");
+
         };
 
 
-        form.modelGrid.onMouseClicked = function (event) {
-            if (event.clickCount > 1) {
-                require('UserProfile', function (UserProfile) {
-                    var userView = new UserProfile(model);
-                    userView.showModal();
-                });
-            }
-        };
+//        form.modelGrid.onMouseClicked = function (event) {
+//            if (event.clickCount > 1) {
+//                require('UserProfile', function (UserProfile) {
+//                    var userView = new UserProfile(model);
+//                    userView.showModal();
+//                });
+//            }
+//        };
 
 
     }

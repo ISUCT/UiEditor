@@ -1,24 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?><layout title="" view="view">
-  <AnchorsPane background="#ffffff" cursor="0" name="view" prefHeight="300px" prefWidth="400px"/>
-  <ModelGrid cursor="0" data="userProfiles" name="modelGrid" parent="view" prefHeight="210px" prefWidth="380px">
-    <AnchorsPaneConstraints height="210px" left="10px" top="40px" width="380px"/>
+  <AnchorsPane background="#ffffff" cursor="0" name="view" prefHeight="300px" prefWidth="614px"/>
+  <ModelGrid cursor="0" data="profiles" name="modelGrid" parent="view" prefHeight="210px" prefWidth="590px">
+    <AnchorsPaneConstraints bottom="50px" left="10px" right="14px" top="40px"/>
     <ServiceGridColumn name="colService" resizable="true"/>
-    <ModelGridColumn editor="com.eas.client.forms.components.model.ModelSpin[,22,0,74x29,invalid,layout=java.awt.BorderLayout,alignmentX=0.0,alignmentY=0.0,border=javax.swing.border.LineBorder@23ed592f,flags=16777481,maximumSize=,minimumSize=,preferredSize=]" field="userprofile_id" name="colUserprofile_id" title="colUserprofile_id" view="com.eas.client.forms.components.model.ModelSpin[,-74,-29,0x0,invalid,layout=java.awt.BorderLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=16777225,maximumSize=,minimumSize=,preferredSize=]" width="75px">
-      <ModelSpin max="1.7976931348623157E308" min="-1.7976931348623157E308"/>
-    </ModelGridColumn>
-    <ModelGridColumn editor="com.eas.client.forms.components.model.ModelFormattedField[,97,0,74x29,invalid,layout=java.awt.BorderLayout,alignmentX=0.0,alignmentY=0.0,border=javax.swing.border.LineBorder@1b13f322,flags=16777481,maximumSize=,minimumSize=,preferredSize=]" field="surname" name="colSurname" title="colSurname" view="com.eas.client.forms.components.model.ModelFormattedField[,-74,-29,0x0,invalid,layout=java.awt.BorderLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=16777225,maximumSize=,minimumSize=,preferredSize=]" width="75px">
+    <ModelGridColumn editor="com.eas.client.forms.components.model.ModelFormattedField[,0,0,0x0,invalid,layout=java.awt.BorderLayout,alignmentX=0.0,alignmentY=0.0,border=javax.swing.border.LineBorder@39f0bdb4,flags=16777225,maximumSize=,minimumSize=,preferredSize=]" field="email" name="colEmail" title="colEmail" view="com.eas.client.forms.components.model.ModelFormattedField[,-91,-29,0x0,invalid,layout=java.awt.BorderLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=16777225,maximumSize=,minimumSize=,preferredSize=]" width="92px">
       <ModelFormattedField format=""/>
     </ModelGridColumn>
-    <ModelGridColumn editor="com.eas.client.forms.components.model.ModelFormattedField[,0,0,0x0,invalid,layout=java.awt.BorderLayout,alignmentX=0.0,alignmentY=0.0,border=javax.swing.border.LineBorder@7fb96328,flags=16777225,maximumSize=,minimumSize=,preferredSize=]" field="name" name="colName" title="colName" view="com.eas.client.forms.components.model.ModelFormattedField[,-74,-29,0x0,invalid,layout=java.awt.BorderLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=16777225,maximumSize=,minimumSize=,preferredSize=]" width="75px">
+    <ModelGridColumn editor="com.eas.client.forms.components.model.ModelFormattedField[,0,0,0x0,invalid,layout=java.awt.BorderLayout,alignmentX=0.0,alignmentY=0.0,border=javax.swing.border.LineBorder@7819e4b7,flags=16777225,maximumSize=,minimumSize=,preferredSize=]" field="surname" name="colSurname" title="colSurname" view="com.eas.client.forms.components.model.ModelFormattedField[,-90,-29,0x0,invalid,layout=java.awt.BorderLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=16777225,maximumSize=,minimumSize=,preferredSize=]" width="91px">
       <ModelFormattedField format=""/>
     </ModelGridColumn>
-    <ModelGridColumn editor="com.eas.client.forms.components.model.ModelFormattedField[,0,0,0x0,invalid,layout=java.awt.BorderLayout,alignmentX=0.0,alignmentY=0.0,border=javax.swing.border.LineBorder@64ed0166,flags=16777225,maximumSize=,minimumSize=,preferredSize=]" field="middlename" name="colMiddlename" title="colMiddlename" view="com.eas.client.forms.components.model.ModelFormattedField[,-74,-29,0x0,invalid,layout=java.awt.BorderLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=16777225,maximumSize=,minimumSize=,preferredSize=]" width="75px">
+    <ModelGridColumn editor="com.eas.client.forms.components.model.ModelFormattedField[,0,0,0x0,invalid,layout=java.awt.BorderLayout,alignmentX=0.0,alignmentY=0.0,border=javax.swing.border.LineBorder@35e32ffe,flags=16777225,maximumSize=,minimumSize=,preferredSize=]" field="name" name="colName" title="colName" view="com.eas.client.forms.components.model.ModelFormattedField[,-91,-29,0x0,invalid,layout=java.awt.BorderLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=16777225,maximumSize=,minimumSize=,preferredSize=]" width="92px">
       <ModelFormattedField format=""/>
     </ModelGridColumn>
-    <ModelGridColumn editor="com.eas.client.forms.components.model.ModelFormattedField[,0,0,0x0,invalid,layout=java.awt.BorderLayout,alignmentX=0.0,alignmentY=0.0,border=javax.swing.border.LineBorder@2d0018f5,flags=16777225,maximumSize=,minimumSize=,preferredSize=]" field="email" name="colEmail" title="colEmail" view="com.eas.client.forms.components.model.ModelFormattedField[,-74,-29,0x0,invalid,layout=java.awt.BorderLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=16777225,maximumSize=,minimumSize=,preferredSize=]" width="75px">
+    <ModelGridColumn editor="com.eas.client.forms.components.model.ModelFormattedField[,0,0,0x0,invalid,layout=java.awt.BorderLayout,alignmentX=0.0,alignmentY=0.0,border=javax.swing.border.LineBorder@3bc6126f,flags=16777225,maximumSize=,minimumSize=,preferredSize=]" field="middlename" name="colMiddlename" title="colMiddlename" view="com.eas.client.forms.components.model.ModelFormattedField[,-90,-29,0x0,invalid,layout=java.awt.BorderLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=16777225,maximumSize=,minimumSize=,preferredSize=]" width="91px">
       <ModelFormattedField format=""/>
     </ModelGridColumn>
-    <ModelGridColumn editor="com.eas.client.forms.components.model.ModelSpin[,0,0,0x0,invalid,layout=java.awt.BorderLayout,alignmentX=0.0,alignmentY=0.0,border=javax.swing.border.LineBorder@298e7494,flags=16777225,maximumSize=,minimumSize=,preferredSize=]" field="age" name="colAge" title="colAge" view="com.eas.client.forms.components.model.ModelSpin[,0,0,0x0,invalid,layout=java.awt.BorderLayout,alignmentX=0.0,alignmentY=0.0,border=javax.swing.border.LineBorder@1d9af2ae,flags=16777225,maximumSize=,minimumSize=,preferredSize=]" width="75px">
+    <ModelGridColumn editor="com.eas.client.forms.components.model.ModelFormattedField[,0,0,0x0,invalid,layout=java.awt.BorderLayout,alignmentX=0.0,alignmentY=0.0,border=javax.swing.border.LineBorder@7e705be,flags=16777225,maximumSize=,minimumSize=,preferredSize=]" field="username" name="colUsername" title="colUsername" view="com.eas.client.forms.components.model.ModelFormattedField[,-91,-29,0x0,invalid,layout=java.awt.BorderLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=16777225,maximumSize=,minimumSize=,preferredSize=]" width="92px">
+      <ModelFormattedField format=""/>
+    </ModelGridColumn>
+    <ModelGridColumn editor="com.eas.client.forms.components.model.ModelSpin[,0,0,0x0,invalid,layout=java.awt.BorderLayout,alignmentX=0.0,alignmentY=0.0,border=javax.swing.border.LineBorder@306c75a9,flags=16777225,maximumSize=,minimumSize=,preferredSize=]" field="age" name="colAge" title="colAge" view="com.eas.client.forms.components.model.ModelSpin[,-90,-29,0x0,invalid,layout=java.awt.BorderLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=16777225,maximumSize=,minimumSize=,preferredSize=]" width="91px">
       <ModelSpin max="1.7976931348623157E308" min="-1.7976931348623157E308"/>
     </ModelGridColumn>
   </ModelGrid>
@@ -32,9 +32,9 @@
     <AnchorsPaneConstraints bottom="10px" height="30px" right="10px" width="100px"/>
   </Button>
   <Button cursor="0" name="btnSearch" parent="view" prefHeight="30px" prefWidth="100px" text="Поиск">
-    <AnchorsPaneConstraints height="30px" right="130px" top="10px" width="100px"/>
+    <AnchorsPaneConstraints height="30px" right="214px" top="3px" width="100px"/>
   </Button>
-  <TextField cursor="0" name="txtSearch" parent="view" prefHeight="27px" prefWidth="110px">
-    <AnchorsPaneConstraints height="27px" right="10px" top="10px" width="110px"/>
+  <TextField cursor="0" name="txtSearch" parent="view" prefHeight="27px" prefWidth="190px">
+    <AnchorsPaneConstraints height="27px" right="14px" top="5px" width="190px"/>
   </TextField>
 </layout>

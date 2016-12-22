@@ -22,6 +22,19 @@ define('Editor', ['orm', 'forms', 'ui', 'resource', 'invoke', 'forms/box-pane',
                         templ.show();
                     });
                 };
+
+                form.lblAbout.cursor = 'pointer';
+                form.lblManual.cursor = 'pointer';
+
+
+                form.lblAbout.onMousePressed = function () {
+                    console.log("About");
+                };
+
+                form.lblManual.onMousePressed = function () {
+                    console.log("Manual");
+                };
+
                 /*
                  var svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
                  svg.setAttribute('width', form.pnlCanvas.width);
@@ -86,7 +99,7 @@ define('Editor', ['orm', 'forms', 'ui', 'resource', 'invoke', 'forms/box-pane',
                 };
 
                 model.requery(function () {
-                    var templatesPanel = new BoxPane(Ui.Orientation.VERTICAL)
+                    var templatesPanel = new BoxPane(Ui.Orientation.VERTICAL);
                     form.scrollTemplate.add(templatesPanel);
                     for (var i in model.getTemplates) {
                         var demoContainer = new BorderPane();
@@ -125,9 +138,21 @@ define('Editor', ['orm', 'forms', 'ui', 'resource', 'invoke', 'forms/box-pane',
                             this.append(f);
                         }, snap);
                     }
-
-
                 });
+
+                function handleSvgData(data, error) {
+                    if (error) {
+                        alert('error ' + error);
+                    } else {
+                        alert('Congratulations. Your SVG string is back in the host page, do with it what you will\n\n' + data);
+                    }
+                }
+
+                function saveSvg() {
+                    svgCanvas.getSvgString()(handleSvgData);
+                }
+
+
 
 
 //                form.btnAddTemplate.onActionPerformed = function () {

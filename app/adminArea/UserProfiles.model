@@ -1,3 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?><datamodel>
-  <entity Name="userProfiles" Title="" entityHeight="200" entityIconified="false" entityId="147997379731200" entityLocationX="209" entityLocationY="13" entityWidth="150" queryId="userProfiles" tableName="" tableSchemaName=""/>
+  <entity Name="users" Title="" entityHeight="200" entityIconified="false" entityId="148236979598800" entityLocationX="333" entityLocationY="40" entityWidth="150" queryId="users" tableName="" tableSchemaName=""/>
+  <entity Name="profiles" Title="" entityHeight="200" entityIconified="false" entityId="148236984290600" entityLocationX="103" entityLocationY="46" entityWidth="150" queryId="profiles" tableName="" tableSchemaName=""/>
+  <referenceRelation leftEntityFieldName="username" leftEntityId="148236984290600" rightEntityFieldName="usr_name" rightEntityId="148236979598800"/>
 </datamodel>

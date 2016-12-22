@@ -4,6 +4,6 @@
     <AnchorsPaneConstraints height="30px" left="10px" right="15px" top="10px"/>
   </Button>
   <Button cursor="0" name="btnTemplates" parent="view" prefHeight="30px" prefWidth="240px" text="Шаблоны и формы">
-    <AnchorsPaneConstraints height="30px" left="10px" top="50px" width="240px"/>
+    <AnchorsPaneConstraints height="30px" left="10px" top="90px" width="240px"/>
   </Button>
 </layout>

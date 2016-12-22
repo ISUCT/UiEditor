@@ -1,8 +1,8 @@
 /**
  *
  * @author jskonst
- * @name groups
+ * @name profiles
  * @public 
  */ 
 Select * 
-From MTD_GROUPS t1
+From userprofile t1

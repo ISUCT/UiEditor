@@ -5,4 +5,4 @@
  * @public 
  */ 
 Select * 
-From mtd_users t1
+From MTD_USERS t1
