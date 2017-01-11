@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?><layout title="Регистрация" view="view">
+  <AnchorsPane background="#ffffff" cursor="0" name="view" prefHeight="350px" prefWidth="800px"/>
+  <FormattedField cursor="0" format="" name="ffEmail" parent="view" prefHeight="27px" prefWidth="200px">
+    <AnchorsPaneConstraints bottom="63px" height="27px" left="110px" width="200px"/>
+  </FormattedField>
+  <Label cursor="0" name="label" parent="view" prefHeight="30px" prefWidth="90px" text="E-mail">
+    <AnchorsPaneConstraints bottom="60px" height="30px" left="10px" width="90px"/>
+  </Label>
+  <Button cursor="0" name="btnSubmit" parent="view" prefHeight="30px" prefWidth="160px" text="Зарегистрировать">
+    <AnchorsPaneConstraints bottom="8px" height="30px" left="180px" width="160px"/>
+  </Button>
+  <TextField cursor="0" name="txtUserName" parent="view" prefHeight="30px" prefWidth="320px">
+    <AnchorsPaneConstraints height="30px" left="290px" right="190px" top="10px"/>
+  </TextField>
+  <PasswordField cursor="0" name="pwdRepeat" parent="view" prefHeight="30px" prefWidth="320px">
+    <AnchorsPaneConstraints height="30px" left="290px" right="190px" top="50px"/>
+  </PasswordField>
+  <PasswordField cursor="0" name="pwdOne" parent="view" prefHeight="30px" prefWidth="320px">
+    <AnchorsPaneConstraints height="30px" left="290px" right="190px" top="90px"/>
+  </PasswordField>
+</layout>

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?><layout title="" view="view">
   <AnchorsPane background="#ffffff" cursor="0" name="view" prefHeight="344px" prefWidth="637px"/>
-  <HtmlArea name="htmlArea" parent="view" prefHeight="290px" prefWidth="620px" text="htmlArea">
-    <AnchorsPaneConstraints bottom="44px" left="10px" right="7px" top="10px"/>
-  </HtmlArea>
   <Button cursor="0" name="btnSave" parent="view" prefHeight="30px" prefWidth="100px" text="Сохранить">
     <AnchorsPaneConstraints bottom="4px" height="30px" right="7px" width="100px"/>
   </Button>
+  <BorderPane background="#ffffff" cursor="0" name="panel" parent="view" prefHeight="290px" prefWidth="620px">
+    <AnchorsPaneConstraints bottom="44px" left="10px" right="7px" top="10px"/>
+  </BorderPane>
 </layout>

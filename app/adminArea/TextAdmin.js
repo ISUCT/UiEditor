@@ -18,17 +18,34 @@ define('TextAdmin', ['orm', 'forms', 'ui'], function (Orm, Forms, Ui, ModuleName
             // TODO : place your code here
         });
 
-        form.btnSave.onActionPerformed = function () {
+        function save() {
             model.save();
-        };
+        }
+
+        form.btnSave.onActionPerformed = save;
 
         form.btnDelete.onActionPerformed = function () {
             if (confirm("Удалить?")) {
                 model.texts.remove(form.modelGrid.selected);
             }
         };
+
         form.btnAdd.onActionPerformed = function () {
-                model.texts.push({});
+            model.texts.push({});
+        };
+
+        form.btnEdit.onActionPerformed = function () {
+            require('TextEditor', function (TextEditor) {
+                var textEdit = new TextEditor(model.texts.cursor, save);
+                textEdit.show();
+            });
+        };
+
+        form.btnPreview.onActionPerformed = function () {
+            require('TextView', function (TextView) {
+                var txtView = new TextView(model.texts.cursor);
+                txtView.show();
+            });
         };
 
 

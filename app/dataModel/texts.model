@@ -1,4 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?><datamodel>
+  <parameters>
+    <parameter description="" name="fldName" nullable="true" parameterMode="1" selectionForm="null" type="String"/>
+  </parameters>
   <parametersEntity entityHeight="200" entityIconified="false" entityLocationX="8" entityLocationY="7" entityWidth="150"/>
   <entity Title="" entityHeight="200" entityIconified="false" entityId="148239582288800" entityLocationX="190" entityLocationY="7" entityWidth="150" tableAlias="t1" tableName="text_edit" tableSchemaName=""/>
+  <relation leftEntityId="-1" leftEntityParameterName="fldName" rightEntityFieldName="itmname" rightEntityId="148239582288800"/>
 </datamodel>

@@ -3,19 +3,21 @@
  * @author jskonst
  */
 define('Editor', ['orm', 'forms', 'ui', 'resource', 'invoke', 'forms/box-pane',
-    'security', 'forms/border-pane']
+    'security', 'forms/border-pane', 'TextView']
         , function (Orm, Forms, Ui, Resource, Invoke,
-                BoxPane, Security, BorderPane, ModuleName) {
+                BoxPane, Security, BorderPane, TextView, ModuleName) {
             function module_constructor() {
                 var self = this
                         , model = Orm.loadModel(ModuleName)
                         , form = Forms.loadForm(ModuleName, model);
 
                 Security.principal(function (user) {
+                    form.lblName.text = user.name;
                     if (user.hasRole("admin")) {
                         form.btnAdmin.visible = true;
                     }
                 });
+                
                 form.btnAdmin.onActionPerformed = function () {
                     require('AdminForm', function (AdminForm) {
                         var templ = new AdminForm();
@@ -25,14 +27,23 @@ define('Editor', ['orm', 'forms', 'ui', 'resource', 'invoke', 'forms/box-pane',
 
                 form.lblAbout.cursor = 'pointer';
                 form.lblManual.cursor = 'pointer';
+                form.lblName.cursor = 'pointer';
+                form.lblWorks.cursor = 'pointer';
 
-
-                form.lblAbout.onMousePressed = function () {
-                    console.log("About");
+                form.lblAbout.onMousePressed = function (event) {
+                    model.texts.params.fldName = event.source.text;
+                    model.texts.requery(function () {
+                        var txtView = new TextView(model.texts[0]);
+                        txtView.show();
+                    });
                 };
 
-                form.lblManual.onMousePressed = function () {
-                    console.log("Manual");
+                form.lblManual.onMousePressed = function (event) {
+                    model.texts.params.fldName = event.source.text;
+                    model.texts.requery(function () {
+                        var txtView = new TextView(model.texts[0]);
+                        txtView.show();
+                    });
                 };
 
                 /*

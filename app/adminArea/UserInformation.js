@@ -7,18 +7,20 @@ define('UserInformation', ['orm', 'forms', 'ui'], function (Orm, Forms, Ui, Modu
         var self = this
                 , model = Orm.loadModel(ModuleName)
                 , form = Forms.loadForm(ModuleName, model);
-        
+
         self.show = function () {
             form.show();
         };
-        
-        // TODO : place your code here
-        
+
+        self.showOnPanel = function (aPanel) {
+            aPanel.add(form.view);
+        };
+
         model.requery(function () {
             // TODO : place your code here
         });
-        
-        form.btnOK.onActionPerformed = function() {
+
+        form.btnOK.onActionPerformed = function () {
             model.save();
         }
     }

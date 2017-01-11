@@ -2,27 +2,28 @@
  * 
  * @author jskonst
  */
-define('TextEditor', ['orm', 'forms', 'ui'], function (Orm, Forms, Ui, ModuleName) {
-    function module_constructor() {
+define('TextEditor', ['forms', 'ui','forms/html-area'], function (Forms, Ui,HtmlArea, ModuleName) {
+    function module_constructor(item,save) {
         var self = this
-                , model = Orm.loadModel(ModuleName)
-                , form = Forms.loadForm(ModuleName, model);
+                , form = Forms.loadForm(ModuleName);
 
         self.show = function () {
             form.show();
         };
-
+        var htmlArea;
+        form.title = item.itmname;
+        if (item.text){             
+           htmlArea = new HtmlArea(item.text);
+        }else{
+            htmlArea = new HtmlArea();
+            htmlArea.value = "";
+        }
+        form.panel.add(htmlArea);
         // TODO : place your code here
-
-        model.requery(function () {
-            // TODO : place your code here
-        });
-
         form.btnSave.onActionPerformed = function () {
-            require('TextView', function (TextView) {
-                var templ = new TextView(form.htmlArea.value);
-                templ.show();
-            });
+            item.text = htmlArea.value;
+            save();
+            form.close();
         };
 
     }

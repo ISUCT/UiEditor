@@ -1,22 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?><layout title="" view="view">
-  <AnchorsPane background="#ffffff" cursor="0" name="view" prefHeight="310px" prefWidth="400px"/>
-  <ModelGrid cursor="0" data="texts" name="modelGrid" parent="view" prefHeight="250px" prefWidth="380px">
-    <AnchorsPaneConstraints bottom="50px" left="10px" right="10px" top="10px"/>
-    <ServiceGridColumn name="colService"/>
-    <ModelGridColumn field="itmbind" name="colItmbind" title="colItmbind" width="170px">
-      <ModelFormattedField/>
-    </ModelGridColumn>
-    <ModelGridColumn field="itmname" name="colItmname" title="colItmname" width="169px">
-      <ModelFormattedField/>
+  <AnchorsPane background="#ffffff" cursor="0" name="view" prefHeight="310px" prefWidth="465px"/>
+  <ModelGrid cursor="0" data="texts" editable="false" name="modelGrid" parent="view" prefHeight="250px" prefWidth="302px">
+    <AnchorsPaneConstraints bottom="50px" left="10px" right="153px" top="10px"/>
+    <ServiceGridColumn name="colService" resizable="true"/>
+    <ModelGridColumn editor="com.eas.client.forms.components.model.ModelFormattedField[,0,0,0x0,invalid,layout=java.awt.BorderLayout,alignmentX=0.0,alignmentY=0.0,border=javax.swing.border.LineBorder@4d1fd4cf,flags=16777225,maximumSize=,minimumSize=,preferredSize=]" field="itmname" name="colItmname" title="colItmname" view="com.eas.client.forms.components.model.ModelFormattedField[,-260,-29,0x0,invalid,layout=java.awt.BorderLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=16777225,maximumSize=,minimumSize=,preferredSize=]" width="261px">
+      <ModelFormattedField format=""/>
     </ModelGridColumn>
   </ModelGrid>
   <Button cursor="0" name="btnDelete" parent="view" prefHeight="30px" prefWidth="100px" text="Удалить">
-    <AnchorsPaneConstraints bottom="10px" height="30px" left="90px" width="100px"/>
+    <AnchorsPaneConstraints bottom="10px" height="30px" right="210px" width="100px"/>
   </Button>
   <Button cursor="0" name="btnAdd" parent="view" prefHeight="30px" prefWidth="100px" text="Добавить">
-    <AnchorsPaneConstraints bottom="10px" height="30px" left="190px" width="100px"/>
+    <AnchorsPaneConstraints bottom="10px" height="30px" right="110px" width="100px"/>
   </Button>
   <Button cursor="0" name="btnSave" parent="view" prefHeight="30px" prefWidth="100px" text="Сохранить">
     <AnchorsPaneConstraints bottom="10px" height="30px" right="10px" width="100px"/>
+  </Button>
+  <Button cursor="0" name="btnEdit" parent="view" prefHeight="30px" prefWidth="138px" text="Редактировать">
+    <AnchorsPaneConstraints height="30px" right="7px" top="10px" width="138px"/>
+  </Button>
+  <Button cursor="0" name="btnPreview" parent="view" prefHeight="30px" prefWidth="138px" text="Предпросмотр">
+    <AnchorsPaneConstraints height="30px" right="7px" top="50px" width="138px"/>
   </Button>
 </layout>
