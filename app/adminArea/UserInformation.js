@@ -12,6 +12,8 @@ define('UserInformation', ['orm', 'forms', 'ui'], function (Orm, Forms, Ui, Modu
             form.show();
         };
 
+        var user;
+
         self.showOnPanel = function (aPanel) {
             aPanel.add(form.view);
         };
@@ -20,9 +22,34 @@ define('UserInformation', ['orm', 'forms', 'ui'], function (Orm, Forms, Ui, Modu
             // TODO : place your code here
         });
 
-        form.btnOK.onActionPerformed = function () {
-            model.save();
+
+        self.init = function () {
+            form.edFirstName.data = owner;
+            form.edLastName.data = owner;
+            form.edAddress.data = owner;
+            form.edCity.data = owner;
+            form.edPhone.data = owner;
+            form.edEmale.data = owner;
+
+            form.showModal();
+        };
+
+        function validateProfile() {
+            var message = "";
+            if (!user.email) {
+                message += "\n";
+            }
+            if (!user.surname) {
+                message += "Фамилия является обязательным полем.\n";
+            }
+            if (!user.name) {
+                message += "Имя является обязательным полем.\n";
+            }
+            return message;
         }
+
+
+
     }
     return module_constructor;
 });
