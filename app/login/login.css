@@ -198,16 +198,25 @@ a, input, textarea, select {
 
 .registration{
     width: 156px;
-    position: relative;
-    top: -30px;
-    left: 100px;
+    float: left;
+    top: 0px;
+
+}
+.menu{
+  
+    display: inline-block;
+    margin: 0 auto;
+    margin-top: 10px;
+
 }
 
+.menu a{
+    margin: 2px;
+}
 .come_in{
     width: 44px;
-    position: relative;
-    left: 275px;
-    top: -60px;}
+    float: right;
+    top: 0px;}
 
 .list-block .item-inner:after {
     content: '';
