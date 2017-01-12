@@ -3,7 +3,7 @@
  * @author h
  */
 define('UserInformation', ['orm', 'forms', 'ui'], function (Orm, Forms, Ui, ModuleName) {
-    function module_constructor() {
+    function module_constructor(userInfo) {
         var self = this
                 , model = Orm.loadModel(ModuleName)
                 , form = Forms.loadForm(ModuleName, model);
@@ -12,32 +12,69 @@ define('UserInformation', ['orm', 'forms', 'ui'], function (Orm, Forms, Ui, Modu
             form.show();
         };
 
-        var user;
-
-        self.showOnPanel = function (aPanel) {
-            aPanel.add(form.view);
+        var user = {
+            email: ''
+            , surname: ''
+            , name: ''
+            , middlename: ''
+            , username: ''
+            , birthdate: ''
+            , address: ''
         };
 
-        model.requery(function () {
-            // TODO : place your code here
-        });
+        function init() {
+            form.mdlEmail.value = user.email;
+            form.mdlSurname.data = user;
+            form.mdlName.data = user;
+            form.mdlMiddleName.data = user;
+            form.modelDate.data = user;
+            form.mdlAddress.data = user;
 
+            form.mdlSurname.field = 'surname';
+            form.mdlName.field = 'name';
+            form.mdlMiddleName.field = 'middlename';
+            form.modelDate.field = 'birthdate';
+            form.mdlAddress.field = 'address';
+        }
 
-        self.init = function () {
-            form.edFirstName.data = owner;
-            form.edLastName.data = owner;
-            form.edAddress.data = owner;
-            form.edCity.data = owner;
-            form.edPhone.data = owner;
-            form.edEmale.data = owner;
+        if (userInfo) {
+            user = userInfo;
+        }
+        init();
 
-            form.showModal();
+        function onParseEmail(event) {
+            console.log(form);
+            console.log(user);
+            var value = event.source.text;
+            var re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+            if (re.test(value)) {
+                event.source.background = null;
+                event.source.toolTipText = '';
+                return value;
+            } else {
+                event.source.background = Ui.Color.PINK;
+                event.source.toolTipText = "Введите корректный E-mail адрес";
+                return null;
+            }
+        }
+
+        function onFormatEmail(event) {
+            return event.source.value !== null ? event.source.value : event.source.text;
+        }
+
+        form.mdlEmail.format = '';
+        form.mdlEmail.onParse = onParseEmail;
+        form.mdlEmail.onFormat = onFormatEmail;
+
+        form.mdlEmail.onValueChange = function () {
+            user.email = form.mdlEmail.value;
         };
+
 
         function validateProfile() {
             var message = "";
             if (!user.email) {
-                message += "\n";
+                message += "Введите корректный E-mail адрес\n";
             }
             if (!user.surname) {
                 message += "Фамилия является обязательным полем.\n";
@@ -45,10 +82,24 @@ define('UserInformation', ['orm', 'forms', 'ui'], function (Orm, Forms, Ui, Modu
             if (!user.name) {
                 message += "Имя является обязательным полем.\n";
             }
+            if (!user.birthdate) {
+                message += "Введите корректную дату рождения.\n";
+            }
             return message;
         }
 
+        self.getUserInfo = function () {
+            var msg = validateProfile();
+            if (msg){
+                return null;
+            }else{
+                return user;
+            }
+        };
 
+        self.showOnPanel = function (aPanel) {
+            aPanel.add(form.view);
+        };
 
     }
     return module_constructor;

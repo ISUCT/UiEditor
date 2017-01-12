@@ -1,16 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?><layout title="" view="view">
   <AnchorsPane background="#ffffff" cursor="0" name="view" prefHeight="254px" prefWidth="402px"/>
-  <ModelFormattedField cursor="0" format="" name="mdlSurname" parent="view" prefHeight="30px" prefWidth="310px">
-    <AnchorsPaneConstraints height="30px" left="80px" right="12px" top="50px"/>
+  <ModelFormattedField cursor="0" format="" name="mdlSurname" parent="view" prefHeight="30px" prefWidth="280px">
+    <AnchorsPaneConstraints height="30px" left="110px" right="12px" top="50px"/>
   </ModelFormattedField>
-  <ModelFormattedField cursor="0" format="" name="mdlName" parent="view" prefHeight="30px" prefWidth="310px">
-    <AnchorsPaneConstraints height="30px" left="80px" right="12px" top="90px"/>
+  <ModelFormattedField cursor="0" format="" name="mdlName" parent="view" prefHeight="30px" prefWidth="280px">
+    <AnchorsPaneConstraints height="30px" left="110px" right="12px" top="90px"/>
   </ModelFormattedField>
-  <ModelFormattedField cursor="0" format="" name="mdlMiddleName" parent="view" prefHeight="30px" prefWidth="310px">
-    <AnchorsPaneConstraints height="30px" left="80px" right="12px" top="130px"/>
-  </ModelFormattedField>
-  <ModelFormattedField cursor="0" format="" name="mdlEmail" parent="view" prefHeight="30px" prefWidth="310px">
-    <AnchorsPaneConstraints height="30px" left="80px" right="12px" top="10px"/>
+  <ModelFormattedField cursor="0" format="" name="mdlMiddleName" parent="view" prefHeight="30px" prefWidth="280px">
+    <AnchorsPaneConstraints height="30px" left="110px" right="12px" top="130px"/>
   </ModelFormattedField>
   <Label cursor="0" name="label" parent="view" prefHeight="30px" prefWidth="50px" text="Отчество">
     <AnchorsPaneConstraints height="30px" left="10px" top="130px" width="50px"/>
@@ -24,19 +21,22 @@
   <Label cursor="0" name="label2" parent="view" prefHeight="30px" prefWidth="50px" text="Имя*">
     <AnchorsPaneConstraints height="30px" left="10px" top="90px" width="50px"/>
   </Label>
-  <ModelDate cursor="0" format="MMMM dd yyyy" name="modelDate" parent="view" prefHeight="30px" prefWidth="310px" timePicker="false">
-    <AnchorsPaneConstraints height="30px" left="80px" right="12px" top="170px"/>
+  <ModelDate cursor="0" format="MMMM dd yyyy" name="modelDate" parent="view" prefHeight="30px" prefWidth="280px" timePicker="false">
+    <AnchorsPaneConstraints height="30px" left="110px" right="12px" top="170px"/>
   </ModelDate>
   <Label cursor="0" name="label3" parent="view" prefHeight="20px" prefWidth="40px" text="Дата  ">
     <AnchorsPaneConstraints height="20px" left="10px" top="170px" width="40px"/>
   </Label>
-  <Label cursor="0" name="label31" parent="view" prefHeight="20px" prefWidth="60px" text="рождения">
+  <Label cursor="0" name="label31" parent="view" prefHeight="20px" prefWidth="60px" text="рождения*">
     <AnchorsPaneConstraints height="20px" left="10px" top="183px" width="60px"/>
   </Label>
-  <ModelFormattedField cursor="0" format="" name="mdlAddress" parent="view" prefHeight="30px" prefWidth="310px">
-    <AnchorsPaneConstraints height="30px" left="80px" right="12px" top="210px"/>
+  <ModelFormattedField cursor="0" format="" name="mdlAddress" parent="view" prefHeight="30px" prefWidth="280px">
+    <AnchorsPaneConstraints height="30px" left="110px" right="12px" top="210px"/>
   </ModelFormattedField>
   <Label cursor="0" name="label4" parent="view" prefHeight="30px" prefWidth="50px" text="Адрес">
     <AnchorsPaneConstraints height="30px" left="10px" top="210px" width="50px"/>
   </Label>
+  <FormattedField cursor="0" format="" name="mdlEmail" parent="view" prefHeight="30px" prefWidth="280px">
+    <AnchorsPaneConstraints height="30px" left="110px" right="12px" top="10px"/>
+  </FormattedField>
 </layout>
