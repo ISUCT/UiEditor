@@ -50,7 +50,7 @@
     <AnchorsPaneConstraints bottom="0px" left="0px" right="0px" top="0px"/>
   </Label>
   <BoxPane cursor="0" name="pnlCanvas" parent="view" prefHeight="499px" prefWidth="852px">
-    <AnchorsPaneConstraints height="499px" left="190px" top="60px" width="852px"/>
+    <AnchorsPaneConstraints bottom="77px" left="190px" right="9px" top="60px"/>
   </BoxPane>
   <Label cursor="0" icon="resources/uiElements/g3379.png" name="btnCreate" parent="view" prefHeight="60px" prefWidth="200px">
     <AnchorsPaneConstraints bottom="7px" height="60px" right="9px" width="200px"/>
