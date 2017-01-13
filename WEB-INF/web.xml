@@ -20,7 +20,7 @@
         <servlet-class>com.eas.server.httpservlet.PlatypusHttpServlet</servlet-class>
         <async-supported>true</async-supported>
         <multipart-config>
-            <location>C:/workspace/UiEditor/pub</location>
+	    <location>/usr/local/UiEditor/pub</location>
             <max-file-size>2097152</max-file-size>
             <max-request-size>2165824</max-request-size>
             <file-size-threshold>1048576</file-size-threshold>

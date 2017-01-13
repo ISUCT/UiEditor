@@ -1,5 +1,6 @@
 private.properties
 .DS_Store
+pub
 appCache
 reports
 *lock.*
