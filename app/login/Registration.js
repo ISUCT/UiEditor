@@ -24,32 +24,31 @@ define('Registration', ['forms', 'ui', 'invoke', 'UserInformation'],
                 var user = {
                     email: ''
                     , surname: ''
-                    , name: ''
                     , middlename: ''
                     , username: ''
                     , birthdate: ''
                     , address: ''
                 };
 
-                function isUserExist(userMail, aCallback) {
-                    var baseUrl = "http://" +
-                            window.location.host +
-                            window.location.pathname.substr(0, window.location.pathname.lastIndexOf("/"))
-                            + "/application/";
-                    var request = new XMLHttpRequest();
-                    request.open("GET", // За­прос ти­па HTTP GET
-                            (baseUrl + "customers/" + userMail), true);
-                    request.send();
-                    request.onreadystatechange = function () {
-                        if (request.readyState === request.DONE) {
-                            if (request.status == 200) {
-                                aCallback(request.responseText);
-                            } else {
-                                alert(request.statusText);
-                            }
-                        }
-                    };
-                }
+//                function isUserExist(userMail, aCallback) {
+//                    var baseUrl = "http://" +
+//                            window.location.host +
+//                            window.location.pathname.substr(0, window.location.pathname.lastIndexOf("/"))
+//                            + "/application/";
+//                    var request = new XMLHttpRequest();
+//                    request.open("GET", // За­прос ти­па HTTP GET
+//                            (baseUrl + "customers/" + userMail), true);
+//                    request.send();
+//                    request.onreadystatechange = function () {
+//                        if (request.readyState === request.DONE) {
+//                            if (request.status == 200) {
+//                                aCallback(request.responseText);
+//                            } else {
+//                                alert(request.statusText);
+//                            }
+//                        }
+//                    };
+//                }
 
 //        form.ffEmail.onValueChange = function (event) {
 //            if (form.ffEmail.value) {
@@ -97,9 +96,19 @@ define('Registration', ['forms', 'ui', 'invoke', 'UserInformation'],
                             window.location.pathname.substr(0, window.location.pathname.lastIndexOf("/"))
                             + "/application/";
                     var request = new XMLHttpRequest();
-                    if (form.txtUserName.text && validatePwd()) {
-                        user.name = form.txtUserName.text;
+
+                    var user = userInfo.getUserInfo();
+                    validatePwd();
+                    form.txtUserName.background = null;
+                    if (!form.txtUserName.text) {
+                        form.txtUserName.background = Ui.Color.PINK;
+                    }
+
+                    if (form.txtUserName.text && validatePwd() && user) {
+                        user.username = form.txtUserName.text.toLowerCase();
+                        user.password = MD5(form.pwdOne.value);
                         var body = JSON.stringify(user);
+                        
                         request.open("POST", (baseUrl + "createUsers"), true);
                         request.setRequestHeader('Content-Type', 'application/json');
 
@@ -124,7 +133,7 @@ define('Registration', ['forms', 'ui', 'invoke', 'UserInformation'],
                         };
                         request.send(body);
                     } else {
-                        alert('Check e-mail');
+                        alert('Проверьте корректность выделенных полей');
                     }
                 };
 

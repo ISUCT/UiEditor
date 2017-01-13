@@ -1,3 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?><datamodel>
-  <entity Name="qUserByName" Title="" entityHeight="200" entityIconified="false" entityId="148403701808200" entityLocationX="188" entityLocationY="93" entityWidth="150" queryId="qUserByName" tableName="" tableSchemaName=""/>
+  <entity Name="groups" Title="" entityHeight="200" entityIconified="false" entityId="148425679380000" entityLocationX="344" entityLocationY="273" entityWidth="150" queryId="groups" tableName="" tableSchemaName=""/>
+  <entity Name="qUserByName" Title="" entityHeight="200" entityIconified="false" entityId="148403701808200" entityLocationX="59" entityLocationY="47" entityWidth="150" queryId="qUserByName" tableName="" tableSchemaName=""/>
+  <entity Name="profiles" Title="" entityHeight="200" entityIconified="false" entityId="148425678531000" entityLocationX="347" entityLocationY="59" entityWidth="150" queryId="profiles" tableName="" tableSchemaName=""/>
+  <referenceRelation leftEntityFieldName="username" leftEntityId="148425678531000" rightEntityFieldName="usr_name" rightEntityId="148403701808200"/>
+  <referenceRelation leftEntityFieldName="usr_name" leftEntityId="148425679380000" rightEntityFieldName="usr_name" rightEntityId="148403701808200"/>
 </datamodel>

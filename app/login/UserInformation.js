@@ -72,27 +72,34 @@ define('UserInformation', ['orm', 'forms', 'ui'], function (Orm, Forms, Ui, Modu
 
 
         function validateProfile() {
+            form.mdlSurname.background = null;
+            form.mdlName.background = null;
+            form.modelDate.background = null;
             var message = "";
             if (!user.email) {
                 message += "Введите корректный E-mail адрес\n";
             }
             if (!user.surname) {
                 message += "Фамилия является обязательным полем.\n";
+                form.mdlSurname.background = Ui.Color.PINK;
             }
             if (!user.name) {
                 message += "Имя является обязательным полем.\n";
+                form.mdlName.background = Ui.Color.PINK;
             }
             if (!user.birthdate) {
                 message += "Введите корректную дату рождения.\n";
+                form.modelDate.background = Ui.Color.PINK;
             }
             return message;
         }
 
         self.getUserInfo = function () {
             var msg = validateProfile();
-            if (msg){
+            if (msg) {
+                alert(msg);
                 return null;
-            }else{
+            } else {
                 return user;
             }
         };

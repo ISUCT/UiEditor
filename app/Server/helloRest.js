@@ -5,7 +5,7 @@
  * @module helloRest
  * @stateless
  */
-define(['orm','http-context'], function (Orm,HttpContext, ModuleName) {
+define(['orm', 'http-context'], function (Orm, HttpContext, ModuleName) {
     return function () {
         var self = this, model = Orm.loadModel(ModuleName);
 
@@ -16,11 +16,11 @@ define(['orm','http-context'], function (Orm,HttpContext, ModuleName) {
         this.getCustomers = function (aUser, aOnSuccess) {
             model.qUserByEMail.params.email = aUser;
             model.requery(function () {
-                var user = {"userExist":false};
-                if (model.qUserByEMail.length>0){
+                var user = {"userExist": false};
+                if (model.qUserByEMail.length > 0) {
                     user.userExist = true;
                 }
-                    aOnSuccess(user);
+                aOnSuccess(user);
             });
         };
 
@@ -29,27 +29,53 @@ define(['orm','http-context'], function (Orm,HttpContext, ModuleName) {
          * @returns {RESTTest.customers}
          */
         this.createUser = function (param, aOnSuccess) {
+            var user = {
+                email: ''
+                , surname: ''
+                , middlename: ''
+                , username: ''
+                , birthdate: ''
+                , address: ''
+                , password: ''
+            };
+
             var http = new HttpContext();
-            var user = JSON.parse(http.request.body);
-            
+            user = JSON.parse(http.request.body);
+
             model.qUserByName.params.name = user.name;
             model.requery(function () {
-                user.userExist =false;
-                if (model.qUserByName.length>0){
+                user.userExist = false;
+                if (model.qUserByName.length > 0) {
                     user.userExist = true;
                     aOnSuccess(user);
-                }else{
-                    model.qUserByName.push({usr_name:user.name});
-                    model.save(function(){
-                        user.created = true;
-                        aOnSuccess(user);
-                    }, function(){
+                } else {
+                    model.qUserByName.push({usr_name: user.username
+                        , usr_passwd: user.password});
+                    model.save(function () {
+                        model.profiles.push({
+                            email: user.email
+                            , surname: user.surname
+                            , middlename: user.middlename
+                            , username: user.username
+                            , birthdate: new Date(user.birthdate)
+                            , address: user.address
+                        });
+                        model.groups.push({usr_name: user.username
+                            , group_name: "users"});
+                        model.save(function () {
+                            user.created = true;
+                            aOnSuccess(user);
+                        }, function () {
+                            user.created = false;
+                            aOnSuccess(user);
+                        })
+                    }, function () {
                         user.created = false;
                         aOnSuccess(user);
                     });
                 }
             });
-            
+
         };
 
 ///**
