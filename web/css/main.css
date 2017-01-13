@@ -1,0 +1,225 @@
+@font-face { font-family: 'Segoe UI'; src: url('webFonts/segoe_ui_semibold.eot'); src: url('webFonts/segoe_ui_semibold.eot?#iefix') format('embedded-opentype'), url('webFonts/segoe_ui_semibold.svg#Segoe UI Semibold') format('svg'), url('webFonts/segoe_ui_semibold.woff') format('woff'), url('webFonts/segoe_ui_semibold.ttf') format('truetype'); font-weight: bold; font-style: normal;}
+@font-face { font-family: 'Segoe UI'; src: url('webFonts/segoe_ui_light.eot'); src: url('webFonts/segoe_ui_light.eot?#iefix') format('embedded-opentype'), url('webFonts/segoe_ui_light.svg#Segoe UI Semibold') format('svg'), url('webFonts/segoe_ui_light.woff') format('woff'), url('webFonts/segoe_ui_light.ttf') format('truetype'); font-weight: normal; font-style: normal;}
+
+#map {
+    position: absolute;
+    top:0px;
+    bottom:0px;
+    right:0px;
+    left: 0px;
+    z-index: 2;
+    width: auto;
+}
+
+button {
+    background-attachment: scroll;
+    background-clip: border-box;
+    background-origin: padding-box;
+    background-size: auto;
+    border-style: none;
+    /*border-width: 0px;*/
+    padding-top: 2px;
+    padding-right: 6px;
+    padding-bottom: 3px;
+    padding-left: 6px;
+    border-top-width: 2px;
+    border-right-width: 2px;
+    border-bottom-width: 2px;
+    border-left-width: 2px;
+    box-shadow: rgba(0, 0, 0, 0.298039) 0px 2px 6px 0px;
+    color: white;
+    display: block;
+    -webkit-transition: all 0.1s;
+    transition: all 0.1s; 
+}
+
+button:hover {
+    background-color: rgb(77, 144, 254);
+    background-image: -webkit-linear-gradient(top, rgb(77, 144, 254), rgb(71, 135, 237));    
+}
+
+button{
+    background-color: #357ae8;
+    background-image: -webkit-linear-gradient(top, #357ae8, #2d56c5);      
+}
+
+button.darkBlue:hover {
+    background-color: rgb(34, 102, 200);
+    background-image: -webkit-linear-gradient(top, rgb(34, 102, 200), rgb(14, 73, 170));    
+}
+
+button.darkBlue {
+    background-color: rgb(31, 64, 128);
+    background-image: -webkit-linear-gradient(top, rgb(41, 80, 161), rgb(19, 61, 124));    
+}
+
+button.darkBlueInverse {
+    background-color: rgb(34, 102, 200);
+    background-image: -webkit-linear-gradient(top, rgb(34, 102, 200), rgb(14, 73, 170));    
+}
+
+button.darkBlueInverse:hover {
+    background-color: rgb(31, 64, 128);
+    background-image: -webkit-linear-gradient(top, rgb(41, 80, 161), rgb(19, 61, 124));    
+}
+
+button.whiteButton {
+    background-color: white;
+    background-image: none;
+    color: black;
+    border: solid 1px black;
+}
+
+button.whiteButton > i {
+    color: black;
+}
+
+button.whiteButton:hover {
+    background-color: #f4f4f4;
+}
+
+
+div.searchBoxMargin {
+    margin:16px 16px 16px 21px;
+    width: 357px;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    z-index: 25;
+    -webkit-transition: left 0.5s;
+    transition: left 0.5s;
+    /*border: rgba(77, 144, 254, 0) solid 1px;*/
+}
+
+#searchBox.focused {
+    margin:15px 15px 15px 20px;
+    border: rgb(77, 144, 254) solid 1px;
+}
+
+#searchBox.activated {
+    box-shadow: rgba(0, 0, 0, 0) 0px 4px 6px 0px;    
+}
+
+button.searchButton {
+    position: absolute;
+    left: 312px;
+    top: 0px;
+    vertical-align: top;
+    width: 45px;
+    height: 32px;
+}
+
+button.searchButton > i {
+    font-size: 16px;
+    margin: 0px;
+}
+
+input.searchInput {
+    background-color: #fff;
+    border: 1px solid transparent;
+    border-right: 0;
+    box-shadow: rgba(0, 0, 0, 0.298039) 0px 2px 6px 0px;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    height: 32px;
+    outline: none;
+    padding: 0 11px 0 13px;
+    width: 312px;
+    vertical-align: baseline;
+    font-size: 22px;
+    font-family: Roboto, Arial, sans-serif;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: 300;
+}
+
+div.rightBoxMargin {
+    background-color: rgba(255, 255, 255, 0);
+    margin: 13px 10px 15px 15px;
+    padding-top: 2px;
+    padding-left: 10px;
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    z-index: 15;
+    -webkit-transition: left 0.5s;
+    transition: left 0.5s;
+}
+
+div.bottom-right {
+    margin: 15px 10px 85px 15px;
+    bottom: 0px;
+    right: 0px;
+    z-index: 10;
+    position: absolute;
+}
+
+div.bottom-right > button {
+    border-color: #ccc;
+    border-radius: 4px;
+    border-width: 1px;
+    width: 26px;
+    height: 26px;
+    font-size: 15px;
+    padding-left: 5px;
+    padding-top: 3px;
+    cursor: pointer;
+    -webkit-transition: none;
+    transition: none;
+}
+
+div#mapTilesSelector {
+    position: absolute;
+    margin: 0px 40px 0px 0px;
+    padding: 10px 0px 0px 10px;
+    border: solid 1px #ccc;
+    bottom: 0px;
+    z-index: 100;
+    background-color: white;
+    -webkit-transition: all 0.3s;
+    transition: all 0.3s; 
+}
+
+div#mapTilesSelector.mtHidden {
+    right: -1000px;
+}
+
+div#mapTilesSelector.mtShown {
+    right: 0px;
+}
+
+div#topBar4Polygons {
+    -webkit-transition: top 0.3s;
+    transition: top 0.3s;    
+    position: absolute;
+    padding-right: 10px;
+    box-shadow: rgba(0, 0, 0, 0.298039) 0px 2px 6px 0px;
+    width: 230px;
+    margin-left: -115px;
+    left: 50%;
+    z-index: 100;
+    background-color: white;
+    text-align: right;
+}
+
+div#topBar4Polygons.hidden {
+    top: -50px;
+}
+
+div#topBar4Polygons.shown {
+    top: 5px;
+}
+
+div#topBar4Polygons > button {
+    display: inline;
+    font-size: large;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.wordwrap { 
+   white-space: pre-wrap !important;      /* CSS3 */   
+   white-space: -moz-pre-wrap !important; /* Firefox */   
+   white-space: -o-pre-wrap !important;   /* Opera 7 */    
+   word-wrap: break-word !important;      /* IE */
+}

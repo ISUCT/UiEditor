@@ -1,0 +1,61 @@
+#initialGlass {
+    position: absolute;
+    left: 0px;
+    right: 0px;
+    top: 0px;
+    bottom: 0px;
+    z-index: 1000;
+    -webkit-transition: all 1.5s;
+    transition: all 1.5s;
+}
+
+#initialGlass.igShown {
+    background-color: rgba(255,255,255, 0.9);  
+}
+
+#initialGlass.igHidden {
+    background-color: rgba(255,255,255, 0);
+}
+
+#initialGlass.igNone {
+    position: relative;
+}
+
+div.screenCentre {
+    position: absolute;
+    right: 50%;
+    top: 50%;
+    height: 360px;
+    margin-top: -180px;
+    width: 360px;
+    margin-right: -180px;
+}
+
+#verticalGlass {
+    z-index: 1501;
+    background-image: url('../images/logo_gray.png');
+    background-repeat: no-repeat;
+    background-position: right!important;
+    -webkit-transition: all 0.5s;
+    transition: all 0.5s;
+}
+
+#verticalGlass.hidden {
+    -webkit-transition: all 0s;
+    transition: all 0s;
+    top: 0px;
+    left: 0px;
+    width: 0px;
+    z-index: 0;
+}
+
+#logoImg {
+    background-image: url('../images/logo.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    z-index: 1500;
+    position: absolute;
+    -webkit-transition: all 1.5s;
+    transition: all 1.5s;
+}

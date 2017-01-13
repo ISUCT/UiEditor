@@ -1,0 +1,57 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 13.08.2015, 16:35:22
+    Author     : Andrew
+*/
+
+#device-tv-select{
+    margin:0px;
+    z-index: 24;
+    visibility:hidden;
+    background-color:#357AE8;
+    width: 364px;
+    position: absolute;
+    border: #fff solid;
+    border-width: 0px 2px 2px;
+}
+
+.device-tv-str{
+    background-color:#357AE8;
+    color: #fff;
+    width: 364px;
+    height: 50px;
+    cursor: pointer;
+}
+.device-tv-str:hover {
+    background-color: #458Af8;
+}
+.device-tv-str-in{
+    pointer-events:none;
+    position:absolute;
+    display:inline-block;
+}
+.device-tv-str-pic{
+    width: 48px;
+    height: 48px;
+    background-position:center;
+    background-repeat:no-repeat;
+    background-size:contain;
+    margin-left: 5px;
+}
+.device-tv-str-txt{
+    width: 302px;
+    height: 16px;
+    margin: 14px 0px 0px 58px;
+    font-size: 16px;
+    text-align:left;
+}
+.device-tv-str-space{
+    height: 2px;
+    width: 364px;
+    margin: 0px 0px 0px 0px;
+    background-color:#fff;
+}

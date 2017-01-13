@@ -1,0 +1,241 @@
+#left-panel {
+    position: absolute;
+    top: 0px;
+    bottom: 0px;
+    width: 400px;
+    -webkit-transition: all 0.3s;
+    transition: all 0.3s;
+    z-index: 15;
+    border-right: solid 1px grey;
+    box-shadow: rgba(0, 0, 0, 0.298039) 0px 2px 6px 0px;
+    background-color: white;
+}
+
+div#lp-searchBox {
+    background-color: rgb(34, 102, 200);
+    background-image: -webkit-linear-gradient(top, rgb(41, 80, 161), rgb(19, 61, 124)); 
+    position: absolute;
+    width: 396px;
+    height: 50px;
+    top: 7px;
+}
+
+div#lp-searchBox.focused {
+    background-color: #357ae8;
+    background-image: -webkit-linear-gradient(top, #357ae8, #2d56c5);      
+}
+
+#left-panel.deactivated {
+    left: -400px;
+}
+
+#left-panel.activated {
+    left: 0px;
+}
+
+div.listContainer {
+    left: 0px;
+    top: 0px;
+    bottom: 0px;
+    width: 100%;
+    margin-top: 57px;
+    padding-top: 3px;
+    position: absolute;
+    overflow-y: auto;
+    overflow-x: hidden;
+    background-color: white;
+    #background-image: url("../images/logo_.png");
+    #background-repeat: no-repeat;
+    #background-position: 50% 95%;
+}
+
+div#events-list {
+    margin-top: 60px;
+}
+
+div.fcShown {
+    visibility: visible;
+}
+
+div.fcHidden {
+    visibility: hidden;
+}
+
+div#VerticalBar {
+    position: absolute;
+    width: 100px;
+    z-index: 10;
+    -webkit-transition: all 0.3s;
+    transition: all 0.3s; 
+}
+
+#VerticalBar ul {
+    height: 100%;
+    margin: 0px 0px 0px 0px;
+    padding: 0px 0px 0px 0px;
+}
+
+#VerticalBar ul > li {
+    position:relative;
+    display:block;
+    float:left;
+    margin-right:8px;
+    white-space: nowrap;
+    -webkit-transition: all 0.3s;
+    transition: all 0.3s; 
+}
+
+#VerticalBar.deactivated {
+    top: 60px;
+    left: 20px;    
+}
+
+#VerticalBar.activated {
+    top: 7px;
+    left: 400px;    
+}
+
+li#liHide.deactivated {
+    visibility: hidden;
+    margin-bottom: 0px;
+    -webkit-transition: none;
+    transition: none;
+    -webkit-transition: none;
+}
+
+li#liHide.deactivated > button{
+    height: 0px;
+    visibility: hidden;
+    transition: none;
+    -webkit-transition: none;
+}
+
+li.deactivated {
+    margin-bottom:10px;    
+}
+
+li.activated {
+    margin-bottom:3px;    
+}
+
+button.VB {
+    position: relative;
+    text-align: center;
+    color: white;
+    overflow: visible;
+    padding-left: 0px;
+    padding-right: 0px;
+    -webkit-transition: all 0.3s;
+    transition: all 0.3s; 
+}
+
+.VB * {
+    -webkit-transition: all 0.3s;
+    transition: all 0.3s; 
+}
+
+.VB p{
+    font-family: "Segoe UI", Roboto, Arial, sans-serif;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: bold;
+    margin-top: -8px; 
+}
+
+.VB > div > p{
+    font-family: "Segoe UI", Roboto, Arial, sans-serif;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: bold;
+    margin-top: -8px; 
+}
+
+li.activated > button {
+    width: 50px;
+    height: 50px;
+}
+
+li.deactivated > button {
+    width: 85px;
+    height: 85px;
+    padding-top: 0px;
+}
+
+li.activated > button > p {
+    font-size: 11px;
+    margin-top: -5px;
+}
+
+li.deactivated > button > p {
+    font-size: large;
+}
+
+li.activated > button > i {
+    margin-left: 4px;
+    font-size: 30px;
+}
+
+li.deactivated > button > i {
+    margin-left: 6px;
+    font-size: 55px;
+}
+
+li.deactivated > button > div {
+    margin-top: -11px;
+    margin-left: -1px;
+}
+
+li.activated > button > div {
+    margin-top: -5px;
+    margin-left: -1px;
+}
+
+li.activated > button > div > p {
+    font-size: 11px;
+    margin-top: -12px;
+}
+
+li.deactivated > button > div > p {
+    font-size: large;
+    margin-top: -21px;
+}
+
+li.activated > button > div > i {
+    margin-left: 4px;
+    font-size: 40px;
+}
+
+li.deactivated > button > div > i {
+    margin-left: 4px;
+    font-size: 75px;
+}
+
+#events_count {
+    position: absolute;
+    display: block;
+    background-color: rgb(233, 95, 10);
+    color: white;
+    font-family: "Segoe UI";
+}
+
+#events_count.hidden {
+    visibility: hidden;
+}
+
+#events_count.shown {
+    visibility: visible;
+}
+
+#events_count.deactivated {
+    left: 72px;
+    top: 18px;
+    padding: 2px 8px;
+    font-size: medium;
+}
+
+#events_count.activated {
+    font-size: smaller;
+    top: 10px;
+    left: 40px;
+    padding: 2px 6px;
+}

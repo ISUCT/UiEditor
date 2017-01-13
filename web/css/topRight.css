@@ -1,0 +1,106 @@
+
+div.top-right {
+    position: absolute;
+    right: 70px;
+    top: 18px;
+    line-height: 1.5;
+    z-index: 10;
+    cursor: pointer;
+    color: rgb(64, 64, 64);
+    cursor: pointer;
+    font-family: "Segoe UI", Roboto, Arial;
+    font-weight: bold;
+    font-size: 13px;
+    font-style: normal;
+    font-variant: normal;
+    text-decoration: none;
+    text-overflow: ellipsis;
+    text-shadow: 0 1px 1px rgba(255, 255, 255, 0.9);
+    vertical-align: middle;
+    white-space: nowrap;
+}
+
+
+#logoImg.logoSmall {
+    right: 0px;
+    top: 0px;
+    margin: 15px 15px 15px 15px;
+    width: 43px;
+    height: 43px;
+}
+
+#logoImg.logoSmall:hover, #logoImg.hov {
+    background-image: url('../images/logo_light.png');
+    -webkit-transition: none;
+    transition: none;
+}
+
+.psv-activated{
+    top: 70px;
+}
+
+.psv-minimized{
+    top: -400px;
+}
+
+div#psv-header{
+    text-align: right;
+    padding: 10px 20px;
+    border-bottom: #ccc solid 1px;
+    background-color: rgb(34, 102, 200);
+    background-image: -webkit-linear-gradient(top, rgb(41, 80, 161), rgb(19, 61, 124)); 
+}
+
+#psv-header > a {
+    -webkit-font-smoothing: antialiased;
+    -webkit-transition-delay: 0s;
+    -webkit-transition-duration: 0.1s;
+    -webkit-transition-property: color;
+    -webkit-transition-timing-function: linear;
+    transition-duration: 0.1s;
+    transition-property: color;
+    transition-timing-function: linear;    
+    
+    font-family: "Segoe UI", Roboto, Arial, sans-serif;
+    text-decoration: none;
+    color: white;
+}
+
+#psv-header > a:hover {
+    font-family: "Segoe UI", Roboto, Arial, sans-serif;
+    text-decoration: underline;
+    color: white;
+}
+
+div#personalSettingsView {
+    -webkit-transition: top 0.3s;
+    transition: top 0.3s;
+    margin-right: 50px;
+    position: absolute;
+    right: 0px;
+    background: white;
+    z-index: 15;
+    overflow: hidden;
+    border: none;
+   /* border-color: #ccc;
+    border-width: 1px;
+    border-style: solid;*/
+    box-shadow: 0 2px 10px rgba(0,0,0,.2);
+}
+
+div#psv-footer{
+    padding: 10px 10px;
+    border-top: #ccc solid 1px; 
+    text-align: right;
+    background-color:rgb(228, 228, 228);
+    background-image: -webkit-linear-gradient(top, rgb(228, 228, 228), rgb(255, 255, 255)); 
+}
+
+div#psv-footer > button {
+    display: inline-block;
+    font-size: small;
+    padding: 8px 12px 8px 12px;
+    box-shadow: none;
+    font-family: "Segoe UI", Roboto, Arial;
+    font-weight: bold;
+}
