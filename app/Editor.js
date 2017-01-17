@@ -13,7 +13,7 @@ define('Editor', ['orm', 'forms', 'ui', 'resource', 'invoke', 'forms/box-pane',
                 form.btnAdmin.visible = false;
                 Security.principal(function (user) {
                     form.lblName.text = user.name;
-                    model.userProfile.params = user.name;
+                    model.userProfile.params.name = user.name;
                     model.userProfile.requery();
                     if (user.name == "admin") {
                         form.btnAdmin.visible = true;
@@ -47,7 +47,7 @@ define('Editor', ['orm', 'forms', 'ui', 'resource', 'invoke', 'forms/box-pane',
                 form.lblParthners.onMousePressed = loadText;
                 form.lblFond.onMousePressed = loadText;
 
-                form.lblName.onActionPerformed = function () {
+                form.lblName.onMousePressed = function () {
 
                     require('UserInformation', function (UserInformation) {
                         var user=null;
