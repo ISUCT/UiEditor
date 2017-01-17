@@ -13,6 +13,8 @@ define('Editor', ['orm', 'forms', 'ui', 'resource', 'invoke', 'forms/box-pane',
                 form.btnAdmin.visible = false;
                 Security.principal(function (user) {
                     form.lblName.text = user.name;
+                    model.userProfile.params = user.name;
+                    model.userProfile.requery();
                     if (user.name == "admin") {
                         form.btnAdmin.visible = true;
                     }
@@ -44,6 +46,18 @@ define('Editor', ['orm', 'forms', 'ui', 'resource', 'invoke', 'forms/box-pane',
                 form.lblStore.onMousePressed = loadText;
                 form.lblParthners.onMousePressed = loadText;
                 form.lblFond.onMousePressed = loadText;
+
+                form.lblName.onActionPerformed = function () {
+
+                    require('UserInformation', function (UserInformation) {
+                        var user=null;
+                        if (model.userProfile.length>0){
+                            user=model.userProfile[0];
+                        }
+                        var userInfo = new UserInformation(user);
+                        userInfo.show();
+                    });
+                };
                 /*
                  var svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
                  svg.setAttribute('width', form.pnlCanvas.width);
