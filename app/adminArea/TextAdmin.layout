@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?><layout title="" view="view">
   <AnchorsPane background="#ffffff" cursor="0" name="view" prefHeight="310px" prefWidth="465px"/>
-  <ModelGrid cursor="0" data="texts" editable="false" name="modelGrid" parent="view" prefHeight="250px" prefWidth="302px">
+  <ModelGrid cursor="0" data="allTexts" editable="false" name="modelGrid" parent="view" prefHeight="250px" prefWidth="302px">
     <AnchorsPaneConstraints bottom="50px" left="10px" right="153px" top="10px"/>
     <ServiceGridColumn name="colService" resizable="true"/>
-    <ModelGridColumn editor="com.eas.client.forms.components.model.ModelFormattedField[,0,0,0x0,invalid,layout=java.awt.BorderLayout,alignmentX=0.0,alignmentY=0.0,border=javax.swing.border.LineBorder@4d1fd4cf,flags=16777225,maximumSize=,minimumSize=,preferredSize=]" field="itmname" name="colItmname" title="colItmname" view="com.eas.client.forms.components.model.ModelFormattedField[,-260,-29,0x0,invalid,layout=java.awt.BorderLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=16777225,maximumSize=,minimumSize=,preferredSize=]" width="261px">
+    <ModelGridColumn editor="com.eas.client.forms.components.model.ModelFormattedField[,0,0,0x0,invalid,layout=java.awt.BorderLayout,alignmentX=0.0,alignmentY=0.0,border=javax.swing.border.LineBorder@436d7b69,flags=16777225,maximumSize=,minimumSize=,preferredSize=]" field="itmname" name="colItmname" title="colItmname" view="com.eas.client.forms.components.model.ModelFormattedField[,-260,-29,0x0,invalid,layout=java.awt.BorderLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=16777225,maximumSize=,minimumSize=,preferredSize=]" width="261px">
       <ModelFormattedField format=""/>
     </ModelGridColumn>
   </ModelGrid>
