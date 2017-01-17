@@ -10,14 +10,14 @@ define('Editor', ['orm', 'forms', 'ui', 'resource', 'invoke', 'forms/box-pane',
                 var self = this
                         , model = Orm.loadModel(ModuleName)
                         , form = Forms.loadForm(ModuleName, model);
-
+                form.btnAdmin.visible = false;
                 Security.principal(function (user) {
                     form.lblName.text = user.name;
-                    if (user.hasRole("admin")) {
+                    if (user.name == "admin") {
                         form.btnAdmin.visible = true;
                     }
                 });
-                
+
                 form.btnAdmin.onActionPerformed = function () {
                     require('AdminForm', function (AdminForm) {
                         var templ = new AdminForm();
@@ -30,22 +30,20 @@ define('Editor', ['orm', 'forms', 'ui', 'resource', 'invoke', 'forms/box-pane',
                 form.lblName.cursor = 'pointer';
                 form.lblWorks.cursor = 'pointer';
 
-                form.lblAbout.onMousePressed = function (event) {
+                function loadText(event) {
                     model.texts.params.fldName = event.source.text;
                     model.texts.requery(function () {
                         var txtView = new TextView(model.texts[0]);
                         txtView.show();
                     });
-                };
+                }
 
-                form.lblManual.onMousePressed = function (event) {
-                    model.texts.params.fldName = event.source.text;
-                    model.texts.requery(function () {
-                        var txtView = new TextView(model.texts[0]);
-                        txtView.show();
-                    });
-                };
-
+                form.lblAbout.onMousePressed = loadText;
+                form.lblManual.onMousePressed = loadText;
+                form.lblSamples.onMousePressed = loadText;
+                form.lblStore.onMousePressed = loadText;
+                form.lblParthners.onMousePressed = loadText;
+                form.lblFond.onMousePressed = loadText;
                 /*
                  var svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
                  svg.setAttribute('width', form.pnlCanvas.width);

@@ -26,7 +26,7 @@ define('TextAdmin', ['orm', 'forms', 'ui'], function (Orm, Forms, Ui, ModuleName
 
         form.btnDelete.onActionPerformed = function () {
             if (confirm("Удалить?")) {
-                model.texts.remove(form.modelGrid.selected);
+                model.allTexts.remove(form.modelGrid.selected);
             }
         };
 
@@ -36,14 +36,14 @@ define('TextAdmin', ['orm', 'forms', 'ui'], function (Orm, Forms, Ui, ModuleName
 
         form.btnEdit.onActionPerformed = function () {
             require('TextEditor', function (TextEditor) {
-                var textEdit = new TextEditor(model.texts.cursor, save);
+                var textEdit = new TextEditor(model.allTexts.cursor, save);
                 textEdit.show();
             });
         };
 
         form.btnPreview.onActionPerformed = function () {
             require('TextView', function (TextView) {
-                var txtView = new TextView(model.texts.cursor);
+                var txtView = new TextView(model.allTexts.cursor);
                 txtView.show();
             });
         };
