@@ -109,7 +109,7 @@
             });
             break;
         default:
-            throw 'Unknown application type at runtime.';
+            throw 'Unknown application type in runtime.';
     }
 }(function () {
     var module = {};
