@@ -12,8 +12,19 @@ define('Editor', ['orm', 'forms', 'ui', 'resource', 'invoke', 'forms/box-pane',
                         , form = Forms.loadForm(ModuleName, model);
                 form.btnAdmin.visible = false;
 
+                var templatesPerDay = 5;
+                var restTemplates;
                 var svgCanvas;
                 var userProfile;
+
+
+                var dateFrom = new Date();
+                dateFrom.setHours(0, 0, 0, 0);
+                var dateTo = new Date();
+                dateTo.setHours(23, 59, 59, 59);
+                model.works.params.timeFrom = dateFrom;
+                model.works.params.timeTo = dateTo;
+                model.works.params.published = true;
 
 
                 function updateProfile(name, callback) {
@@ -22,6 +33,8 @@ define('Editor', ['orm', 'forms', 'ui', 'resource', 'invoke', 'forms/box-pane',
                         if (model.userProfile.length > 0) {
                             var usrProfile = model.userProfile[0];
                             callback(usrProfile);
+                            restTemplates = templatesPerDay - model.works.length;
+                            form.lblWorks.text = restTemplates;
                         }
                         callback();
                     });
@@ -167,9 +180,11 @@ define('Editor', ['orm', 'forms', 'ui', 'resource', 'invoke', 'forms/box-pane',
                                         , 'uploaddate': new Date()
                                         , 'published': true
                                         , 'link': aUrl[0]});
-                                    model.save(function(){
+                                    model.save(function () {
                                         alert("Ваша работа успешно сохранена");
-                                    },function(){
+                                        restTemplates = templatesPerDay - model.works.length;
+                                        form.lblWorks.text = restTemplates;
+                                    }, function () {
                                         alert("Не удалось сохранить вашу работу");
                                     })
 //                                    UI.Icon.load(aUrl[0], function (uploadedFile) {
@@ -202,7 +217,11 @@ define('Editor', ['orm', 'forms', 'ui', 'resource', 'invoke', 'forms/box-pane',
                 }
 
                 form.btnCreate.onMouseClicked = function () {
-                    svgCanvas.getSvgString()(handleSvgData);
+                    if (restTemplates <= 0) {
+                        alert('Сегодня Вы больше не можете публиковать работы');
+                    } else {
+                        svgCanvas.getSvgString()(handleSvgData);
+                    }
                 };
 
             }
