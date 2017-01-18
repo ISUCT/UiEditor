@@ -64,26 +64,26 @@
     <security-constraint>
         <web-resource-collection>
             <url-pattern>/login.html</url-pattern>
-            <url-pattern>/login.html</url-pattern>
+      <url-pattern>/login-failed.html</url-pattern>
             <url-pattern>/registration.html</url-pattern>
             <url-pattern>/startReg.js</url-pattern>
             <url-pattern>/app/login/*</url-pattern>
             <url-pattern>/web/*</url-pattern>
             <url-pattern>/app/*</url-pattern>
             <url-pattern>/application/*</url-pattern>
-        </web-resource-collection>
-    </security-constraint>
-    <login-config>
-        <auth-method>FORM</auth-method>
-        <form-login-config>
-            <form-login-page>/login.html</form-login-page>
-            <form-error-page>/login-failed.html</form-error-page>
-        </form-login-config>
-    </login-config>
-    <security-role>
-        <role-name>*</role-name>
-    </security-role>
-    <welcome-file-list>
-        <welcome-file>application-start.html</welcome-file>
-    </welcome-file-list>
+    </web-resource-collection>
+  </security-constraint>
+  <login-config>
+    <auth-method>FORM</auth-method>
+    <form-login-config>
+      <form-login-page>/login.html</form-login-page>
+      <form-error-page>/login-failed.html</form-error-page>
+    </form-login-config>
+  </login-config>
+  <security-role>
+    <role-name>*</role-name>
+  </security-role>
+  <welcome-file-list>
+    <welcome-file>application-start.html</welcome-file>
+  </welcome-file-list>
 </web-app>

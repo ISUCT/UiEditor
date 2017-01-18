@@ -3,16 +3,50 @@
  * @author jskonst
  */
 define('Editor', ['orm', 'forms', 'ui', 'resource', 'invoke', 'forms/box-pane',
-    'security', 'forms/border-pane', 'TextView']
+    'security', 'forms/border-pane', 'TextView', 'logger']
         , function (Orm, Forms, Ui, Resource, Invoke,
-                BoxPane, Security, BorderPane, TextView, ModuleName) {
+                BoxPane, Security, BorderPane, TextView, Logger, ModuleName) {
             function module_constructor() {
                 var self = this
                         , model = Orm.loadModel(ModuleName)
                         , form = Forms.loadForm(ModuleName, model);
                 form.btnAdmin.visible = false;
+
+                var templatesPerDay = 5;
+                var restTemplates;
+                var svgCanvas;
+                var userProfile;
+
+
+                var dateFrom = new Date();
+                dateFrom.setHours(0, 0, 0, 0);
+                var dateTo = new Date();
+                dateTo.setHours(23, 59, 59, 59);
+                model.works.params.timeFrom = dateFrom;
+                model.works.params.timeTo = dateTo;
+                model.works.params.published = true;
+
+
+                function updateProfile(name, callback) {
+                    model.userProfile.params.name = name;
+                    model.userProfile.requery(function () {
+                        if (model.userProfile.length > 0) {
+                            var usrProfile = model.userProfile[0];
+                            callback(usrProfile);
+                            restTemplates = templatesPerDay - model.works.length;
+                            form.lblWorks.text = restTemplates;
+                        }
+                        callback();
+                    });
+                }
+
                 Security.principal(function (user) {
                     form.lblName.text = user.name;
+                    updateProfile(user.name, function (profile) {
+                        if (profile) {
+                            userProfile = profile;
+                        }
+                    });
                     if (user.name == "admin") {
                         form.btnAdmin.visible = true;
                     }
@@ -29,6 +63,7 @@ define('Editor', ['orm', 'forms', 'ui', 'resource', 'invoke', 'forms/box-pane',
                 form.lblManual.cursor = 'pointer';
                 form.lblName.cursor = 'pointer';
                 form.lblWorks.cursor = 'pointer';
+                form.btnCreate.cursor = 'pointer';
 
                 function loadText(event) {
                     model.texts.params.fldName = event.source.text;
@@ -44,41 +79,17 @@ define('Editor', ['orm', 'forms', 'ui', 'resource', 'invoke', 'forms/box-pane',
                 form.lblStore.onMousePressed = loadText;
                 form.lblParthners.onMousePressed = loadText;
                 form.lblFond.onMousePressed = loadText;
-                /*
-                 var svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
-                 svg.setAttribute('width', form.pnlCanvas.width);
-                 svg.setAttribute('height', form.pnlCanvas.height);
-                 svg.setAttribute('viewBox', "0 0" + form.pnlCanvas.width * 2 + " " + form.pnlCanvas.height * 2);
-                 //form.pnlHtml.element.innerHTML = '<img src="app/resources/uiElements/g3493.png">';
-                 //var draw = SVG(form.pnlCanvas.element).size('100%', '100%');
-                 //var rect = draw.rect(100, 100).attr({fill: '#f02'});
-                 //var use = draw.use(rect, 'app/resources/templates/drawing.svg')
-                 form.pnlCanvas.element.appendChild(svg);
-                 var s = Snap(svg);
-                 Snap.load("app/resources/templates/tmp.svg", function (f) {
-                 //        Snap.load("app/resources/templates/bow1.svg", function (f) {
-                 console.log(svg);
-                 var g = f.select("g");
-                 s.append(g);
-                 g.drag();
-                 });
-                 */
 
-//var object = document.createElement("object");
-//        object.type = "image/svg+xml";
-//        object.data = "app/resources/templates/drawing.svg";
-
-                //form.btnBake.element.innerHtml = '<img src="app/resources/uiElements/make.svg"/>';
-                // на кнопке изготовить - проверку 5
-                // проверить фон у svg
-                // вращение по правой кнопке мыши
-                // текст
-                // не вылезать за границу - выход - маскировать
-                // 
-
-
-                svgCanvas = null;
-                var frame;
+                form.lblName.onMousePressed = function () {
+                    require('UserInformation', function (UserInformation) {
+                        var user = null;
+                        if (model.userProfile.length > 0) {
+                            user = model.userProfile[0];
+                        }
+                        var userInfo = new UserInformation(user);
+                        userInfo.show();
+                    });
+                };
 
                 initEmbed = function () {
                     var doc, mainButton;
@@ -102,6 +113,7 @@ define('Editor', ['orm', 'forms', 'ui', 'resource', 'invoke', 'forms/box-pane',
 
                 var onTemplateClick = function (event) {
                     svgCanvas.setSvgString(event.source.snap.toString());
+                    svgCanvas.zoomChanged(window, 'canvas');
                 };
                 var onFormClick = function (event) {
                     svgCanvas.importSvgString(event.source.snap.toString());
@@ -149,47 +161,68 @@ define('Editor', ['orm', 'forms', 'ui', 'resource', 'invoke', 'forms/box-pane',
                     }
                 });
 
+
+                function upload(data) {
+                    var loading;
+                    if (loading) {
+                        alert("Wait please while current upload ends!");
+                    } else {
+                        //TODO сделать проверку того, что пользователь существует
+                        var file = new File([data], (userProfile.username + "_work.svg"));
+                        loading = Resource.upload(file, file.name,
+                                function (aUrl) {
+                                    //We have uploaded only one file, but the system
+                                    //return's us a array of urls
+                                    loading = null;
+                                    console.log(aUrl);
+                                    model.works.push({
+                                        'profile_id': userProfile.userprofile_id
+                                        , 'uploaddate': new Date()
+                                        , 'published': true
+                                        , 'link': aUrl[0]});
+                                    model.save(function () {
+                                        alert("Ваша работа успешно сохранена");
+                                        restTemplates = templatesPerDay - model.works.length;
+                                        form.lblWorks.text = restTemplates;
+                                    }, function () {
+                                        alert("Не удалось сохранить вашу работу");
+                                    })
+//                                    UI.Icon.load(aUrl[0], function (uploadedFile) {
+//                                        
+//                                        demoComponent.cursor = 'url(' + uploadedFile.b + '), auto';
+//                                        var fileCursor = {'name': demoComponent.cursor};
+//                                        form.mdlCursor.value = fileCursor;
+//                                        
+//                                    }, function (e) {
+//                                        P.Logger.info(e);
+//                                    });
+                                },
+                                function (aEvent) {
+                                    Logger.severe(aEvent);
+                                },
+                                function (aError) {
+                                    loading = null;
+                                    alert("Загрузка прервана с ошибкой: " + aError);
+                                }
+                        );
+                    }
+                }
+
                 function handleSvgData(data, error) {
                     if (error) {
                         alert('error ' + error);
                     } else {
-                        alert('Congratulations. Your SVG string is back in the host page, do with it what you will\n\n' + data);
+                        upload(data);
                     }
                 }
 
-                function saveSvg() {
-                    svgCanvas.getSvgString()(handleSvgData);
-                }
-
-
-
-
-//                form.btnAddTemplate.onActionPerformed = function () {
-////            console.log(draw);
-////            console.log(object);
-//                    Resource.loadText('resources/templates/bow1.svg', function (aLoaded) {
-//                        console.log(aLoaded);
-////                var store = draw.svg(aLoaded);
-////
-////                form.btnBake.element.innerHTML = '<img src="app/resources/uiElements/make.svg" viewBox="0 0 10 10" />';
-//                    }, function (e) {
-//                        console.log("bad");
-//                    });
-//                }
-
-//                form.button.onActionPerformed = function () {
-//                    Resource.loadText('resources/templates/bow1.svg', function (aLoaded) {
-//                        console.log(aLoaded);
-////                        svgCanvas.setSvgString(aLoaded);
-//                        var svgexample = '<svg width="640" height="480" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg"><g><title>Layer 1</title><rect stroke-width="5" stroke="#000000" fill="#FF0000" id="svg_1" height="35" width="51" y="35" x="32"/><ellipse ry="15" rx="24" stroke-width="5" stroke="#000000" fill="#0000ff" id="svg_2" cy="60" cx="66"/></g></svg>';
-//
-////                var store = draw.svg(aLoaded);
-////
-////                form.btnBake.element.innerHTML = '<img src="app/resources/uiElements/make.svg" viewBox="0 0 10 10" />';
-//                    }, function (e) {
-//                        console.log("bad");
-//                    });
-//                }
+                form.btnCreate.onMouseClicked = function () {
+                    if (restTemplates <= 0) {
+                        alert('Сегодня Вы больше не можете публиковать работы');
+                    } else {
+                        svgCanvas.getSvgString()(handleSvgData);
+                    }
+                };
 
             }
 
