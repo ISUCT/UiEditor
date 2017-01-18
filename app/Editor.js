@@ -116,6 +116,7 @@ define('Editor', ['orm', 'forms', 'ui', 'resource', 'invoke', 'forms/box-pane',
 
                 var onTemplateClick = function (event) {
                     svgCanvas.setSvgString(event.source.snap.toString());
+                    svgCanvas.zoomChanged(window,'canvas');
                 };
                 var onFormClick = function (event) {
                     svgCanvas.importSvgString(event.source.snap.toString());
