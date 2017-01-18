@@ -3,7 +3,14 @@
   <Button cursor="0" name="btnSave" parent="view" prefHeight="30px" prefWidth="100px" text="Сохранить">
     <AnchorsPaneConstraints bottom="4px" height="30px" right="7px" width="100px"/>
   </Button>
-  <BorderPane background="#ffffff" cursor="0" name="panel" parent="view" prefHeight="290px" prefWidth="620px">
-    <AnchorsPaneConstraints bottom="44px" left="10px" right="7px" top="10px"/>
+  <BorderPane background="#ffffff" cursor="0" name="panel" parent="view" prefHeight="140px" prefWidth="620px">
+    <AnchorsPaneConstraints bottom="194px" left="10px" right="7px" top="10px"/>
   </BorderPane>
+  <ScrollPane cursor="0" name="scrollPane" parent="view" prefHeight="120px" prefWidth="620px">
+    <AnchorsPaneConstraints bottom="44px" left="10px" right="7px" top="180px"/>
+  </ScrollPane>
+  <TextArea name="textArea" parent="scrollPane" prefHeight="118px" prefWidth="618px"/>
+  <Label cursor="0" name="label" parent="view" prefHeight="30px" prefWidth="210px" text="Временно, до исправления библиотеки">
+    <AnchorsPaneConstraints height="30px" left="10px" top="150px" width="210px"/>
+  </Label>
 </layout>

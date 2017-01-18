@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?><datamodel>
+  <parameters>
+    <parameter description="" name="name" nullable="true" parameterMode="1" selectionForm="null" type="String"/>
+  </parameters>
+  <parametersEntity entityHeight="200" entityIconified="false" entityLocationX="8" entityLocationY="8" entityWidth="150"/>
+  <entity Title="" entityHeight="200" entityIconified="false" entityId="148465284906100" entityLocationX="248" entityLocationY="6" entityWidth="150" tableAlias="t1" tableName="userprofile" tableSchemaName=""/>
+  <relation leftEntityId="-1" leftEntityParameterName="name" rightEntityFieldName="username" rightEntityId="148465284906100"/>
+</datamodel>
