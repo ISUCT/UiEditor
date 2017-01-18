@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?><datamodel>
+  <parameters>
+    <parameter description="" name="timeFrom" nullable="true" parameterMode="1" selectionForm="null" type="Date"/>
+    <parameter description="" name="timeTo" nullable="true" parameterMode="1" selectionForm="null" type="Date"/>
+    <parameter description="" name="user" nullable="true" parameterMode="1" selectionForm="null" type="Number"/>
+    <parameter description="" name="published" nullable="true" parameterMode="1" selectionForm="null" type="Boolean"/>
+  </parameters>
+  <parametersEntity entityHeight="200" entityIconified="false" entityLocationX="8" entityLocationY="7" entityWidth="150"/>
+  <entity Title="" entityHeight="200" entityIconified="false" entityId="148474749871400" entityLocationX="197" entityLocationY="10" entityWidth="150" tableAlias="t1" tableName="works" tableSchemaName=""/>
+  <relation leftEntityId="-1" leftEntityParameterName="published" rightEntityFieldName="published" rightEntityId="148474749871400"/>
+  <relation leftEntityId="-1" leftEntityParameterName="timeFrom" rightEntityFieldName="uploaddate" rightEntityId="148474749871400"/>
+  <relation leftEntityId="-1" leftEntityParameterName="timeTo" rightEntityFieldName="uploaddate" rightEntityId="148474749871400"/>
+  <relation leftEntityId="-1" leftEntityParameterName="user" rightEntityFieldName="profile_id" rightEntityId="148474749871400"/>
+</datamodel>

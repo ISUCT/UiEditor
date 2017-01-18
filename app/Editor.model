@@ -3,4 +3,7 @@
   <entity Name="userProfile" Title="" entityHeight="200" entityIconified="false" entityId="148465290046200" entityLocationX="444" entityLocationY="45" entityWidth="150" queryId="userProfile" tableName="" tableSchemaName=""/>
   <entity Name="getTemplates" Title="" entityHeight="200" entityIconified="false" entityId="148218184163400" entityLocationX="91" entityLocationY="34" entityWidth="150" queryId="getTemplates" tableName="" tableSchemaName=""/>
   <entity Name="getForms" Title="" entityHeight="200" entityIconified="false" entityId="148218184442700" entityLocationX="263" entityLocationY="36" entityWidth="150" queryId="getForms" tableName="" tableSchemaName=""/>
+  <entity Name="works" Title="" entityHeight="200" entityIconified="false" entityId="148474783671000" entityLocationX="672" entityLocationY="71" entityWidth="150" queryId="works" tableName="" tableSchemaName=""/>
+  <relation leftEntityFieldName="userprofile_id" leftEntityId="148465290046200" rightEntityFieldName="profile_id" rightEntityId="148474783671000"/>
+  <referenceRelation leftEntityFieldName="profile_id" leftEntityId="148474783671000" rightEntityFieldName="userprofile_id" rightEntityId="148465290046200"/>
 </datamodel>
