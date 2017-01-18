@@ -1,0 +1,157 @@
+#bottom-panel {
+    position: absolute;
+    background-color: white;
+    z-index: 10;
+    right: 0px;
+    height: 233px;
+    bottom: 0px;
+}
+
+#bottom-panel.deactivated {
+    left: 0px;
+}
+
+#bottom-panel.activated {
+    left: 400px;
+}
+
+#bottom-panel.tb-minimized {
+    visibility: hidden;
+}
+
+#bottom-panel.tb-maximized {
+    visibility: visible;
+}
+
+div.bottom-panel {
+    position: absolute;
+    margin: 5px 15px;
+    z-index: 1000;
+}
+
+div.bottom-panel.legend-control {
+    right: 0px;
+    top: 0px; 
+    cursor: pointer;
+}
+
+div.bottom-panel.legend-control > div > div > div {
+    display: inline-block;
+}
+div.bottom-panel.legend-control > div {
+    display: inline-block;
+    vertical-align: top;
+}
+
+.tooltip-container {
+    display: inline-block;
+    font-size: small;
+    padding: 0px 5px 0px 0px;
+    font-family: "Segoe UI", Roboto, Arial;
+    font-weight: bold;
+}
+
+div.bottom-panel.trackControl {
+    position: absolute;
+    top: 35px;
+    color: white;
+    padding: 15px 30px 10px 20px;
+    background-color: rgb(77, 144, 254);
+    font-family: Roboto, Arial, sans-serif;
+    transition: all 0.3s ease-in-out;
+    -webkit-transition: all 0.3s ease-in-out;
+}
+
+div.bottom-panel.vehicle-name {
+    top: 0px;
+    left: 32px;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: Segoe UI;
+    cursor: pointer;   
+}
+
+div.bottom-panel.header {
+    left: 0px;
+    top: 0px;
+    right: 0px;
+    height: 33px;
+    margin: 0px 0px;
+    background-color: #357ae8;
+    background-image: -webkit-linear-gradient(top, #357ae8, #2d56c5);
+    border-color: rgb(238, 238, 238);
+    font-family: Roboto, Arial, sans-serif;
+}
+
+div.bottom-panel.tml {
+    left: 0px;
+    top: 33px;
+    right: 1px;
+    bottom: 0px;
+    margin: 0px 0px;
+}
+
+.tmlPane {
+    position: absolute;
+    left: 0px;
+    right: 0px;
+    top: 0px;
+    bottom: 0px;
+}
+
+div.bottom-panel.trackControl.shown {
+    right: 10px;
+}
+
+div.bottom-panel.trackControl.hidden {
+    right: 0px;
+    width:  0px;
+    display:  none;
+}
+
+div.bottom-panel.trackControl > input {
+    font-family: Roboto, Arial, sans-serif;
+    margin-right: 10px;
+    margin-bottom: 5px;
+    max-width: 40px;
+}
+
+div.gd {
+    font-family: Roboto, Arial, sans-serif;
+}
+
+div.gi {
+    width   : 30px;
+    text-align : center;
+}
+
+div.bottom-panel.right-control {
+    right: 0px;
+    margin: 2px 15px;
+}
+
+div.bottom-panel > button {
+    display: inline;
+}
+[class^="flaticon-"] {
+    font-style: normal;
+}
+
+.tooltip {
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 8px 8px 8px 0px;
+    box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.5);
+    color: #000;
+    margin-top: 0px;
+    opacity: 0; /* Наш элемент прозрачен... */
+    padding: 3px 7px;
+    position: absolute;
+    visibility: hidden; /* ...и скрыт. */
+    z-index: 1000;        
+}
+        
+.tooltip.showed {
+    opacity: 1; /* Показываем его */
+    visibility: visible;
+}

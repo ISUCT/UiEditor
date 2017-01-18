@@ -1,0 +1,179 @@
+button.ObjectsSelected {
+    margin-right: 10px;
+    color: #050832;
+    background-color: #ddd;
+    background-image: -webkit-linear-gradient(top, #ccc, #ddd);
+    display: inline-block;
+    -webkit-transition: all 0s;
+    transition: all 0s;
+    font-family: Segoe UI;
+    font-size: 15px;
+    box-shadow: none;
+}
+
+button.blackWhite {
+    color: white;
+    display: inline-block;
+    -webkit-transition: all 0s;
+    transition: all 0s;
+    font-family: Segoe UI;
+    font-size: 18px;
+    font-weight: bold;;
+    border: none;
+    box-shadow: none;
+    outline-width: 0px;
+}
+
+button.popupBtn{
+    color: white;
+    display: inline-block;
+    font-size: 40px;
+    border: none 0px;
+    box-shadow: none;
+    margin:0px;
+    padding:0px;
+}
+
+button.popupBtn-pic{
+    height: 96px;
+    width: 96px;
+    background-size: contain;
+}
+
+button.popupBtn-nohover:hover{
+    background-color:transparent;
+    pointer-events:none;
+    cursor: default;
+}
+
+button.blackWhite.selected {
+    color: #339;
+}
+
+button.ObjectsSelected:hover > i {
+    color: #d50802;
+}
+
+button.ObjectsSelected:hover {
+    background-color: #eee;
+    background-image: -webkit-linear-gradient(top, #eee, #ddd);
+}
+
+button.bwSelected {
+    background-color: beige;
+}
+
+div.spacer {
+    width: 6px;
+    display: inline-block;
+}
+
+div.Margin15 {
+    margin-left: 8px;
+}
+
+div.ResultShow {
+    position: absolute;
+    top: 45px;
+    margin: 10px 10px 20px 10px;
+}
+
+.dateBox {
+    font-family: Segoe UI;
+    font-size: 11pt;
+    font-style: normal;
+    font-variant: normal;
+}
+
+.repObjSelector {
+    font-family: Segoe UI;
+    font-size: 18pt;
+    font-style: normal;
+    text-align: center;
+    font-variant: normal;
+    color: rgb(255, 255, 255);
+    cursor: pointer;
+    font-weight: bold;
+    padding-left: 5px;
+    margin-right: 10px;
+}
+
+div.ResultShow > p {
+    font-family: Segoe UI;
+    font-size: 13pt;
+    font-style: normal;
+    font-variant: normal;
+    padding-bottom: 10px;
+}
+
+div.ResultShow > button {
+    display: inline-block;
+}
+
+button.reportGen {
+    display: inline-block;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    margin-right: 10px;
+    font-family: Segoe UI;
+    font-weight: bold;
+    -webkit-transition: all 0s;
+    transition: all 0s;
+    font-size: 15px;
+}
+
+div.rsHidden {
+    height: 0px;
+    visibility: hidden;
+    margin: 0px;
+}
+
+div.rsShown {
+    height: auto;
+}
+
+div.reportBox {
+    padding: 0px 10px 5px 10px;
+    font-family: Segoe UI;
+    font-size: 13pt;
+    font-style: normal;
+    font-variant: normal;
+}
+
+div.reportBox.hidden {
+    visibility: hidden;
+    padding: 0px;
+    margin: 0px;
+}
+
+div.reportBox > button {
+    width: 100%;
+    font-family: Segoe UI;
+    font-weight: bold;
+    padding-bottom: 5px;
+    padding-top: 5px;
+    margin-bottom: 10px;
+    -webkit-transition: all 0s;
+    transition: all 0s;     
+}
+
+a.selectObjects {
+    color: #012;
+    cursor: pointer;
+}
+
+a.selectObjects:hover {
+    color: #015;
+    text-decoration: underline;
+}
+
+
+div#selectedVehicles{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+input.TVcalendar{
+    width:110px;
+    margin: 3px 10px;
+}

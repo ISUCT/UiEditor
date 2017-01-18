@@ -1,0 +1,117 @@
+.car-summary-connect-label{
+    border-radius: 10px;
+}
+
+.fork-leaflet-popup {
+	position: absolute;
+	text-align: center;
+        z-index:100;
+}
+
+.fork-leaflet-popup-content-wrapper {
+    padding: 1px;
+    text-align: left;
+    border-radius: 12px;
+}
+.fork-leaflet-popup-content {
+    margin: 13px 19px;
+    line-height: 1.4;
+}
+.fork-leaflet-popup-content p {
+    margin: 18px 0;
+}
+.fork-leaflet-popup-tip-container {
+    margin: 0 auto;
+    width: 40px;
+    height: 20px;
+    position: relative;
+    overflow: hidden;
+}
+.fork-leaflet-popup-tip {
+    width: 17px;
+    height: 17px;
+    padding: 1px;
+
+    margin: 10px auto 0;
+
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    transform: rotate(45deg);                      
+}
+
+.fork-leaflet-popup-tip-up {
+    width: 17px;
+    height: 17px;
+    padding: 1px;
+    top:-10px;
+    margin: 10px auto 0;
+
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    transform: rotate(45deg);                      
+}
+
+
+.fork-leaflet-popup-content-wrapper,
+.fork-leaflet-popup-tip,
+.fork-leaflet-popup-tip-up{
+    background: white;
+
+    box-shadow: 0 3px 14px rgba(0,0,0,0.4);
+}
+
+
+.fork-leaflet-container, a.fork-leaflet-popup-close-button {
+    position: absolute;
+    top: 20px;
+    right: 0;
+    padding: 4px 4px 0 0;
+    text-align: center;
+    width: 18px;
+    height: 14px;
+    font: 16px/14px Tahoma, Verdana, sans-serif;
+    color: #c3c3c3;
+    text-decoration: none;
+    font-weight: bold;
+    background: transparent;
+}
+.fork-leaflet-container, a.fork-leaflet-popup-close-button:hover {
+    color: #999;
+}
+.fork-leaflet-popup-scrolled {
+    overflow: auto;
+    border-bottom: 1px solid #ddd;
+    border-top: 1px solid #ddd;
+}
+
+.fork-leaflet-oldie .fork-leaflet-popup-content-wrapper {
+    zoom: 1;
+}
+.fork-leaflet-oldie .fork-leaflet-popup-tip {
+    width: 24px;
+    margin: 0 auto;
+
+    -ms-filter: "progid:DXImageTransform.Microsoft.Matrix(M11=0.70710678, M12=0.70710678, M21=-0.70710678, M22=0.70710678)";
+    filter: progid:DXImageTransform.Microsoft.Matrix(M11=0.70710678, M12=0.70710678, M21=-0.70710678, M22=0.70710678);
+}
+.fork-leaflet-oldie .fork-leaflet-popup-tip-container {
+    margin-top: -1px;
+}
+
+.fork-leaflet-oldie .fork-leaflet-control-zoom,
+.fork-leaflet-oldie .fork-leaflet-control-layers,
+.fork-leaflet-oldie .fork-leaflet-popup-content-wrapper,
+.fork-leaflet-oldie .fork-leaflet-popup-tip {
+    border: 1px solid #999;
+}
+
+.fork-leaflet-zoom-animated {
+    -webkit-transition: -webkit-transform 0.25s cubic-bezier(0,0,0.25,1);
+    -moz-transition:    -moz-transform 0.25s cubic-bezier(0,0,0.25,1);
+    -o-transition:      -o-transform 0.25s cubic-bezier(0,0,0.25,1);
+    transition:         transform 0.25s cubic-bezier(0,0,0.25,1);
+}	

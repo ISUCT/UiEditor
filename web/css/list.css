@@ -1,0 +1,77 @@
+div.listElement {
+    -webkit-transition: top 0.3s;
+    transition: top 0.3s;    
+}
+
+div.mainDivClass {
+    left: 0px;
+    right: 0px;
+    margin-bottom: 3px;
+}
+
+div.childDivClass {
+    left: 10px;
+    right: 0px;
+    margin-bottom: 3px;
+    margin-left: 5px;
+}
+
+div.mainDivClass.listElement.group-view {
+    background-color: rgb(31, 64, 128);
+    background-image: -webkit-linear-gradient(top, rgb(41, 80, 161), rgb(19, 61, 124));   
+    margin-right: 4px;
+}
+
+div.mainDivClass.listElement.group-view:hover {
+    background-color: rgb(34, 102, 200);
+    background-image: -webkit-linear-gradient(top, rgb(34, 102, 200), rgb(14, 73, 170));    
+}
+
+div.childDivClass.listElement.group-view{
+    margin-right: 4px;
+}
+
+div.mainDivClass.listElement.unit-view {
+    background-color: #357ae8;
+    background-image: -webkit-linear-gradient(top, #357ae8, #2d56c5);   
+}
+
+div.mainDivClass.listElement.events-view.processed {
+    color: black;
+    background-color: #EEE;
+    background-image: -webkit-linear-gradient(top, #EEE, #DDD);   
+}
+
+div.mainDivClass.listElement.unit-view:hover, div.mainDivClass.listElement.unit-view.hovered,
+div.mainDivClass.listElement.events-view.processed:hover {
+    background-color: rgb(77, 144, 254);
+    background-image: -webkit-linear-gradient(top, rgb(77, 144, 254), rgb(71, 135, 237));  
+}
+
+div#listEl-geo-object-view-AddElement:hover, div#listEl-geo-group-view-AddElement:hover {
+    background-color: rgb(77, 144, 254);
+    background-image: -webkit-linear-gradient(top, rgb(77, 144, 254), rgb(71, 135, 237));  
+}
+
+div#listEl-geo-object-view-AddElement, div#listEl-geo-group-view-AddElement {
+    color: black;
+    background-color: #EEE;
+    background-image: -webkit-linear-gradient(top, #EEE, #DDD);  
+}
+
+i.unitViewPanel {
+    color: white;
+    font-size: 16px;
+}
+
+div.mainDivClass.listElement.events-view {
+    background-color: rgb(31, 64, 128);
+    background-image: -webkit-linear-gradient(top, rgb(41, 80, 161), rgb(19, 61, 124));
+    color: white;
+    margin-right: 4px;
+}
+
+div.mainDivClass.listElement.events-view:hover {
+    background-color: rgb(34, 102, 200);
+    background-image: -webkit-linear-gradient(top, rgb(34, 102, 200), rgb(14, 73, 170));    
+}
