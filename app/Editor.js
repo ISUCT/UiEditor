@@ -14,9 +14,9 @@ define('Editor', ['orm', 'forms', 'ui', 'resource', 'invoke', 'forms/box-pane',
 
                 var templatesPerDay = 5;
                 var restTemplates;
-                var svgCanvas;
+                svgCanvas=null;
                 var userProfile;
-
+                var frame;
 
                 var dateFrom = new Date();
                 dateFrom.setHours(0, 0, 0, 0);
@@ -25,7 +25,6 @@ define('Editor', ['orm', 'forms', 'ui', 'resource', 'invoke', 'forms/box-pane',
                 model.works.params.timeFrom = dateFrom;
                 model.works.params.timeTo = dateTo;
                 model.works.params.published = true;
-
 
                 function updateProfile(name, callback) {
                     model.userProfile.params.name = name;
@@ -47,7 +46,7 @@ define('Editor', ['orm', 'forms', 'ui', 'resource', 'invoke', 'forms/box-pane',
                             userProfile = profile;
                         }
                     });
-                    if (user.name == "admin") {
+                    if (user.name === "admin") {
                         form.btnAdmin.visible = true;
                     }
                 });
@@ -118,7 +117,7 @@ define('Editor', ['orm', 'forms', 'ui', 'resource', 'invoke', 'forms/box-pane',
                         form.pnlCanvas.element.innerHTML = '<iframe src="app/editor/svg-editor.html?extensions=ext-xdomain-messaging.js' +
                                 //window.location.href.replace(/\?(.*)$/, '&$1') + // Append arguments to this file onto the iframe
                                 '" width="' + form.pnlCanvas.element.offsetWidth + 'px" height="'
-                                + form.pnlCanvas.element.offsetHeight + 'px" id="svgedit" onload="initEmbed();"></iframe>'
+                                + form.pnlCanvas.element.offsetHeight + 'px" id="svgedit" onload="initEmbed();"></iframe>';
                         frame = document.getElementById('svgedit');
                     });
                 };
@@ -126,12 +125,25 @@ define('Editor', ['orm', 'forms', 'ui', 'resource', 'invoke', 'forms/box-pane',
                 var onTemplateClick = function (event) {
                     svgCanvas.setSvgString(event.source.snap.toString());
                     svgCanvas.zoomChanged(window, 'canvas');
+                    svgCanvas.createLayer("drawing")(function () {
+//                        var layers = svgCanvas.getCurrentDrawing().getNumLayers();
+                        svgCanvas.setCurrentLayer("Layer 1")(function () {
+                           var res =  svgCanvas.setCurrentLayerPosition(0)(function(){
+                               console
+                           });
+                           console.log(res);
+                            svgCanvas.identifyLayers();
+//                            svgCanvas.setCurrentLayerPosition(1);
+                        });
+                        console.log(svgCanvas);
+                        console.log("Layer");
+                    });
                 };
                 var onFormClick = function (event) {
                     svgCanvas.importSvgString(event.source.snap.toString());
                 };
 
-                model.requery(function () {
+                function loadTemplates() {
                     var templatesPanel = new BoxPane(Ui.Orientation.VERTICAL);
                     form.scrollTemplate.add(templatesPanel);
                     for (var i in model.getTemplates) {
@@ -151,8 +163,11 @@ define('Editor', ['orm', 'forms', 'ui', 'resource', 'invoke', 'forms/box-pane',
                             this.append(f);
                         }, snap);
                     }
+                }
 
-                    var formsPanel = new BoxPane(Ui.Orientation.VERTICAL)
+
+                function loadForms() {
+                    var formsPanel = new BoxPane(Ui.Orientation.VERTICAL);
                     form.scrollForms.add(formsPanel);
                     for (var i in model.getForms) {
                         var demoForm = new BorderPane();
@@ -171,8 +186,16 @@ define('Editor', ['orm', 'forms', 'ui', 'resource', 'invoke', 'forms/box-pane',
                             this.append(f);
                         }, snap);
                     }
-                });
+                }
+                model.getTemplates.requery(loadTemplates);
+                model.getForms.requery(loadForms);
 
+//                model.requery(function () {
+//
+//                }, function (error) {
+//                    console.log(error);
+//                    console.log("requery Error");
+//                });
 
                 function upload(data) {
                     var loading;
@@ -198,7 +221,7 @@ define('Editor', ['orm', 'forms', 'ui', 'resource', 'invoke', 'forms/box-pane',
                                         form.lblWorks.text = restTemplates;
                                     }, function () {
                                         alert("Не удалось сохранить вашу работу");
-                                    })
+                                    });
                                 },
                                 function (aEvent) {
                                     Logger.severe(aEvent);
