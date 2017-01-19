@@ -5,5 +5,5 @@
   <fieldsEntity entityHeight="98" entityIconified="false" entityId="148157734051500" entityLocationX="23" entityLocationY="280" entityWidth="150" tableName="templates"/>
   <fieldsEntity entityHeight="185" entityIconified="false" entityId="148157682350800" entityLocationX="22" entityLocationY="19" entityWidth="150" tableName="userprofile"/>
   <fieldsEntity entityHeight="78" entityIconified="false" entityId="148136747340500" entityLocationX="690" entityLocationY="45" entityWidth="150" tableName="MTD_GROUPS"/>
-  <fieldsEntity entityHeight="131" entityIconified="false" entityId="148157701002000" entityLocationX="246" entityLocationY="21" entityWidth="150" tableName="works"/>
+  <fieldsEntity entityHeight="131" entityIconified="false" entityId="148157701002000" entityLocationX="233" entityLocationY="4" entityWidth="150" tableName="works"/>
 </datamodel>

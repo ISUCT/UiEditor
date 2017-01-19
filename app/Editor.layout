@@ -73,11 +73,11 @@
   <AnchorsPane background="#ffffff" cursor="0" name="pnlNumOfWorks" parent="view" prefHeight="100px" prefWidth="170px">
     <AnchorsPaneConstraints height="100px" left="10px" top="520px" width="170px"/>
   </AnchorsPane>
-  <Label cursor="0" foreground="#198fa1" horizontalAlignment="0" name="lblWorks" parent="pnlNumOfWorks" prefHeight="20px" prefWidth="150px" text="Шаблонов на сегодня">
+  <Label cursor="0" foreground="#198fa1" horizontalAlignment="0" name="lblTmpls" parent="pnlNumOfWorks" prefHeight="20px" prefWidth="150px" text="Шаблонов на сегодня">
     <font family="Arial" size="12" style="1"/>
     <AnchorsPaneConstraints height="20px" left="10px" top="0px" width="150px"/>
   </Label>
-  <Label cursor="0" foreground="#e96c4e" horizontalAlignment="0" name="lblWorks1" parent="pnlNumOfWorks" prefHeight="60px" prefWidth="150px" text="5">
+  <Label cursor="0" foreground="#e96c4e" horizontalAlignment="0" name="lblWorks" parent="pnlNumOfWorks" prefHeight="60px" prefWidth="150px" text="5">
     <font family="Arial" size="36" style="1"/>
     <AnchorsPaneConstraints height="60px" left="10px" top="30px" width="150px"/>
   </Label>
