@@ -33,6 +33,7 @@ define(['orm', 'http-context'], function (Orm, HttpContext, ModuleName) {
                 email: ''
                 , surname: ''
                 , middlename: ''
+                , name:''
                 , username: ''
                 , birthdate: ''
                 , address: ''
@@ -56,6 +57,7 @@ define(['orm', 'http-context'], function (Orm, HttpContext, ModuleName) {
                             email: user.email
                             , surname: user.surname
                             , middlename: user.middlename
+                            , name: user.name
                             , username: user.username
                             , birthdate: new Date(user.birthdate)
                             , address: user.address

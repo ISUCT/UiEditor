@@ -25,6 +25,7 @@ define('Registration', ['forms', 'ui', 'invoke', 'UserInformation'],
                     email: ''
                     , surname: ''
                     , middlename: ''
+                    , name: ''
                     , username: ''
                     , birthdate: ''
                     , address: ''
@@ -108,7 +109,7 @@ define('Registration', ['forms', 'ui', 'invoke', 'UserInformation'],
                         user.username = form.txtUserName.text.toLowerCase();
                         user.password = MD5(form.pwdOne.value);
                         var body = JSON.stringify(user);
-                        
+
                         request.open("POST", (baseUrl + "createUsers"), true);
                         request.setRequestHeader('Content-Type', 'application/json');
 
@@ -123,6 +124,8 @@ define('Registration', ['forms', 'ui', 'invoke', 'UserInformation'],
                                     }
                                     if (user.created) {
                                         alert('Вы зарегистрированы');
+                                        window.location.href = "http://" + window.location.host +
+                                                window.location.pathname.substr(0, window.location.pathname.lastIndexOf("/"));
                                     } else {
                                         alert('Проверьте введенные поля и повторите попытку');
                                     }

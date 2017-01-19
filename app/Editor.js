@@ -51,6 +51,10 @@ define('Editor', ['orm', 'forms', 'ui', 'resource', 'invoke', 'forms/box-pane',
                 form.lblName.cursor = 'pointer';
                 form.lblWorks.cursor = 'pointer';
                 form.btnCreate.cursor = 'pointer';
+                form.lblSamples.cursor = 'pointer';
+                form.lblStore.cursor = 'pointer';
+                form.lblParthners.cursor = 'pointer';
+                form.lblFond.cursor = 'pointer';
 
                 function loadText(event) {
                     model.texts.params.fldName = event.source.text;
@@ -62,10 +66,18 @@ define('Editor', ['orm', 'forms', 'ui', 'resource', 'invoke', 'forms/box-pane',
 
                 form.lblAbout.onMousePressed = loadText;
                 form.lblManual.onMousePressed = loadText;
-                form.lblSamples.onMousePressed = loadText;
-                form.lblStore.onMousePressed = loadText;
-                form.lblParthners.onMousePressed = loadText;
-                form.lblFond.onMousePressed = loadText;
+                form.lblSamples.onMousePressed = function () {
+                    window.location.href = "http://" + window.location.host;
+                };
+                form.lblStore.onMousePressed = function () {
+                    window.location.href = "http://" + window.location.host;
+                };
+                form.lblParthners.onMousePressed = function () {
+                    window.location.href = "http://" + window.location.host;
+                };
+                form.lblFond.onMousePressed = function () {
+                    window.location.href = "http://" + window.location.host;
+                };
 
                 form.lblName.onMousePressed = function () {
                     require('UserInformation', function (UserInformation) {
@@ -167,9 +179,9 @@ define('Editor', ['orm', 'forms', 'ui', 'resource', 'invoke', 'forms/box-pane',
                                         , 'uploaddate': new Date()
                                         , 'published': true
                                         , 'link': aUrl[0]});
-                                    model.save(function(){
+                                    model.save(function () {
                                         alert("Ваша работа успешно сохранена");
-                                    },function(){
+                                    }, function () {
                                         alert("Не удалось сохранить вашу работу");
                                     })
 //                                    UI.Icon.load(aUrl[0], function (uploadedFile) {
