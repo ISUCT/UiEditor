@@ -14,9 +14,11 @@ define('Editor', ['orm', 'forms', 'ui', 'resource', 'invoke', 'forms/box-pane',
 
                 var templatesPerDay = 5;
                 var restTemplates;
-                svgCanvas=null;
+                svgCanvas = null;
                 var userProfile;
                 var frame;
+                var templateLayer = "Layer 1";
+                var drawingLayer = "drawing";
 
                 var dateFrom = new Date();
                 dateFrom.setHours(0, 0, 0, 0);
@@ -107,6 +109,13 @@ define('Editor', ['orm', 'forms', 'ui', 'resource', 'invoke', 'forms/box-pane',
                     svgCanvas = new EmbeddedSVGEdit(frame);
                     // Hide main button, as we will be controlling new, load, save, etc. from the host document
                     doc = frame.contentDocument || frame.contentWindow.document;
+                    svgCanvas.createLayer(drawingLayer)(function () {
+                        svgCanvas.setCurrentLayer(drawingLayer)(function () {
+                            svgCanvas.setCurrentLayerPosition(0)(function () {
+
+                            });
+                        });
+                    });
                 };
 
                 self.show = function () {
@@ -123,21 +132,36 @@ define('Editor', ['orm', 'forms', 'ui', 'resource', 'invoke', 'forms/box-pane',
                 };
 
                 var onTemplateClick = function (event) {
-                    svgCanvas.setSvgString(event.source.snap.toString());
+                    //svgCanvas.setSvgString(event.source.snap.toString());
+                    var snapEl = event.source.snap;
+                    var bbOx = snapEl.getBBox();
+
+//                    svgCanvas.setResolution(bbOx.width, bbOx.height);
                     svgCanvas.zoomChanged(window, 'canvas');
-                    svgCanvas.createLayer("drawing")(function () {
-//                        var layers = svgCanvas.getCurrentDrawing().getNumLayers();
-                        svgCanvas.setCurrentLayer("Layer 1")(function () {
-                           var res =  svgCanvas.setCurrentLayerPosition(0)(function(){
-                               console
-                           });
-                           console.log(res);
-                            svgCanvas.identifyLayers();
-//                            svgCanvas.setCurrentLayerPosition(1);
+                    svgCanvas.setCurrentLayer(templateLayer)(function () { //Выбираем слой шаблона
+                        svgCanvas.selectAllInCurrentLayer()(function () { //выбираем все на слое
+                            svgCanvas.deleteSelectedElements()(function () { //удаляем все со слоя
+                                svgCanvas.importSvgString(snapEl.toString())(function () {
+                                    svgTemplate = arguments[0];
+                                    
+                                    svgCanvas.setCurrentLayer(drawingLayer)(function () { //Выбираем слой редактирования
+                                        console.log(svgTemplate);
+                                        console.log(snapEl);
+                                    });
+                                });
+                            });
                         });
-                        console.log(svgCanvas);
-                        console.log("Layer");
                     });
+//                    svgCanvas.createLayer("drawing")(function () {
+//                        svgCanvas.setCurrentLayer("drawing")(function () {
+//                            svgCanvas.setCurrentLayerPosition(0)(function () {
+//                                
+//                            });
+//
+//                        });
+//                        console.log(svgCanvas);
+//                        console.log("Layer");
+//                    });
                 };
                 var onFormClick = function (event) {
                     svgCanvas.importSvgString(event.source.snap.toString());
