@@ -2,8 +2,8 @@
  * 
  * @author jskonst
  */
-define('TextView', ['forms', 'ui', 'forms/box-pane'],
-        function (Forms, Ui, BoxPane, ModuleName) {
+define('TextView', ['forms', 'ui', 'forms/border-pane'],
+        function (Forms, Ui, BorderPane, ModuleName) {
             function module_constructor(item) {
                 var self = this
                         , form = Forms.loadForm(ModuleName);
@@ -13,7 +13,7 @@ define('TextView', ['forms', 'ui', 'forms/box-pane'],
                 };
                 form.title = item.itmname;
 
-                var viewPanel = new BoxPane(Ui.Orientation.VERTICAL);
+                var viewPanel = new BorderPane();
                 viewPanel.element.innerHTML = item.text;
                 form.scrollPane.add(viewPanel);
 
