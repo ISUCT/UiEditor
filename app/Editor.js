@@ -64,6 +64,7 @@ define('Editor', ['orm', 'forms', 'ui', 'resource', 'invoke', 'forms/box-pane',
                 form.lblManual.cursor = 'pointer';
                 form.lblName.cursor = 'pointer';
                 form.lblWorks.cursor = 'pointer';
+                form.lblMyWorks.cursor = 'pointer';
                 form.btnCreate.cursor = 'pointer';
                 form.lblSamples.cursor = 'pointer';
                 form.lblStore.cursor = 'pointer';
@@ -143,7 +144,11 @@ define('Editor', ['orm', 'forms', 'ui', 'resource', 'invoke', 'forms/box-pane',
                             svgCanvas.deleteSelectedElements()(function () { //удаляем все со слоя
                                 svgCanvas.importSvgString(snapEl.toString())(function () {
                                     svgTemplate = arguments[0];
-                                    
+                                    svgCanvas.addToSelection([svgTemplate], true)(function () {
+                                        console.log(arguments)
+                                        svgCanvas.clearSelection()();
+                                    });
+
                                     svgCanvas.setCurrentLayer(drawingLayer)(function () { //Выбираем слой редактирования
                                         console.log(svgTemplate);
                                         console.log(snapEl);
@@ -272,6 +277,15 @@ define('Editor', ['orm', 'forms', 'ui', 'resource', 'invoke', 'forms/box-pane',
                     } else {
                         svgCanvas.getSvgString()(handleSvgData);
                     }
+                };
+
+                form.lblMyWorks.onMouseClicked = function () {
+                    require('UserWorks', function (UserWorks) {
+                        if (userProfile.userprofile_id) {
+                            var uw = new UserWorks(userProfile.userprofile_id);
+                            uw.show();
+                        }
+                    });
                 };
             }
 

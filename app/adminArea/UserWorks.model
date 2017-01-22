@@ -1,1 +1,3 @@
-<?xml version="1.0" encoding="UTF-8"?><datamodel/>
+<?xml version="1.0" encoding="UTF-8"?><datamodel>
+  <entity Name="allWorks" Title="" entityHeight="200" entityIconified="false" entityId="148503041682500" entityLocationX="170" entityLocationY="47" entityWidth="150" queryId="allWorks" tableName="" tableSchemaName=""/>
+</datamodel>

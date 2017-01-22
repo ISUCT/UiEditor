@@ -85,7 +85,7 @@
     <font family="Arial" size="12" style="1"/>
     <AnchorsPaneConstraints height="20px" right="11px" top="1px" width="150px"/>
   </Label>
-  <Label cursor="0" foreground="#e96c4e" name="lblName1" parent="view" prefHeight="20px" prefWidth="150px" text="Мои работы">
+  <Label cursor="0" foreground="#e96c4e" name="lblMyWorks" parent="view" prefHeight="20px" prefWidth="150px" text="Мои работы">
     <font family="Arial" size="12" style="1"/>
     <AnchorsPaneConstraints height="20px" right="11px" top="30px" width="150px"/>
   </Label>

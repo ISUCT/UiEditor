@@ -46,14 +46,17 @@ define('UserProfiles', ['orm', 'forms', 'ui'], function (Orm, Forms, Ui, ModuleN
         };
 
 
-//        form.modelGrid.onMouseClicked = function (event) {
-//            if (event.clickCount > 1) {
-//                require('UserProfile', function (UserProfile) {
-//                    var userView = new UserProfile(model);
-//                    userView.showModal();
-//                });
-//            }
-//        };
+        form.modelGrid.onMouseClicked = function (event) {
+            var userProfile = event.source.selected[0];
+            if (event.clickCount > 1) {
+                require('UserWorks', function (UserWorks) {
+                    if (userProfile.userprofile_id) {
+                        var uw = new UserWorks(userProfile.userprofile_id);
+                        uw.show();
+                    }
+                });
+            }
+        };
 
 
     }
