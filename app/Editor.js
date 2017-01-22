@@ -137,7 +137,7 @@ define('Editor', ['orm', 'forms', 'ui', 'resource', 'invoke', 'forms/box-pane',
                     var snapEl = event.source.snap;
                     var bbOx = snapEl.getBBox();
 
-//                    svgCanvas.setResolution(bbOx.width, bbOx.height);
+                    svgCanvas.setResolution(bbOx.width, bbOx.height);
                     svgCanvas.zoomChanged(window, 'canvas');
                     svgCanvas.setCurrentLayer(templateLayer)(function () { //Выбираем слой шаблона
                         svgCanvas.selectAllInCurrentLayer()(function () { //выбираем все на слое
