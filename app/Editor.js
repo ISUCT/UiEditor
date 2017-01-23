@@ -139,6 +139,9 @@ define('Editor', ['orm', 'forms', 'ui', 'resource', 'invoke', 'forms/box-pane',
                                             svgCanvas.alignSelectedElements('c', 'page')(function () {
                                                 svgCanvas.clearSelection()();
                                                 svgCanvas.setCurrentLayer(drawingLayer)(function () { //Выбираем слой редактирования
+                                                    svgCanvas.setCurrentLayerPosition(1)(function () {
+                                                        
+                                                    });
 //                                            console.log(svgTemplate);
 //                                            console.log(snapEl);
                                                 });
