@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta charset="utf-8">
+        <title>Title</title>
+        <link rel="stylesheet" href="style.css" type="text/css"/>
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+        
+    <!-- Include Hammer (optional) -->
+    <script src="carousel/js/hammer-v2.0.3.js"></script>
+
+    <!-- Include Flickerplate -->
+    <script src="carousel/js/flickerplate.js"></script>
+    <link href="carousel/css/flickerplate.css"  type="text/css" rel="stylesheet">
+
+    <!-- Demo styles -->
+    <link href="carousel/css/demo.css"  type="text/css" rel="stylesheet">
+
+    <link href="ihover/src/ihover.css" rel="stylesheet">
+
+    </head>
+    <body>
+
+
+
+    <div class="logo">
+    <img src="logo.jpg" >
+    </div>
+    
+    <div class="lang child-lang">
+        <div class="active"><a href="#">RU</a></div>
+        <div><a href="#">EN</a></div>
+     </div>
+            <img src="child-images/child-img.png">
+    <div class="two-blocks">
+        
+        <div class="child-info">
+          <h1>О Фонде</h1>
+
+          <span>Молодые люди с ограниченными возможностями здоровья испытывают сложности в творческой и профессиональной самореализации, трудойстройстве и развитии своих предпринимательских способностей.<BR>
+          Проект "Полет бабочки" открывает участникам проекта пути социализации через освоение инновационных технологий дизайна, мелкосерийного производства, маркетинга и продаж в современном формате мейкерства.
+          <img src="child-images/photo.png"></span>
+          </div>
+         
+         <div class="child-menu-block">
+         <div class="child-menu">
+        
+        <ul>
+            <br>
+            <li><a href="#">О Фонде</a></li>
+            <li><a href="#">Проект "Полет бабочки"</a></li>
+            <li><a href="#">Команда проекта</a></li>
+            <li><a href="#">Партнеры</a></li>
+            <li><a href="#">Благотворительность</a></li>
+            <li><a href="#">Отзывы</a></li>
+            <li><a href="#">Медиагалерея</a></li>
+            <li><a href="#">Документы</a></li>
+            <li><a href="#">Контакты</a></li>
+            <li><a href="#">Приложение</a></li>
+            <li style="border: 0;"><a href="#">Интернет-магазин</a></li>
+        </ul>
+
+           
+              
+            
+        </div>
+            <div class="child-banners">
+                <img src="child-images/banner.png">  
+
+                <img src="child-images/banner.png"> 
+
+                <img src="child-images/banner.png">  
+
+                <img src="child-images/banner.png"> 
+
+                <img src="child-images/banner.png">  
+
+                <img src="child-images/banner.png"> 
+            </div>
+
+
+        </div>
+    </div>
+    
+ 
+
+
+
+
+
+
+<div class="row">
+
+    <div class="map-block">
+        <img src="logo2.png" id="logo2">
+        <img src="logo3.jpg">
+    </div>
+<script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?sid=h2PHpnPS0zR0ZPwrEqNS-6IcPFB_Nz7n&amp;width=100%25&amp;height=400&amp;lang=ru_RU&amp;sourceType=constructor&amp;scroll=true"></script>
+<div class="footer">
+    
+</div>
+</div>
+
+ <script src="http://api-maps.yandex.ru/2.1/?lang=ru_RU" type="text/javascript"></script>
+  
+  <script type="text/javascript">
+    ymaps.ready(init);
+    var myMap, myPlacemark;
+
+    function init(){     
+        myMap = new ymaps.Map("ymap", {
+            center: [56.985158, 40.984067], 
+            zoom: 17,
+            controls: ['mediumMapDefaultSet']
+        });
+
+        myPlacemark = new ymaps.Placemark([56.985158, 40.984067], {}, {
+            iconLayout: 'default#image',
+            iconImageHref: '/sites/all/themes/synamy/images/icon-map-label.png',
+            iconImageSize: [43, 57],
+            iconImageOffset: [-21, -57],
+        });
+         
+        myMap.geoObjects.add(myPlacemark);
+                myMap.behaviors.disable('scrollZoom');
+    }
+    
+  </script>
+<div id="ymap" style="width:100%;height:100%"></div>
+    <script>
+    new flickerplate('.flicker-example');
+    </script>
+</body>
+</html>

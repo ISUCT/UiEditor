@@ -46,6 +46,82 @@ body{
 
 }
 
+img{
+	width: 100%;
+}
+
+.two-blocks{
+	display: inline-block;
+	margin: 0 auto;
+	 height: 100%;
+}
+.child-info{
+	float: left;
+	 width: 57%;
+	 padding-left: 10%;
+
+}
+
+.child-menu-block{
+	float: right;
+	width: 40%;
+	height: 100%;
+}
+
+.child-menu-block img{
+	padding: 10px;
+
+}
+
+.child-info span{
+	font-size: 18px;
+	text-align: justify;
+	 color: #00ab94;
+}
+
+.child-info span img{
+	margin: 25px 0 20px 0;
+	width: 95%;
+}
+.child-menu{
+	top: -20px;
+	position: relative;
+
+    right: 0px;
+    background-color:rgba(255, 102, 0,0.6);    
+  
+    height: 620px;
+}
+
+.child-banners{
+	margin-right: 15%;
+}
+
+.child-menu li{
+	font-size: 24px;
+	list-style-type: none;
+	border-bottom: 1px solid #fff;
+	line-height: 2.2;
+	text-indent: 30px;
+}
+
+.child-menu ul{
+	margin-left: -40px;
+}
+.child-menu a:hover{
+	color: #ffc299;
+
+}
+.child-menu a{
+	color: #fff;
+}
+.child-lang{
+	  top: 146px;
+}
+
+.flicker-child{
+	height: 100px;
+}
 
 .menu li{
 	font-size: 36px;
@@ -89,7 +165,7 @@ h1{
 
 .row{
 	text-align: center;
-	margin-bottom: 40px;
+	
 
 }
 .col-sm-6{
@@ -116,6 +192,7 @@ h1{
 .map-block img:nth-child(2n){
 	position: absolute;
 	bottom: 0px;
+	right: 0px;
 }
 
 #logo2{
