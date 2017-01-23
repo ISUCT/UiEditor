@@ -11,7 +11,6 @@ define('Editor', ['orm', 'forms', 'ui', 'resource', 'invoke', 'forms/box-pane',
                         , model = Orm.loadModel(ModuleName)
                         , form = Forms.loadForm(ModuleName, model);
                 form.btnAdmin.visible = false;
-
                 var templatesPerDay = 5;
                 var restTemplates;
                 svgCanvas = null;
@@ -19,7 +18,6 @@ define('Editor', ['orm', 'forms', 'ui', 'resource', 'invoke', 'forms/box-pane',
                 var frame;
                 var templateLayer = "Layer 1";
                 var drawingLayer = "drawing";
-
                 var dateFrom = new Date();
                 dateFrom.setHours(0, 0, 0, 0);
                 var dateTo = new Date();
@@ -27,7 +25,6 @@ define('Editor', ['orm', 'forms', 'ui', 'resource', 'invoke', 'forms/box-pane',
                 model.works.params.timeFrom = dateFrom;
                 model.works.params.timeTo = dateTo;
                 model.works.params.published = true;
-
                 function updateProfile(name, callback) {
                     model.userProfile.params.name = name;
                     model.userProfile.requery(function () {
@@ -52,14 +49,12 @@ define('Editor', ['orm', 'forms', 'ui', 'resource', 'invoke', 'forms/box-pane',
                         form.btnAdmin.visible = true;
                     }
                 });
-
                 form.btnAdmin.onActionPerformed = function () {
                     require('AdminForm', function (AdminForm) {
                         var templ = new AdminForm();
                         templ.show();
                     });
                 };
-
                 form.lblAbout.cursor = 'pointer';
                 form.lblManual.cursor = 'pointer';
                 form.lblName.cursor = 'pointer';
@@ -70,7 +65,6 @@ define('Editor', ['orm', 'forms', 'ui', 'resource', 'invoke', 'forms/box-pane',
                 form.lblStore.cursor = 'pointer';
                 form.lblParthners.cursor = 'pointer';
                 form.lblFond.cursor = 'pointer';
-
                 function loadText(event) {
                     model.texts.params.fldName = event.source.text;
                     model.texts.requery(function () {
@@ -93,7 +87,6 @@ define('Editor', ['orm', 'forms', 'ui', 'resource', 'invoke', 'forms/box-pane',
                 form.lblFond.onMousePressed = function () {
                     window.location.href = "http://" + window.location.host;
                 };
-
                 form.lblName.onMousePressed = function () {
                     require('UserInformation', function (UserInformation) {
                         var user = null;
@@ -104,7 +97,6 @@ define('Editor', ['orm', 'forms', 'ui', 'resource', 'invoke', 'forms/box-pane',
                         userInfo.show();
                     });
                 };
-
                 initEmbed = function () {
                     var doc, mainButton;
                     svgCanvas = new EmbeddedSVGEdit(frame);
@@ -118,7 +110,6 @@ define('Editor', ['orm', 'forms', 'ui', 'resource', 'invoke', 'forms/box-pane',
                         });
                     });
                 };
-
                 self.show = function () {
                     form.view.showOn(document.getElementById('Main'));
                     Invoke.later(function () {
@@ -131,12 +122,10 @@ define('Editor', ['orm', 'forms', 'ui', 'resource', 'invoke', 'forms/box-pane',
                         frame = document.getElementById('svgedit');
                     });
                 };
-
                 var onTemplateClick = function (event) {
                     //svgCanvas.setSvgString(event.source.snap.toString());
-                    var snapEl = event.source.snap;
+                    snapEl = event.source.snap;
                     var bbOx = snapEl.getBBox();
-
                     svgCanvas.setResolution(bbOx.width, bbOx.height);
                     svgCanvas.zoomChanged(window, 'canvas');
                     svgCanvas.setCurrentLayer(templateLayer)(function () { //Выбираем слой шаблона
@@ -144,14 +133,17 @@ define('Editor', ['orm', 'forms', 'ui', 'resource', 'invoke', 'forms/box-pane',
                             svgCanvas.deleteSelectedElements()(function () { //удаляем все со слоя
                                 svgCanvas.importSvgString(snapEl.toString())(function () {
                                     svgTemplate = arguments[0];
-                                    svgCanvas.addToSelection([svgTemplate], true)(function () {
-                                        console.log(arguments)
-                                        svgCanvas.clearSelection()();
-                                    });
-
-                                    svgCanvas.setCurrentLayer(drawingLayer)(function () { //Выбираем слой редактирования
-                                        console.log(svgTemplate);
-                                        console.log(snapEl);
+                                    svgCanvas.addToSelection([svgTemplate], false)(function () {
+                                        svgCanvas.alignSelectedElements('m', 'page')(function () {
+//                                        console.log(arguments);
+                                            svgCanvas.alignSelectedElements('c', 'page')(function () {
+                                                svgCanvas.clearSelection()();
+                                                svgCanvas.setCurrentLayer(drawingLayer)(function () { //Выбираем слой редактирования
+//                                            console.log(svgTemplate);
+//                                            console.log(snapEl);
+                                                });
+                                            });
+                                        });
                                     });
                                 });
                             });
@@ -169,9 +161,19 @@ define('Editor', ['orm', 'forms', 'ui', 'resource', 'invoke', 'forms/box-pane',
 //                    });
                 };
                 var onFormClick = function (event) {
-                    svgCanvas.importSvgString(event.source.snap.toString());
-                };
+                    svgCanvas.importSvgString(event.source.snap.toString())(function () {
+                        svgEl = arguments[0];
+                        svgCanvas.setCurrentLayer(drawingLayer)(function () {
+                            svgCanvas.setCurrentLayerPosition(1)(function () {
+                                svgCanvas.addToSelection([svgEl], true)(function () {
+                                    svgCanvas.alignSelectedElements('m', 'page')
+                                    svgCanvas.alignSelectedElements('c', 'page')
+                                });
+                            });
+                        });
+                    });
 
+                };
                 function loadTemplates() {
                     var templatesPanel = new BoxPane(Ui.Orientation.VERTICAL);
                     form.scrollTemplate.add(templatesPanel);
@@ -218,7 +220,6 @@ define('Editor', ['orm', 'forms', 'ui', 'resource', 'invoke', 'forms/box-pane',
                 }
                 model.getTemplates.requery(loadTemplates);
                 model.getForms.requery(loadForms);
-
 //                model.requery(function () {
 //
 //                }, function (error) {
@@ -278,7 +279,6 @@ define('Editor', ['orm', 'forms', 'ui', 'resource', 'invoke', 'forms/box-pane',
                         svgCanvas.getSvgString()(handleSvgData);
                     }
                 };
-
                 form.lblMyWorks.onMouseClicked = function () {
                     require('UserWorks', function (UserWorks) {
                         if (userProfile.userprofile_id) {
