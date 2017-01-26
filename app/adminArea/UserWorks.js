@@ -48,7 +48,17 @@ define('UserWorks', ['orm', 'forms', 'ui'], function (Orm, Forms, Ui, ModuleName
                 snap.append(f);
             });
         };
-
+        
+        form.btnDownload.onActionPerformed = function () {
+            if (form.modelGrid.selected) {
+                var link = document.createElement('a');
+                link.setAttribute('download', 'download');
+                for (var i in form.modelGrid.selected) {
+                    link.setAttribute("href", form.modelGrid.selected[i].link);
+                    link.click();
+                }
+            }
+        };
 
 
 
