@@ -1,4 +1,4 @@
-﻿body {
+body {
 	background: #D0D0D0;
 }
 
@@ -55,7 +55,8 @@ select {
 #svgcanvas {
 	line-height: normal;
 	display: inline-block;
-	background-color: #A0A0A0;
+	/*background-color: #A0A0A0;*/
+        background-color: #c5d5d7;
 	text-align: center;
 	vertical-align: middle;
 	width: 640px;
@@ -68,8 +69,8 @@ select {
 	*/
 	/*background: -moz-radial-gradient(45deg,#bbb,#222);*/
         /*JSKONST backg*/
-        background: -moz-radial-gradient(45deg,#aaa,#190);
-        background: -webkit-gradient(radial, center center, 3, center center, 1000, from(#aaa), to(#195));
+        background: -moz-radial-gradient(45deg,#c5d5d7,#178ea0);
+        background: -webkit-gradient(radial, center center, 3, center center, 1000, from(#c5d5d7), to(#178ea0));
 	/*background: -webkit-gradient(radial, center center, 3, center center, 1000, from(#bbb), to(#222));*/
 }
 
@@ -986,7 +987,7 @@ span.zoom_tool {
 		height: 30px;
 	}
 	#tools_top {
-		height: 71px;
+		/* height: 71px; */
 	}
 	#workarea, #sidepanels {
 		top: 70px;
