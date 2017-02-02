@@ -89,7 +89,7 @@
     <font family="Arial" size="12" style="1"/>
     <AnchorsPaneConstraints height="20px" right="11px" top="30px" width="150px"/>
   </Label>
-  <Label cursor="0" icon="resources/uiElements/buttons/preview.png" name="btnCreate1" parent="view" prefHeight="60px" prefWidth="173px">
+  <Label cursor="0" icon="resources/uiElements/buttons/preview.png" name="btnPreview" parent="view" prefHeight="60px" prefWidth="173px">
     <AnchorsPaneConstraints bottom="6px" height="60px" right="231px" width="173px"/>
   </Label>
 </layout>

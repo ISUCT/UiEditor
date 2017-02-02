@@ -3,9 +3,9 @@
  * @author jskonst
  */
 define('Editor', ['orm', 'forms', 'ui', 'resource', 'invoke', 'forms/box-pane',
-    'security', 'forms/border-pane', 'TextView', 'logger']
+    'security', 'forms/border-pane', 'TextView', 'logger', 'SvgPreview']
         , function (Orm, Forms, Ui, Resource, Invoke,
-                BoxPane, Security, BorderPane, TextView, Logger, ModuleName) {
+                BoxPane, Security, BorderPane, TextView, Logger, SvgPreview, ModuleName) {
             function module_constructor() {
                 var self = this
                         , model = Orm.loadModel(ModuleName)
@@ -65,6 +65,8 @@ define('Editor', ['orm', 'forms', 'ui', 'resource', 'invoke', 'forms/box-pane',
                 form.lblStore.cursor = 'pointer';
                 form.lblParthners.cursor = 'pointer';
                 form.lblFond.cursor = 'pointer';
+                form.btnPreview.cursor = 'pointer';
+
                 function loadText(event) {
                     model.texts.params.fldName = event.source.text;
                     model.texts.requery(function () {
@@ -125,28 +127,34 @@ define('Editor', ['orm', 'forms', 'ui', 'resource', 'invoke', 'forms/box-pane',
                 var onTemplateClick = function (event) {
                     //svgCanvas.setSvgString(event.source.snap.toString());
                     snapEl = event.source.snap;
-                    var bbOx = snapEl.getBBox();
-                    svgCanvas.setResolution(bbOx.width, bbOx.height);
-                    svgCanvas.zoomChanged(window, 'canvas');
+                    var child = snapEl.node.childNodes[snapEl.node.childNodes.length - 2];
+                    var bbOx = child.getBBox();
+                    //var bbOx = snapEl.getBBox();
+                    svgCanvas.setResolution(bbOx.width, bbOx.height)(function () {
+                        svgCanvas.zoomChanged(window, 'canvas');
+                    });
+
                     svgCanvas.setCurrentLayer(templateLayer)(function () { //Выбираем слой шаблона
                         svgCanvas.selectAllInCurrentLayer()(function () { //выбираем все на слое
                             svgCanvas.deleteSelectedElements()(function () { //удаляем все со слоя
-                                svgCanvas.importSvgString(snapEl.toString())(function () {
+                                svgCanvas.importSvgString(snapEl.innerSVG())(function () {
+//                                svgCanvas.importSvgString(snapEl.toString())(function () {
                                     svgTemplate = arguments[0];
+                                    svgTemplate.setAttribute("transform", "");
                                     svgCanvas.addToSelection([svgTemplate], false)(function () {
-                                        svgCanvas.alignSelectedElements('m', 'page')(function () {
+                                        //svgCanvas.alignSelectedElements('m', 'page')(function () {
 //                                        console.log(arguments);
-                                            svgCanvas.alignSelectedElements('c', 'page')(function () {
-                                                svgCanvas.clearSelection()();
-                                                svgCanvas.setCurrentLayer(drawingLayer)(function () { //Выбираем слой редактирования
-                                                    svgCanvas.setCurrentLayerPosition(1)(function () {
-                                                        
-                                                    });
+                                        //svgCanvas.alignSelectedElements('c', 'page')(function () {
+                                        svgCanvas.clearSelection()();
+                                        svgCanvas.setCurrentLayer(drawingLayer)(function () { //Выбираем слой редактирования
+                                            svgCanvas.setCurrentLayerPosition(1)(function () {
+
+                                            });
 //                                            console.log(svgTemplate);
 //                                            console.log(snapEl);
-                                                });
-                                            });
                                         });
+                                        //});
+                                        //});
                                     });
                                 });
                             });
@@ -164,7 +172,12 @@ define('Editor', ['orm', 'forms', 'ui', 'resource', 'invoke', 'forms/box-pane',
 //                    });
                 };
                 var onFormClick = function (event) {
-                    svgCanvas.importSvgString(event.source.snap.toString())(function () {
+                    snapForm = event.source.snap;
+                    var elToDel = snapForm.node.childNodes.length - 2
+                    for (var i = 0; i < elToDel; i++) {
+                        snapForm.node.childNodes[0].remove();
+                    }
+                    svgCanvas.importSvgString(snapForm.innerSVG())(function () {
                         svgEl = arguments[0];
                         svgCanvas.setCurrentLayer(drawingLayer)(function () {
                             svgCanvas.setCurrentLayerPosition(1)(function () {
@@ -175,8 +188,8 @@ define('Editor', ['orm', 'forms', 'ui', 'resource', 'invoke', 'forms/box-pane',
                             });
                         });
                     });
-
                 };
+
                 function loadTemplates() {
                     var templatesPanel = new BoxPane(Ui.Orientation.VERTICAL);
                     form.scrollTemplate.add(templatesPanel);
@@ -191,10 +204,12 @@ define('Editor', ['orm', 'forms', 'ui', 'resource', 'invoke', 'forms/box-pane',
                         svg.setAttribute('viewBox', "0 0 " + 185 + " " + 70);
                         svg.setAttribute('preserveAspectRatio', "xMinYMin meet");
                         demoContainer.element.appendChild(svg);
-                        var snap = Snap(svg);
+                        var snap = new Snap(svg);
                         demoContainer.snap = snap;
                         Snap.load(model.getTemplates[i].link, function (f) {
                             this.append(f);
+                            this.node.childNodes[0].remove(); //Адский хак
+                            this.node.childNodes[0].remove();
                         }, snap);
                     }
                 }
@@ -214,13 +229,17 @@ define('Editor', ['orm', 'forms', 'ui', 'resource', 'invoke', 'forms/box-pane',
                         svg.setAttribute('viewBox', "0 0 " + 185 + " " + 185);
                         svg.setAttribute('preserveAspectRatio', "xMinYMin meet");
                         demoForm.element.appendChild(svg);
-                        var snap = Snap(svg);
+                        var snap = new Snap(svg);
                         demoForm.snap = snap;
                         Snap.load(model.getForms[i].link, function (f) {
                             this.append(f);
+
                         }, snap);
                     }
                 }
+
+
+
                 model.getTemplates.requery(loadTemplates);
                 model.getForms.requery(loadForms);
 //                model.requery(function () {
@@ -290,6 +309,26 @@ define('Editor', ['orm', 'forms', 'ui', 'resource', 'invoke', 'forms/box-pane',
                         }
                     });
                 };
+
+                form.btnPreview.onMouseClicked = function () {
+
+                    svgCanvas.setCurrentLayer(drawingLayer)(function () {
+                        svgCanvas.setCurrentLayerPosition(0)(function () {
+                            svgCanvas.getSvgString()(function (data, error) {
+                                var preview = new SvgPreview(data);
+                                preview.showModal(function () {
+                                    svgCanvas.setCurrentLayerPosition(1)(function () {
+                                    });
+                                });
+                            });
+                        });
+                    });
+
+
+
+
+                };
+
             }
 
             return module_constructor;
