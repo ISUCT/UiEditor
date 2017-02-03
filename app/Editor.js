@@ -221,7 +221,7 @@ define('Editor', ['orm', 'forms', 'ui', 'resource', 'invoke', 'forms/box-pane',
 
                 function loadForms() {
                     //var formsPanel = new BoxPane(Ui.Orientation.VERTICAL);
-                    var formsPanel = new GridPane(model.getTemplates.length/2,2);
+                    var formsPanel = new GridPane(Math.floor(model.getTemplates.length/2),2);
                     form.scrollForms.add(formsPanel);
                     for (var i in model.getForms) {
                         var demoForm = new BorderPane();
