@@ -1,7 +1,7 @@
 /**
  * 
  * @author jskonst
- * @rolesAllowed admin
+ * //rolesAllowed admin
  */
 define('Templates', ['orm', 'forms', 'ui', 'resource', 'logger', 'security'],
         function (Orm, Forms, Ui, Resource, Logger, Security, ModuleName) {
@@ -84,11 +84,16 @@ define('Templates', ['orm', 'forms', 'ui', 'resource', 'logger', 'security'],
                 };
 
                 form.modelGrid.onItemSelected = function (event) {
-                    
-                    svg.innerHTML = svStr;
-                    svg.viewBox.baseVal.width = svg.getBBox().width;
-                    svg.viewBox.baseVal.height = svg.getBBox().height;
 
+//                    svg.innerHTML = svStr;
+//                    svg.viewBox.baseVal.width = svg.getBBox().width;
+//                    svg.viewBox.baseVal.height = svg.getBBox().height;
+                    Resource.loadText(event.item.link, function (aLoaded) {
+                        console.log(aLoaded);
+
+                    }, function (e) {
+                        console.log("bad");
+                    });
                 };
 
                 form.btnDownload.onActionPerformed = function () {
