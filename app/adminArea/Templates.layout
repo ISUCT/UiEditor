@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?><layout title="" view="view">
   <AnchorsPane background="#ffffff" cursor="0" name="view" prefHeight="300px" prefWidth="654px"/>
   <ModelGrid cursor="0" data="templates" name="modelGrid" parent="view" prefHeight="240px" prefWidth="421px">
-    <AnchorsPaneConstraints height="240px" left="10px" top="10px" width="421px"/>
+    <AnchorsPaneConstraints bottom="50px" left="10px" top="10px" width="421px"/>
     <ServiceGridColumn name="colService1" resizable="true"/>
-    <ModelGridColumn editor="com.eas.client.forms.components.model.ModelCombo[,0,0,0x0,invalid,layout=java.awt.BorderLayout,alignmentX=0.0,alignmentY=0.0,border=javax.swing.border.LineBorder@63d9a51a,flags=16777225,maximumSize=,minimumSize=,preferredSize=]" field="type" name="colTypeid" title="colTypeid" view="com.eas.client.forms.components.model.ModelCombo[,-189,-29,0x0,invalid,layout=java.awt.BorderLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=16777225,maximumSize=,minimumSize=,preferredSize=]" width="190px">
+    <ModelGridColumn editor="com.eas.client.forms.components.model.ModelCombo[,0,0,0x0,invalid,layout=java.awt.BorderLayout,alignmentX=0.0,alignmentY=0.0,border=javax.swing.border.LineBorder@4594783d,flags=16777225,maximumSize=,minimumSize=,preferredSize=]" field="type" name="colTypeid" title="colTypeid" view="com.eas.client.forms.components.model.ModelCombo[,-189,-29,0x0,invalid,layout=java.awt.BorderLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=16777225,maximumSize=,minimumSize=,preferredSize=]" width="190px">
       <ModelCombo displayField="name" displayList="templateTypes"/>
     </ModelGridColumn>
-    <ModelGridColumn editor="com.eas.client.forms.components.model.ModelFormattedField[,0,0,0x0,invalid,layout=java.awt.BorderLayout,alignmentX=0.0,alignmentY=0.0,border=javax.swing.border.LineBorder@529e901,flags=16777225,maximumSize=,minimumSize=,preferredSize=]" field="link" name="colLink" title="colLink" view="com.eas.client.forms.components.model.ModelFormattedField[,-189,-29,0x0,invalid,layout=java.awt.BorderLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=16777225,maximumSize=,minimumSize=,preferredSize=]" width="190px">
+    <ModelGridColumn editor="com.eas.client.forms.components.model.ModelFormattedField[,0,0,0x0,invalid,layout=java.awt.BorderLayout,alignmentX=0.0,alignmentY=0.0,border=javax.swing.border.LineBorder@5447b4da,flags=16777225,maximumSize=,minimumSize=,preferredSize=]" field="link" name="colLink" title="colLink" view="com.eas.client.forms.components.model.ModelFormattedField[,-189,-29,0x0,invalid,layout=java.awt.BorderLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=16777225,maximumSize=,minimumSize=,preferredSize=]" width="190px">
       <ModelFormattedField format=""/>
     </ModelGridColumn>
   </ModelGrid>
@@ -19,7 +19,7 @@
   <Button cursor="0" name="btnSave" parent="view" prefHeight="30px" prefWidth="100px" text="Сохранить">
     <AnchorsPaneConstraints bottom="10px" height="30px" right="4px" width="100px"/>
   </Button>
-  <BorderPane background="#ffffff" cursor="0" name="pnlPreview" parent="view" prefHeight="240px" prefWidth="210px">
+  <BorderPane cursor="0" name="pnlPreview" parent="view" prefHeight="240px" prefWidth="210px">
     <AnchorsPaneConstraints bottom="50px" left="440px" right="4px" top="10px"/>
   </BorderPane>
   <Button cursor="0" name="btnDownload" parent="view" prefHeight="30px" prefWidth="100px" text="Скачать">

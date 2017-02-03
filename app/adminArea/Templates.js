@@ -1,7 +1,7 @@
 /**
  * 
  * @author jskonst
- * //rolesAllowed admin
+ * @rolesAllowed admin
  */
 define('Templates', ['orm', 'forms', 'ui', 'resource', 'logger', 'security'],
         function (Orm, Forms, Ui, Resource, Logger, Security, ModuleName) {
@@ -18,9 +18,6 @@ define('Templates', ['orm', 'forms', 'ui', 'resource', 'logger', 'security'],
                 svg.setAttribute('viewBox', "0 0 " + 185 + " " + 70);
                 svg.setAttribute('preserveAspectRatio', "xMinYMin meet");
                 form.pnlPreview.element.appendChild(svg);
-
-
-
 
                 self.show = function () {
                     form.show();
@@ -84,20 +81,21 @@ define('Templates', ['orm', 'forms', 'ui', 'resource', 'logger', 'security'],
                 };
 
                 form.modelGrid.onItemSelected = function (event) {
-
-//                    svg.innerHTML = svStr;
-//                    svg.viewBox.baseVal.width = svg.getBBox().width;
-//                    svg.viewBox.baseVal.height = svg.getBBox().height;
                     Resource.loadText(event.item.link, function (aLoaded) {
-                        console.log(aLoaded);
-
+                        svg.innerHTML = aLoaded;
+                        svg.viewBox.baseVal.width = svg.getBBox().width;
+                    svg.viewBox.baseVal.height = svg.getBBox().height;
                     }, function (e) {
                         console.log("bad");
                     });
                 };
 
-                form.btnDownload.onActionPerformed = function () {
+                form.pnlPreview.onComponentResized = function(evt){
+                        svg.setAttribute('width', evt.source.element.offsetWidth);
+                        svg.setAttribute('height', evt.source.element.offsetHeight);        
+                };
 
+                form.btnDownload.onActionPerformed = function () {
                     if (form.modelGrid.selected) {
                         var link = document.createElement('a');
                         link.setAttribute('download', 'download');
@@ -105,9 +103,7 @@ define('Templates', ['orm', 'forms', 'ui', 'resource', 'logger', 'security'],
                             link.setAttribute("href", form.modelGrid.selected[i].link);
                             link.click();
                         }
-
                     }
-
                 };
 
 

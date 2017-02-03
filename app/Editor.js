@@ -3,15 +3,15 @@
  * @author jskonst
  */
 define('Editor', ['orm', 'forms', 'ui', 'resource', 'invoke', 'forms/box-pane',
-    'security', 'forms/border-pane', 'TextView', 'logger', 'SvgPreview']
+    'security', 'forms/border-pane', 'TextView', 'logger', 'SvgPreview', 'forms/grid-pane']
         , function (Orm, Forms, Ui, Resource, Invoke,
-                BoxPane, Security, BorderPane, TextView, Logger, SvgPreview, ModuleName) {
+                BoxPane, Security, BorderPane, TextView, Logger, SvgPreview, GridPane, ModuleName) {
             function module_constructor() {
                 var self = this
                         , model = Orm.loadModel(ModuleName)
                         , form = Forms.loadForm(ModuleName, model);
                 form.btnAdmin.visible = false;
-                var templatesPerDay = 5;
+                var templatesPerDay = 3;
                 var restTemplates;
                 svgCanvas = null;
                 var userProfile;
@@ -125,10 +125,9 @@ define('Editor', ['orm', 'forms', 'ui', 'resource', 'invoke', 'forms/box-pane',
                     });
                 };
                 var onTemplateClick = function (event) {
-                    //svgCanvas.setSvgString(event.source.snap.toString());
                     snapEl = event.source.snap;
-                    var child = snapEl.node.childNodes[snapEl.node.childNodes.length - 2];
-                    var bbOx = child.getBBox();
+                    //var child = snapEl.node.childNodes[snapEl.node.childNodes.length - 2];
+                    var bbOx = snapEl.getBBox();
                     //var bbOx = snapEl.getBBox();
                     svgCanvas.setResolution(bbOx.width, bbOx.height)(function () {
                         svgCanvas.zoomChanged(window, 'canvas');
@@ -137,24 +136,16 @@ define('Editor', ['orm', 'forms', 'ui', 'resource', 'invoke', 'forms/box-pane',
                     svgCanvas.setCurrentLayer(templateLayer)(function () { //Выбираем слой шаблона
                         svgCanvas.selectAllInCurrentLayer()(function () { //выбираем все на слое
                             svgCanvas.deleteSelectedElements()(function () { //удаляем все со слоя
-                                svgCanvas.importSvgString(snapEl.innerSVG())(function () {
-//                                svgCanvas.importSvgString(snapEl.toString())(function () {
+                                svgCanvas.importSvgString(snapEl.innerHTML)(function () {
                                     svgTemplate = arguments[0];
                                     svgTemplate.setAttribute("transform", "");
                                     svgCanvas.addToSelection([svgTemplate], false)(function () {
-                                        //svgCanvas.alignSelectedElements('m', 'page')(function () {
-//                                        console.log(arguments);
-                                        //svgCanvas.alignSelectedElements('c', 'page')(function () {
                                         svgCanvas.clearSelection()();
                                         svgCanvas.setCurrentLayer(drawingLayer)(function () { //Выбираем слой редактирования
                                             svgCanvas.setCurrentLayerPosition(1)(function () {
 
                                             });
-//                                            console.log(svgTemplate);
-//                                            console.log(snapEl);
                                         });
-                                        //});
-                                        //});
                                     });
                                 });
                             });
@@ -172,12 +163,13 @@ define('Editor', ['orm', 'forms', 'ui', 'resource', 'invoke', 'forms/box-pane',
 //                    });
                 };
                 var onFormClick = function (event) {
-                    snapForm = event.source.snap;
-                    var elToDel = snapForm.node.childNodes.length - 2
+                    var snapForm = event.source.snap;
+                    var elToDel = snapForm.childNodes.length - 2;
                     for (var i = 0; i < elToDel; i++) {
-                        snapForm.node.childNodes[0].remove();
+                        snapForm.childNodes[0].remove();
                     }
-                    svgCanvas.importSvgString(snapForm.innerSVG())(function () {
+
+                    svgCanvas.importSvgString(snapForm.innerHTML)(function () {
                         svgEl = arguments[0];
                         svgCanvas.setCurrentLayer(drawingLayer)(function () {
                             svgCanvas.setCurrentLayerPosition(1)(function () {
@@ -190,8 +182,23 @@ define('Editor', ['orm', 'forms', 'ui', 'resource', 'invoke', 'forms/box-pane',
                     });
                 };
 
+
+                function loadFromServer(link, svg, container) {
+                    Resource.loadText(link, function (aLoaded) {
+                        svg.innerHTML = aLoaded;
+                        svg.setAttribute('width', container.source.element.offsetWidth);
+                        svg.setAttribute('height', container.source.element.offsetHeight);
+
+                    }, function (e) {
+                        console.log("bad");
+                    });
+                }
+                ;
+
+
                 function loadTemplates() {
                     var templatesPanel = new BoxPane(Ui.Orientation.VERTICAL);
+                    
                     form.scrollTemplate.add(templatesPanel);
                     for (var i in model.getTemplates) {
                         var demoContainer = new BorderPane();
@@ -200,54 +207,40 @@ define('Editor', ['orm', 'forms', 'ui', 'resource', 'invoke', 'forms/box-pane',
                         templatesPanel.add(demoContainer);
                         var svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
                         svg.setAttribute('width', demoContainer.element.offsetWidth);
-                        svg.setAttribute('height', demoContainer.height);
+                        svg.setAttribute('height', demoContainer.element.offsetHeight);
                         svg.setAttribute('viewBox', "0 0 " + 185 + " " + 70);
                         svg.setAttribute('preserveAspectRatio', "xMinYMin meet");
                         demoContainer.element.appendChild(svg);
-                        var snap = new Snap(svg);
-                        demoContainer.snap = snap;
-                        Snap.load(model.getTemplates[i].link, function (f) {
-                            this.append(f);
-                            this.node.childNodes[0].remove(); //Адский хак
-                            this.node.childNodes[0].remove();
-                        }, snap);
+                        demoContainer.snap = svg;
+                        loadFromServer(model.getTemplates[i].link, svg, demoContainer);
+
+
                     }
                 }
 
 
                 function loadForms() {
-                    var formsPanel = new BoxPane(Ui.Orientation.VERTICAL);
+                    //var formsPanel = new BoxPane(Ui.Orientation.VERTICAL);
+                    var formsPanel = new GridPane(model.getTemplates.length/2,2);
                     form.scrollForms.add(formsPanel);
                     for (var i in model.getForms) {
                         var demoForm = new BorderPane();
-                        demoForm.height = 60;
+                        demoForm.height = 30;
                         demoForm.onMousePressed = onFormClick;
-                        formsPanel.add(demoForm);
+                        formsPanel.add(demoForm,Math.floor((+i)/2),(+i)%2);
                         var svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
                         svg.setAttribute('width', demoForm.element.offsetWidth);
                         svg.setAttribute('height', demoForm.height);
                         svg.setAttribute('viewBox', "0 0 " + 185 + " " + 185);
                         svg.setAttribute('preserveAspectRatio', "xMinYMin meet");
                         demoForm.element.appendChild(svg);
-                        var snap = new Snap(svg);
-                        demoForm.snap = snap;
-                        Snap.load(model.getForms[i].link, function (f) {
-                            this.append(f);
-
-                        }, snap);
+                        demoForm.snap = svg;
+                        loadFromServer(model.getForms[i].link, svg, demoForm);
                     }
                 }
 
-
-
                 model.getTemplates.requery(loadTemplates);
                 model.getForms.requery(loadForms);
-//                model.requery(function () {
-//
-//                }, function (error) {
-//                    console.log(error);
-//                    console.log("requery Error");
-//                });
 
                 function upload(data) {
                     var loading;

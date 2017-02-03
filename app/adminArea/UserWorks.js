@@ -2,7 +2,7 @@
  * 
  * @author jskonst
  */
-define('UserWorks', ['orm', 'forms', 'ui'], function (Orm, Forms, Ui, ModuleName) {
+define('UserWorks', ['orm', 'forms', 'ui','resource'], function (Orm, Forms, Ui, Resource, ModuleName) {
     function module_constructor(profile_id) {
         var self = this
                 , model = Orm.loadModel(ModuleName)
@@ -14,7 +14,7 @@ define('UserWorks', ['orm', 'forms', 'ui'], function (Orm, Forms, Ui, ModuleName
         svg.setAttribute('viewBox', "0 0 " + 185 + " " + 70);
         svg.setAttribute('preserveAspectRatio', "xMinYMin meet");
         form.pnlPreview.element.appendChild(svg);
-        var snap = Snap(svg);
+
 
         model.allWorks.params.profile_id = profile_id;
 
@@ -39,16 +39,16 @@ define('UserWorks', ['orm', 'forms', 'ui'], function (Orm, Forms, Ui, ModuleName
         };
 
         form.modelGrid.onItemSelected = function (event) {
-            snap.clear();
-            svg.setAttribute('width', form.pnlPreview.element.offsetWidth);
-            svg.setAttribute('height', form.pnlPreview.element.offsetHeight);
-            Snap.load(event.item.link, function (f) {
-                //console.log(svg);
-                //var g = f.select("g");
-                snap.append(f);
+
+            Resource.loadText(event.item.link, function (aLoaded) {
+                svg.innerHTML = aLoaded;
+                svg.viewBox.baseVal.width = svg.getBBox().width;
+                svg.viewBox.baseVal.height = svg.getBBox().height;
+            }, function (e) {
+                console.log("bad");
             });
         };
-        
+
         form.btnDownload.onActionPerformed = function () {
             if (form.modelGrid.selected) {
                 var link = document.createElement('a');
@@ -60,6 +60,10 @@ define('UserWorks', ['orm', 'forms', 'ui'], function (Orm, Forms, Ui, ModuleName
             }
         };
 
+        form.pnlPreview.onComponentResized = function (evt) {
+            svg.setAttribute('width', evt.source.element.offsetWidth);
+            svg.setAttribute('height', evt.source.element.offsetHeight);
+        };
 
 
     }

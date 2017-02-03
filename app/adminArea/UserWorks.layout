@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?><layout title="" view="view">
   <AnchorsPane background="#ffffff" cursor="0" name="view" prefHeight="300px" prefWidth="640px"/>
   <ModelGrid cursor="0" data="allWorks" name="modelGrid" parent="view" prefHeight="240px" prefWidth="421px">
-    <AnchorsPaneConstraints height="240px" left="10px" top="10px" width="421px"/>
+    <AnchorsPaneConstraints bottom="50px" left="10px" top="10px" width="421px"/>
     <ServiceGridColumn name="colService" resizable="true"/>
-    <ModelGridColumn editor="com.eas.client.forms.components.model.ModelFormattedField[,0,0,0x0,invalid,layout=java.awt.BorderLayout,alignmentX=0.0,alignmentY=0.0,border=javax.swing.border.LineBorder@19f4d442,flags=16777225,maximumSize=,minimumSize=,preferredSize=]" field="link" name="colLink" title="colLink" view="com.eas.client.forms.components.model.ModelFormattedField[,-126,-29,0x0,invalid,layout=java.awt.BorderLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=16777225,maximumSize=,minimumSize=,preferredSize=]" width="127px">
+    <ModelGridColumn editor="com.eas.client.forms.components.model.ModelFormattedField[,0,0,0x0,invalid,layout=java.awt.BorderLayout,alignmentX=0.0,alignmentY=0.0,border=javax.swing.border.LineBorder@b1bfa5d,flags=16777225,maximumSize=,minimumSize=,preferredSize=]" field="link" name="colLink" title="colLink" view="com.eas.client.forms.components.model.ModelFormattedField[,-126,-29,0x0,invalid,layout=java.awt.BorderLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=16777225,maximumSize=,minimumSize=,preferredSize=]" width="127px">
       <ModelFormattedField format=""/>
     </ModelGridColumn>
-    <ModelGridColumn editor="com.eas.client.forms.components.model.ModelDate[,0,0,0x0,invalid,layout=java.awt.BorderLayout,alignmentX=0.0,alignmentY=0.0,border=javax.swing.border.LineBorder@3b610505,flags=16777225,maximumSize=,minimumSize=,preferredSize=]" field="uploaddate" name="colUploaddate" title="colUploaddate" view="com.eas.client.forms.components.model.ModelDate[,-126,-29,0x0,invalid,layout=java.awt.BorderLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=16777225,maximumSize=,minimumSize=,preferredSize=]" width="127px">
+    <ModelGridColumn editor="com.eas.client.forms.components.model.ModelDate[,0,0,0x0,invalid,layout=java.awt.BorderLayout,alignmentX=0.0,alignmentY=0.0,border=javax.swing.border.LineBorder@64f90338,flags=16777225,maximumSize=,minimumSize=,preferredSize=]" field="uploaddate" name="colUploaddate" title="colUploaddate" view="com.eas.client.forms.components.model.ModelDate[,-126,-29,0x0,invalid,layout=java.awt.BorderLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=16777225,maximumSize=,minimumSize=,preferredSize=]" width="127px">
       <ModelDate format="dd.MM.yyyy HH:mm:ss.SSS"/>
     </ModelGridColumn>
     <ModelGridColumn editor="com.eas.client.forms.components.model.ModelCheckBox[,0,0,0x0,invalid,layout=java.awt.BorderLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=16777217,maximumSize=,minimumSize=,preferredSize=]" field="published" name="colPublished" title="colPublished" view="com.eas.client.forms.components.model.ModelCheckBox[,-125,-29,0x0,invalid,layout=java.awt.BorderLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=16777225,maximumSize=,minimumSize=,preferredSize=]" width="126px">
@@ -14,7 +14,7 @@
     </ModelGridColumn>
   </ModelGrid>
   <BorderPane background="#ffffff" cursor="0" name="pnlPreview" parent="view" prefHeight="240px" prefWidth="196px">
-    <AnchorsPaneConstraints height="240px" left="440px" right="4px" top="10px"/>
+    <AnchorsPaneConstraints bottom="50px" left="440px" right="4px" top="10px"/>
   </BorderPane>
   <Button cursor="0" name="btnDelete" parent="view" prefHeight="30px" prefWidth="100px" text="Удалить">
     <AnchorsPaneConstraints bottom="10px" height="30px" right="120px" width="100px"/>
