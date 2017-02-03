@@ -3,8 +3,8 @@
  * @author jskonst
  * @rolesAllowed admin
  */
-define('Templates', ['orm', 'forms', 'ui', 'resource', 'logger','security'],
-        function (Orm, Forms, Ui, Resource, Logger,Security, ModuleName) {
+define('Templates', ['orm', 'forms', 'ui', 'resource', 'logger', 'security'],
+        function (Orm, Forms, Ui, Resource, Logger, Security, ModuleName) {
             function module_constructor() {
                 var self = this
                         , model = Orm.loadModel(ModuleName)
@@ -18,7 +18,9 @@ define('Templates', ['orm', 'forms', 'ui', 'resource', 'logger','security'],
                 svg.setAttribute('viewBox', "0 0 " + 185 + " " + 70);
                 svg.setAttribute('preserveAspectRatio', "xMinYMin meet");
                 form.pnlPreview.element.appendChild(svg);
-                var snap = Snap(svg);
+
+
+
 
                 self.show = function () {
                     form.show();
@@ -82,28 +84,25 @@ define('Templates', ['orm', 'forms', 'ui', 'resource', 'logger','security'],
                 };
 
                 form.modelGrid.onItemSelected = function (event) {
-                    snap.clear();
-                    svg.setAttribute('width', form.pnlPreview.element.offsetWidth);
-                    svg.setAttribute('height', form.pnlPreview.element.offsetHeight);
-                    Snap.load(event.item.link, function (f) {
-                        //console.log(svg);
-                        //var g = f.select("g");
-                        snap.append(f);
-                    });
+                    
+                    svg.innerHTML = svStr;
+                    svg.viewBox.baseVal.width = svg.getBBox().width;
+                    svg.viewBox.baseVal.height = svg.getBBox().height;
+
                 };
 
-                form.btnDownload.onActionPerformed = function(){
-                  
-                  if (form.modelGrid.selected){
-                      var link = document.createElement('a');
-                      link.setAttribute('download','download');
-                      for (var i in form.modelGrid.selected){
-                          link.setAttribute("href",form.modelGrid.selected[i].link);
-                          link.click();
-                      }
-                      
-                  }
-                    
+                form.btnDownload.onActionPerformed = function () {
+
+                    if (form.modelGrid.selected) {
+                        var link = document.createElement('a');
+                        link.setAttribute('download', 'download');
+                        for (var i in form.modelGrid.selected) {
+                            link.setAttribute("href", form.modelGrid.selected[i].link);
+                            link.click();
+                        }
+
+                    }
+
                 };
 
 
