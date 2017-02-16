@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?><datamodel>
+  <parameters>
+    <parameter description="" name="timeFrom" nullable="true" parameterMode="1" selectionForm="null" type="Date"/>
+    <parameter description="" name="timeTo" nullable="true" parameterMode="1" selectionForm="null" type="Date"/>
+  </parameters>
+  <parametersEntity entityHeight="200" entityIconified="false" entityLocationX="8" entityLocationY="7" entityWidth="150"/>
+  <entity Title="" entityHeight="200" entityIconified="false" entityId="148719677816601" entityLocationX="195" entityLocationY="13" entityWidth="150" tableAlias="t1" tableName="works" tableSchemaName=""/>
+  <entity Title="" entityHeight="200" entityIconified="false" entityId="148719677816600" entityLocationX="378" entityLocationY="18" entityWidth="150" tableAlias="t" tableName="userprofile" tableSchemaName=""/>
+  <relation leftEntityId="-1" leftEntityParameterName="timeTo" rightEntityFieldName="uploaddate" rightEntityId="148719677816601"/>
+  <relation leftEntityFieldName="profile_id" leftEntityId="148719677816601" rightEntityFieldName="userprofile_id" rightEntityId="148719677816600"/>
+  <relation leftEntityId="-1" leftEntityParameterName="timeFrom" rightEntityFieldName="uploaddate" rightEntityId="148719677816601"/>
+</datamodel>

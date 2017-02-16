@@ -8,8 +8,8 @@ define('SvgPreview', ['forms', 'ui'], function (Forms, Ui, ModuleName) {
 
                 , form = Forms.loadForm(ModuleName);
         var svStr = svgString;
+        var svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
         function onLoad() {
-            var svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
             svg.setAttribute('width', form.panel.element.offsetWidth);
             svg.setAttribute('height', form.panel.element.offsetHeight);
             svg.setAttribute('viewBox', "0 0 " + 185 + " " + 185);
@@ -33,6 +33,12 @@ define('SvgPreview', ['forms', 'ui'], function (Forms, Ui, ModuleName) {
         form.btnClose.onActionPerformed = function () {
             form.close("closing");
         };
+
+        form.panel.onComponentResized = function (evt) {
+            svg.setAttribute('width', evt.source.element.offsetWidth);
+            svg.setAttribute('height', evt.source.element.offsetHeight);
+        };
+
 
     }
     return module_constructor;

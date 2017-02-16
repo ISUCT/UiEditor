@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?><layout title="" view="view">
-  <AnchorsPane background="#ffffff" cursor="0" name="view" prefHeight="136px" prefWidth="265px"/>
+  <AnchorsPane background="#ffffff" cursor="0" name="view" prefHeight="165px" prefWidth="265px"/>
   <Button cursor="0" name="btnProfiles" parent="view" prefHeight="30px" prefWidth="240px" text="Профили пользователей">
     <AnchorsPaneConstraints height="30px" left="10px" right="15px" top="10px"/>
   </Button>
@@ -8,5 +8,8 @@
   </Button>
   <Button cursor="0" name="btnTextEdit" parent="view" prefHeight="30px" prefWidth="240px" text="Редактировать текст">
     <AnchorsPaneConstraints height="30px" left="10px" top="50px" width="240px"/>
+  </Button>
+  <Button cursor="0" name="btnWorks" parent="view" prefHeight="30px" prefWidth="240px" text="Работы пользователей">
+    <AnchorsPaneConstraints height="30px" left="10px" top="130px" width="240px"/>
   </Button>
 </layout>

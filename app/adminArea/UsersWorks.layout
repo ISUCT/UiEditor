@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?><layout title="" view="view">
+  <AnchorsPane background="#ffffff" cursor="0" name="view" prefHeight="400px" prefWidth="800px"/>
+  <ModelGrid cursor="0" data="allUsersWorks" name="modelGrid" parent="view" prefHeight="310px" prefWidth="421px">
+    <AnchorsPaneConstraints bottom="50px" left="10px" top="40px" width="421px"/>
+    <ServiceGridColumn name="colService" resizable="true"/>
+    <ModelGridColumn editor="com.eas.client.forms.components.model.ModelFormattedField[,0,0,0x0,invalid,layout=java.awt.BorderLayout,alignmentX=0.0,alignmentY=0.0,border=javax.swing.border.LineBorder@5671fb6f,flags=16777225,maximumSize=,minimumSize=,preferredSize=]" field="surname" name="colSurname" title="colSurname" view="com.eas.client.forms.components.model.ModelFormattedField[,-94,-29,0x0,invalid,layout=java.awt.BorderLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=16777225,maximumSize=,minimumSize=,preferredSize=]" width="95px">
+      <ModelFormattedField format=""/>
+    </ModelGridColumn>
+    <ModelGridColumn editor="com.eas.client.forms.components.model.ModelFormattedField[,0,0,0x0,invalid,layout=java.awt.BorderLayout,alignmentX=0.0,alignmentY=0.0,border=javax.swing.border.LineBorder@285ad2eb,flags=16777225,maximumSize=,minimumSize=,preferredSize=]" field="email" name="colEmail" title="colEmail" view="com.eas.client.forms.components.model.ModelFormattedField[,-94,-29,0x0,invalid,layout=java.awt.BorderLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=16777225,maximumSize=,minimumSize=,preferredSize=]" width="95px">
+      <ModelFormattedField format=""/>
+    </ModelGridColumn>
+    <ModelGridColumn editor="com.eas.client.forms.components.model.ModelFormattedField[,0,0,0x0,invalid,layout=java.awt.BorderLayout,alignmentX=0.0,alignmentY=0.0,border=javax.swing.border.LineBorder@23ab27b9,flags=16777225,maximumSize=,minimumSize=,preferredSize=]" field="link" name="colLink" title="colLink" view="com.eas.client.forms.components.model.ModelFormattedField[,-94,-29,0x0,invalid,layout=java.awt.BorderLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=16777225,maximumSize=,minimumSize=,preferredSize=]" width="95px">
+      <ModelFormattedField format=""/>
+    </ModelGridColumn>
+    <ModelGridColumn editor="com.eas.client.forms.components.model.ModelDate[,0,0,0x0,invalid,layout=java.awt.BorderLayout,alignmentX=0.0,alignmentY=0.0,border=javax.swing.border.LineBorder@4cdcdabc,flags=16777225,maximumSize=,minimumSize=,preferredSize=]" field="uploaddate" name="colUploaddate" title="colUploaddate" view="com.eas.client.forms.components.model.ModelDate[,-94,-29,0x0,invalid,layout=java.awt.BorderLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=16777225,maximumSize=,minimumSize=,preferredSize=]" width="95px">
+      <ModelDate format="dd.MM.yyyy HH:mm:ss.SSS"/>
+    </ModelGridColumn>
+  </ModelGrid>
+  <BorderPane background="#ffffff" cursor="0" name="pnlPreview" parent="view" prefHeight="310px" prefWidth="356px">
+    <AnchorsPaneConstraints bottom="50px" left="440px" right="4px" top="40px"/>
+  </BorderPane>
+  <Button cursor="0" name="btnDelete" parent="view" prefHeight="30px" prefWidth="100px" text="Удалить" visible="false">
+    <AnchorsPaneConstraints bottom="10px" height="30px" left="10px" width="100px"/>
+  </Button>
+  <Button cursor="0" name="btnSave" parent="view" prefHeight="30px" prefWidth="100px" text="Сохранить" visible="false">
+    <AnchorsPaneConstraints bottom="10px" height="30px" left="120px" width="100px"/>
+  </Button>
+  <Button cursor="0" name="btnDownload" parent="view" prefHeight="30px" prefWidth="100px" text="Скачать">
+    <AnchorsPaneConstraints bottom="10px" height="30px" right="10px" width="100px"/>
+  </Button>
+  <Label cursor="0" name="label" parent="view" prefHeight="20px" prefWidth="20px" text="от">
+    <AnchorsPaneConstraints height="20px" left="10px" top="10px" width="20px"/>
+  </Label>
+  <Label cursor="0" name="label1" parent="view" prefHeight="20px" prefWidth="20px" text="до">
+    <AnchorsPaneConstraints height="20px" left="240px" top="10px" width="20px"/>
+  </Label>
+  <ModelDate cursor="0" name="mdtFrom" parent="view" prefHeight="20px" prefWidth="200px">
+    <AnchorsPaneConstraints height="20px" left="30px" top="10px" width="200px"/>
+  </ModelDate>
+  <ModelDate cursor="0" name="mdtTo" parent="view" prefHeight="20px" prefWidth="190px">
+    <AnchorsPaneConstraints height="20px" left="260px" top="10px" width="190px"/>
+  </ModelDate>
+</layout>

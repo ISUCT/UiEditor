@@ -16,6 +16,7 @@ define('Editor', ['orm', 'forms', 'ui', 'resource', 'invoke', 'forms/box-pane',
                 svgCanvas = null;
                 var userProfile;
                 var frame;
+                //systemUser;
                 var templateLayer = "Layer 1";
                 var drawingLayer = "drawing";
                 var dateFrom = new Date();
@@ -39,6 +40,7 @@ define('Editor', ['orm', 'forms', 'ui', 'resource', 'invoke', 'forms/box-pane',
                 }
 
                 Security.principal(function (user) {
+                                systemUser = user;
                     form.lblName.text = user.name;
                     updateProfile(user.name, function (profile) {
                         if (profile) {
@@ -183,11 +185,11 @@ define('Editor', ['orm', 'forms', 'ui', 'resource', 'invoke', 'forms/box-pane',
                 };
 
 
-                function loadFromServer(link, svg, container) {
+                function loadFromServer(link, svg, dimention) {
                     Resource.loadText(link, function (aLoaded) {
                         svg.innerHTML = aLoaded;
-                        svg.setAttribute('width', container.source.element.offsetWidth);
-                        svg.setAttribute('height', container.source.element.offsetHeight);
+                        svg.setAttribute('width', dimention.width);
+                        svg.setAttribute('height', dimention.height);
 
                     }, function (e) {
                         console.log("bad");
@@ -198,7 +200,6 @@ define('Editor', ['orm', 'forms', 'ui', 'resource', 'invoke', 'forms/box-pane',
 
                 function loadTemplates() {
                     var templatesPanel = new BoxPane(Ui.Orientation.VERTICAL);
-                    
                     form.scrollTemplate.add(templatesPanel);
                     for (var i in model.getTemplates) {
                         var demoContainer = new BorderPane();
@@ -212,31 +213,40 @@ define('Editor', ['orm', 'forms', 'ui', 'resource', 'invoke', 'forms/box-pane',
                         svg.setAttribute('preserveAspectRatio', "xMinYMin meet");
                         demoContainer.element.appendChild(svg);
                         demoContainer.snap = svg;
-                        loadFromServer(model.getTemplates[i].link, svg, demoContainer);
-
-
+                                                var dimention = {
+                                        width:demoContainer.element.offsetWidth,
+                                        height:demoContainer.element.offsetHeight
+                        };
+                        loadFromServer(model.getTemplates[i].link, svg, dimention);
                     }
                 }
 
 
                 function loadForms() {
                     //var formsPanel = new BoxPane(Ui.Orientation.VERTICAL);
-                    var formsPanel = new GridPane(Math.floor(model.getTemplates.length/2),2);
-                    formsPanel.height = model.getForms.length*30;
+                    var elHeight = 30;
+                    var formsPanel = new GridPane(Math.floor(model.getForms.length/2),2);
+                    formsPanel.height = (model.getForms.length/2)*elHeight;
+                    formsPanel.width = form.scrollForms.width;
                     form.scrollForms.add(formsPanel);
                     for (var i in model.getForms) {
                         var demoForm = new BorderPane();
-                        demoForm.height = 30;
+                        demoForm.height = elHeight;
+                        demoForm.widht = formsPanel.width/2-1;
                         demoForm.onMousePressed = onFormClick;
                         formsPanel.add(demoForm,Math.floor((+i)/2),(+i)%2);
                         var svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
-                        svg.setAttribute('width', demoForm.element.offsetWidth);
-                        svg.setAttribute('height', demoForm.height);
-                        svg.setAttribute('viewBox', "0 0 " + 185 + " " + 185);
+                        svg.setAttribute('width', demoForm.widht);
+                        svg.setAttribute('height', demoForm.height+10);
+                        svg.setAttribute('viewBox', "20 0 " + demoForm.widht + " " + elHeight);
                         svg.setAttribute('preserveAspectRatio', "xMinYMin meet");
                         demoForm.element.appendChild(svg);
                         demoForm.snap = svg;
-                        loadFromServer(model.getForms[i].link, svg, demoForm);
+                        var dimention = {
+                                        width:demoForm.element.offsetWidth*2,
+                                        height:demoForm.element.offsetHeight*4
+                        };
+                        loadFromServer(model.getForms[i].link, svg, dimention);
                     }
                 }
 
