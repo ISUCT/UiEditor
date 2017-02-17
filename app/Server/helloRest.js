@@ -33,11 +33,12 @@ define(['orm', 'http-context'], function (Orm, HttpContext, ModuleName) {
                 email: ''
                 , surname: ''
                 , middlename: ''
-                , name:''
+                , name: ''
                 , username: ''
                 , birthdate: ''
                 , address: ''
                 , password: ''
+                , gender: ''
             };
 
             var http = new HttpContext();
@@ -61,6 +62,7 @@ define(['orm', 'http-context'], function (Orm, HttpContext, ModuleName) {
                             , username: user.username
                             , birthdate: new Date(user.birthdate)
                             , address: user.address
+                            , gender: user.gender
                         });
                         model.groups.push({usr_name: user.username
                             , group_name: "users"});

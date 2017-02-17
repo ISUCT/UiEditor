@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?><layout title="Регистрация" view="view">
-  <AnchorsPane background="#ffffff" cursor="0" name="view" prefHeight="440px" prefWidth="800px"/>
+  <AnchorsPane background="#ffffff" cursor="0" name="view" prefHeight="463px" prefWidth="800px"/>
   <Button cursor="0" name="btnSubmit" parent="view" prefHeight="30px" prefWidth="172px" text="Зарегистрировать">
-    <AnchorsPaneConstraints height="30px" right="188px" top="400px" width="172px"/>
+    <AnchorsPaneConstraints height="30px" right="188px" top="420px" width="172px"/>
   </Button>
   <TextField cursor="0" name="txtUserName" parent="view" prefHeight="30px" prefWidth="200px">
     <AnchorsPaneConstraints height="30px" left="400px" right="200px" top="10px"/>
@@ -12,8 +12,8 @@
   <PasswordField cursor="0" name="pwdOne" parent="view" prefHeight="30px" prefWidth="200px">
     <AnchorsPaneConstraints height="30px" left="400px" right="200px" top="90px"/>
   </PasswordField>
-  <BorderPane background="#ffffff" cursor="0" name="pnlProfile" parent="view" prefHeight="260px" prefWidth="320px">
-    <AnchorsPaneConstraints height="260px" left="290px" right="190px" top="130px"/>
+  <BorderPane background="#ffffff" cursor="0" name="pnlProfile" parent="view" prefHeight="283px" prefWidth="320px">
+    <AnchorsPaneConstraints height="283px" left="290px" right="190px" top="130px"/>
   </BorderPane>
   <Label cursor="0" name="label3" parent="view" prefHeight="20px" prefWidth="40px" text="Имя">
     <AnchorsPaneConstraints height="20px" left="300px" top="10px" width="40px"/>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?><layout title="" view="view">
-  <AnchorsPane background="#ffffff" cursor="0" name="view" prefHeight="254px" prefWidth="402px"/>
+  <AnchorsPane background="#ffffff" cursor="0" name="view" prefHeight="283px" prefWidth="402px"/>
   <ModelFormattedField cursor="0" format="" name="mdlSurname" parent="view" prefHeight="30px" prefWidth="280px">
     <AnchorsPaneConstraints height="30px" left="110px" right="12px" top="50px"/>
   </ModelFormattedField>
@@ -21,7 +21,7 @@
   <Label cursor="0" name="label2" parent="view" prefHeight="30px" prefWidth="50px" text="Имя*">
     <AnchorsPaneConstraints height="30px" left="10px" top="90px" width="50px"/>
   </Label>
-  <ModelDate cursor="0" format="MMMM dd yyyy" name="modelDate" parent="view" prefHeight="30px" prefWidth="280px" timePicker="false">
+  <ModelDate cursor="0" format="dd.MM.yyyy" name="modelDate" parent="view" prefHeight="30px" prefWidth="280px" timePicker="false">
     <AnchorsPaneConstraints height="30px" left="110px" right="12px" top="170px"/>
   </ModelDate>
   <Label cursor="0" name="label3" parent="view" prefHeight="20px" prefWidth="40px" text="Дата  ">
@@ -39,4 +39,13 @@
   <FormattedField cursor="0" format="" name="mdlEmail" parent="view" prefHeight="30px" prefWidth="280px">
     <AnchorsPaneConstraints height="30px" left="110px" right="12px" top="10px"/>
   </FormattedField>
+  <Label cursor="0" name="label41" parent="view" prefHeight="30px" prefWidth="50px" text="Пол">
+    <AnchorsPaneConstraints height="30px" left="10px" top="250px" width="50px"/>
+  </Label>
+  <RadioButton cursor="0" name="rbM" parent="view" prefHeight="30px" prefWidth="40px" selected="true" text="M">
+    <AnchorsPaneConstraints height="30px" left="110px" top="250px" width="40px"/>
+  </RadioButton>
+  <RadioButton cursor="0" name="rbF" parent="view" prefHeight="30px" prefWidth="40px" text="Ж">
+    <AnchorsPaneConstraints height="30px" left="160px" top="250px" width="40px"/>
+  </RadioButton>
 </layout>

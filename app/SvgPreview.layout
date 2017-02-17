@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><layout closable="false" maximizable="false" resizable="false" title="Предпросмотр" view="view">
+<?xml version="1.0" encoding="UTF-8"?><layout closable="false" title="Предпросмотр" view="view">
   <AnchorsPane background="#ffffff" cursor="0" name="view" prefHeight="351px" prefWidth="640px"/>
   <Button cursor="0" name="btnClose" parent="view" prefHeight="30px" prefWidth="100px" text="Ok">
     <AnchorsPaneConstraints bottom="10px" height="30px" right="10px" width="100px"/>
