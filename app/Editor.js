@@ -195,7 +195,6 @@ define('Editor', ['orm', 'forms', 'ui', 'resource', 'invoke', 'forms/box-pane',
                         console.log("bad");
                     });
                 }
-                ;
 
 
                 function loadTemplates() {
